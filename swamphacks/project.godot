@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="swamphacks"
-run/main_scene="uid://cdj0xvy0l4k2u"
+run/main_scene="uid://0kkexn5nu8ee"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 

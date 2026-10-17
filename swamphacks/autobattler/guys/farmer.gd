@@ -4,7 +4,7 @@ func cast() -> void:
 	var dmg : int = damage
 	if player.health <= player.max_health * 0.5:
 		dmg *= 2
-	for i in multicast + 1:
+	for i in multicast:
 		target.take_damage(dmg)
 		target.take_magic_damage(magic)
 		target.add_poison(poison)

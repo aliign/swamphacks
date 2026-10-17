@@ -1,5 +1,19 @@
 extends Ally
 
-func on_battle_start(ally : Ally) -> void:
-	for i in get_closest_cell().adjacency_list:
-		i.ally.damage += 5
+func cast() -> void:
+	for i in multicast:
+		target.take_damage(damage)
+		target.take_magic_damage(magic)
+		target.add_poison(poison)
+		target.add_fire(fire)
+		target.add_holy(holy)
+		player.add_health(healing)
+		player.add_shield(shield)
+		animation_player.stop()
+		if team == 0: animation_player.play("attack")
+		else: animation_player.play("enemy_attack")
+		casted.emit(self)
+		for j in get_closest_cell().adjacency_list:
+			if not j.ally: continue
+			j.ally.damage += 5
+		await get_tree().create_timer(0.1).timeout

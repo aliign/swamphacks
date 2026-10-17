@@ -3,6 +3,11 @@
 [ext_resource type="Script" uid="uid://dkuejief436x7" path="res://platformer/scripts/player.gd" id="1_43vy2"]
 [ext_resource type="Texture2D" uid="uid://cegy8xg5ehh6c" path="res://platformer/assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/knight.png" id="2_02c50"]
 
+[sub_resource type="Curve" id="Curve_43vy2"]
+_limits = [0.0, 5.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0029761866, 4.009434), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_04xch"]
 atlas = ExtResource("2_02c50")
 region = Rect2(96, 224, 32, 32)
@@ -204,6 +209,7 @@ size = Vector2(10, 15)
 
 [node name="player" type="CharacterBody2D" unique_id=801486421]
 script = ExtResource("1_43vy2")
+dash_curve = SubResource("Curve_43vy2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1876234826]
 sprite_frames = SubResource("SpriteFrames_iexxu")
@@ -218,9 +224,5 @@ shape = SubResource("RectangleShape2D_a4k8f")
 one_shot = true
 
 [node name="dashdur" type="Timer" parent="." unique_id=1328125079]
-wait_time = 0.2
-one_shot = true
-
-[node name="jumpcd" type="Timer" parent="." unique_id=1189615432]
-wait_time = 0.75
+wait_time = 0.15
 one_shot = true

@@ -8,21 +8,21 @@ const CROUCH_MULT = 0.5
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var dashcd: Timer = $dashcd
 @onready var dashdur: Timer = $dashdur
-@onready var jumpcd: Timer = $jumpcd
 
+@export var dash_curve : Curve
 
 func _physics_process(delta: float) -> void:
+	var direction := Input.get_axis("move_left", "move_right")
 	if !dashdur.is_stopped():
 		velocity.y = 0
+		velocity.x = dash_curve.sample(dashdur.wait_time - dashdur.time_left) * SPEED * direction
 	else:
 		if not is_on_floor():
 			velocity += get_gravity() * delta
 			
-		if Input.is_action_just_pressed("jump") and is_on_floor() and jumpcd.is_stopped():
+		if Input.is_action_just_pressed("jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
-			jumpcd.start()
 
-		var direction := Input.get_axis("move_left", "move_right")
 		var down:= Input.get_axis("crouch", "jump")	
 		if direction>0:
 			animated_sprite_2d.flip_h=false
@@ -51,7 +51,7 @@ func _physics_process(delta: float) -> void:
 				if dashcd.is_stopped():
 					dashcd.start()
 					dashdur.start()
-					velocity.x = direction * SPEED * DASH_MULT
+					#velocity.x = direction * SPEED * DASH_MULT
 				else:
 					if dashdur.is_stopped():
 						velocity.x= direction * SPEED

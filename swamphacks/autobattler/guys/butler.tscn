@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cys65vn54sug2"]
+
+[ext_resource type="PackedScene" uid="uid://b2qdjoaqpllxw" path="res://autobattler/ally.tscn" id="1_mv21c"]
+[ext_resource type="Script" uid="uid://bt3nmplwgutry" path="res://autobattler/guys/butler.gd" id="2_20y1l"]
+[ext_resource type="Texture2D" uid="uid://blr1nm4mbxi8y" path="res://art/butler.png" id="2_mdtt2"]
+
+[node name="Butler" unique_id=729490585 instance=ExtResource("1_mv21c")]
+script = ExtResource("2_20y1l")
+rank = 2
+
+[node name="Sprite" parent="." index="2" unique_id=818635638]
+texture = ExtResource("2_mdtt2")

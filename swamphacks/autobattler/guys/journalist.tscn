@@ -2,10 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://b2qdjoaqpllxw" path="res://autobattler/ally.tscn" id="1_6vpjh"]
 [ext_resource type="Script" uid="uid://hwdqyd36oc2l" path="res://autobattler/guys/journalist.gd" id="2_t2057"]
+[ext_resource type="Texture2D" uid="uid://cmudq2ul8v6mg" path="res://art/journalist.png" id="3_tbfmc"]
 
 [node name="Journalist" unique_id=575198037 instance=ExtResource("1_6vpjh")]
 script = ExtResource("2_t2057")
-art = null
 description = "Start of Battle: Give adjacent Allies +5 Damage."
 cooldown = 3.0
+perm_damage = 1
 damage = 1
+
+[node name="Sprite" parent="." index="2" unique_id=818635638]
+texture = ExtResource("3_tbfmc")

@@ -1,21 +1,10 @@
 [gd_scene format=3 uid="uid://b2qdjoaqpllxw"]
 
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_0eafy"]
 [ext_resource type="Script" uid="uid://n45nd7658gym" path="res://autobattler/ally.gd" id="1_hbx8p"]
-[ext_resource type="Shader" uid="uid://b22fbg82amnfn" path="res://autobattler/outline_shader.gdshader" id="3_3f4lo"]
+[ext_resource type="Texture2D" uid="uid://b7tsstlnf0j3n" path="res://art/villager.png" id="2_qx6vg"]
+[ext_resource type="Material" uid="uid://bqkvxpbnp7vbt" path="res://autobattler/outline_shader.tres" id="2_xya7e"]
 [ext_resource type="Theme" uid="uid://cpfkplj12ttbv" path="res://default_theme.tres" id="4_xya7e"]
 [ext_resource type="PackedScene" uid="uid://bdhnv3qehl7dh" path="res://autobattler/number_display.tscn" id="5_cgaan"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qx6vg"]
-shader = ExtResource("3_3f4lo")
-shader_parameter/outline_width = 0.0
-shader_parameter/outline_tint = Color(1, 1, 1, 1)
-shader_parameter/atlas_region_pos = Vector2(0, 0)
-shader_parameter/atlas_region_size = Vector2(1, 1)
-shader_parameter/draw_size = Vector2(1, 1)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_hbx8p"]
-radius = 64.00781
 
 [sub_resource type="Animation" id="Animation_xya7e"]
 length = 0.001
@@ -54,10 +43,10 @@ tracks/0/path = NodePath("Sprite:rotation")
 tracks/0/interp = 4
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.016666668, 0.5),
-"transitions": PackedFloat32Array(10, 0.25, 1),
+"times": PackedFloat32Array(0, 0.025, 0.5),
+"transitions": PackedFloat32Array(0.5, 0.25, 1),
 "update": 0,
-"values": [0.0, 0.17453292519943295, 0.0]
+"values": [0.0, 0.17453292, 0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -66,39 +55,15 @@ tracks/1/path = NodePath("Sprite:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.016666668, 0.5),
-"transitions": PackedFloat32Array(10, 0.25, 1),
+"times": PackedFloat32Array(0, 0.025, 0.5),
+"transitions": PackedFloat32Array(0.5, 0.25, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(5, -2.5), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(10, -5), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_psh55"]
 resource_name = "enemy_attack"
 length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:rotation")
-tracks/0/interp = 4
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.016666668, 0.5),
-"transitions": PackedFloat32Array(10, 0.25, 1),
-"update": 0,
-"values": [0.0, -0.17453292519943295, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.016666668, 0.5),
-"transitions": PackedFloat32Array(10, 0.25, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(-5, -2.5), Vector2(0, 0)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_psh55"]
 _data = {
@@ -107,49 +72,66 @@ _data = {
 &"enemy_attack": SubResource("Animation_psh55")
 }
 
-[node name="Ally" type="Node2D" unique_id=575198037]
+[node name="Ally" type="Node2D" unique_id=729490585 groups=["Allies"]]
 script = ExtResource("1_hbx8p")
-art = ExtResource("1_0eafy")
 
-[node name="Sprite" type="Sprite2D" parent="." unique_id=997238411]
-unique_name_in_owner = true
-material = SubResource("ShaderMaterial_qx6vg")
-
-[node name="Timer" type="Timer" parent="." unique_id=1656255211]
-unique_name_in_owner = true
-
-[node name="ClickableArea" type="Area2D" parent="." unique_id=1557895195]
-unique_name_in_owner = true
-monitoring = false
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickableArea" unique_id=574002033]
-shape = SubResource("CircleShape2D_hbx8p")
-
-[node name="CooldownBar" type="ProgressBar" parent="." unique_id=1280274378]
-unique_name_in_owner = true
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="Control" type="Control" parent="." unique_id=738388234]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -64.0
 offset_top = -64.0
-offset_right = -46.0
+offset_right = 64.0
 offset_bottom = 64.0
 grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CooldownBar" type="ProgressBar" parent="Control" unique_id=1280274378]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -64.0
+offset_right = 18.0
+offset_bottom = 64.0
 grow_vertical = 2
 fill_mode = 3
 show_percentage = false
 
-[node name="Control" type="Control" parent="." unique_id=1792556215]
-custom_maximum_size = Vector2(128, 48)
+[node name="Interactable" type="Control" parent="." unique_id=524978192]
+z_index = 1
 layout_mode = 3
-anchors_preset = 0
-offset_top = 64.0
-offset_bottom = 64.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -75.0
+offset_right = 40.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 2
+
+[node name="Control" type="Control" parent="Interactable" unique_id=1792556215]
+custom_maximum_size = Vector2(128, 48)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
 theme = ExtResource("4_xya7e")
 
-[node name="Display" type="GridContainer" parent="Control" unique_id=2087939406]
+[node name="Display" type="GridContainer" parent="Interactable/Control" unique_id=2087939406]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 10
@@ -159,44 +141,59 @@ grow_horizontal = 2
 theme = ExtResource("4_xya7e")
 columns = 4
 
-[node name="DamageLabel" parent="Control/Display" unique_id=1234058335 instance=ExtResource("5_cgaan")]
+[node name="DamageLabel" parent="Interactable/Control/Display" unique_id=1234058335 instance=ExtResource("5_cgaan")]
 unique_name_in_owner = true
 layout_mode = 2
 color = Color(0.8571204, 0.12291927, 0, 1)
 
-[node name="MagicLabel" parent="Control/Display" unique_id=1691578668 instance=ExtResource("5_cgaan")]
+[node name="MagicLabel" parent="Interactable/Control/Display" unique_id=1691578668 instance=ExtResource("5_cgaan")]
 unique_name_in_owner = true
 layout_mode = 2
 color = Color(0.7607843, 0.48235294, 1, 1)
 
-[node name="PoisonLabel" parent="Control/Display" unique_id=760297450 instance=ExtResource("5_cgaan")]
+[node name="PoisonLabel" parent="Interactable/Control/Display" unique_id=760297450 instance=ExtResource("5_cgaan")]
 unique_name_in_owner = true
 layout_mode = 2
 color = Color(0.45490196, 0.7254902, 0.023529412, 1)
 
-[node name="FireLabel" parent="Control/Display" unique_id=2141171139 instance=ExtResource("5_cgaan")]
+[node name="FireLabel" parent="Interactable/Control/Display" unique_id=2141171139 instance=ExtResource("5_cgaan")]
 unique_name_in_owner = true
 layout_mode = 2
 color = Color(1, 0.4509804, 0, 1)
 
-[node name="HolyLabel" parent="Control/Display" unique_id=1442375703 instance=ExtResource("5_cgaan")]
+[node name="HolyLabel" parent="Interactable/Control/Display" unique_id=1442375703 instance=ExtResource("5_cgaan")]
 unique_name_in_owner = true
 layout_mode = 2
 color = Color(1, 0.93333334, 0.07450981, 1)
 
-[node name="ShieldLabel" parent="Control/Display" unique_id=1495589586 instance=ExtResource("5_cgaan")]
+[node name="ShieldLabel" parent="Interactable/Control/Display" unique_id=1495589586 instance=ExtResource("5_cgaan")]
 unique_name_in_owner = true
 layout_mode = 2
 color = Color(0, 0.6784314, 1, 1)
 
-[node name="HealLabel" parent="Control/Display" unique_id=1211970827 instance=ExtResource("5_cgaan")]
+[node name="HealLabel" parent="Interactable/Control/Display" unique_id=1211970827 instance=ExtResource("5_cgaan")]
 unique_name_in_owner = true
 layout_mode = 2
 color = Color(0.007843138, 0.7607843, 0.36078432, 1)
+
+[node name="MulticastLabel" parent="Interactable/Control/Display" unique_id=1344433491 instance=ExtResource("5_cgaan")]
+unique_name_in_owner = true
+layout_mode = 2
+color = Color(0.24840015, 0.24840018, 0.24840015, 1)
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=818635638]
+unique_name_in_owner = true
+material = ExtResource("2_xya7e")
+scale = Vector2(0.14, 0.14)
+texture = ExtResource("2_qx6vg")
+
+[node name="Timer" type="Timer" parent="." unique_id=1656255211]
+unique_name_in_owner = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=655856963]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_psh55")
 
-[connection signal="mouse_entered" from="ClickableArea" to="." method="mouse_start_hover"]
-[connection signal="mouse_exited" from="ClickableArea" to="." method="mouse_end_hover"]
+[connection signal="mouse_entered" from="Interactable" to="." method="mouse_start_hover"]
+[connection signal="mouse_exited" from="Interactable" to="." method="mouse_end_hover"]
+[connection signal="timeout" from="Timer" to="." method="cast"]
