@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Area2D
 class_name collectable
 
 var inside: bool=false
@@ -7,7 +7,8 @@ var inside: bool=false
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		if inside:
-			pass
+			Globals.inventory.append("res://platformer/scenes/collectablenpc.tscn")
+			collectablenpc.queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:

@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://dfv6tt3wgdyri"]
+
+[ext_resource type="Script" uid="uid://duwg34eoo23b3" path="res://autobattler/battler_player.gd" id="1_3eecd"]
+[ext_resource type="PackedScene" uid="uid://bdhnv3qehl7dh" path="res://autobattler/number_display.tscn" id="2_vo08r"]
+[ext_resource type="Script" uid="uid://csrgbnlf7b0ke" path="res://autobattler/centering_label.gd" id="3_vo08r"]
+
+[node name="BattlerEnemy" type="MarginContainer" unique_id=604219805]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 55.0
+grow_vertical = 2
+script = ExtResource("1_3eecd")
+
+[node name="PoisonTimer" type="Timer" parent="." unique_id=136161791]
+unique_name_in_owner = true
+
+[node name="FireTimer" type="Timer" parent="." unique_id=145482609]
+unique_name_in_owner = true
+wait_time = 0.5
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=576495519]
+layout_mode = 2
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=291077439]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="MarginContainer/HBoxContainer" unique_id=1967969224]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Control2" unique_id=360500264]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_right = 0
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer/Control2/MarginContainer" unique_id=1711843886]
+layout_mode = 2
+
+[node name="StatusContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Control2/MarginContainer/Control" unique_id=1296972902]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_right = 543.0
+offset_bottom = -497.0
+grow_vertical = 2
+rotation = 1.5707964
+alignment = 1
+
+[node name="PoisonLabel" parent="MarginContainer/HBoxContainer/Control2/MarginContainer/Control/StatusContainer" unique_id=1234058335 instance=ExtResource("2_vo08r")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 1
+color = Color(0.45490196, 0.7254902, 0.023529412, 1)
+
+[node name="FireLabel" parent="MarginContainer/HBoxContainer/Control2/MarginContainer/Control/StatusContainer" unique_id=1725150468 instance=ExtResource("2_vo08r")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 1
+color = Color(1, 0.4509804, 0, 1)
+
+[node name="HolyLabel" parent="MarginContainer/HBoxContainer/Control2/MarginContainer/Control/StatusContainer" unique_id=706602651 instance=ExtResource("2_vo08r")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 1
+color = Color(1, 0.93333334, 0.07450981, 1)
+
+[node name="ShieldLabel" parent="MarginContainer/HBoxContainer/Control2/MarginContainer/Control/StatusContainer" unique_id=1209581509 instance=ExtResource("2_vo08r")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 1
+color = Color(0, 0.6784314, 1, 1)
+
+[node name="HealthBar" type="ProgressBar" parent="MarginContainer/HBoxContainer" unique_id=1621257915]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_vertical = 1
+step = 1.0
+rounded = true
+fill_mode = 3
+show_percentage = false
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer/HealthBar" unique_id=1617498541]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 26.0
+offset_top = -4.0
+offset_right = 26.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5707964
+
+[node name="HealthLabel" type="Label" parent="MarginContainer/HBoxContainer/HealthBar/Control" unique_id=1034975741]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -18.500004
+offset_right = -13.499996
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1000"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_vo08r")
+
+[connection signal="timeout" from="PoisonTimer" to="." method="proc_poison"]
+[connection signal="timeout" from="FireTimer" to="." method="proc_fire"]

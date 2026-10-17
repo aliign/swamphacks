@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://pbl1h4ry45my"]
+
+[ext_resource type="PackedScene" uid="uid://b2qdjoaqpllxw" path="res://autobattler/ally.tscn" id="1_6vpjh"]
+[ext_resource type="Script" uid="uid://hwdqyd36oc2l" path="res://autobattler/guys/journalist.gd" id="2_t2057"]
+
+[node name="Journalist" unique_id=575198037 instance=ExtResource("1_6vpjh")]
+script = ExtResource("2_t2057")
+art = null
+description = "Start of Battle: Give adjacent Allies +5 Damage."
+cooldown = 3.0
+damage = 1

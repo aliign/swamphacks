@@ -1,9 +1,16 @@
 [gd_scene format=3 uid="uid://dlgewwi46dh35"]
 
 [ext_resource type="Script" uid="uid://duwg34eoo23b3" path="res://autobattler/battler_player.gd" id="1_qex8r"]
+[ext_resource type="Script" uid="uid://csrgbnlf7b0ke" path="res://autobattler/centering_label.gd" id="2_ra7b3"]
+[ext_resource type="PackedScene" uid="uid://bdhnv3qehl7dh" path="res://autobattler/number_display.tscn" id="3_fv211"]
 
-[node name="BattlerPlayer" type="Node2D" unique_id=1068354107]
+[node name="BattlerPlayer" type="MarginContainer" unique_id=899372548]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 59.0
+grow_vertical = 2
 script = ExtResource("1_qex8r")
+team = 1
 
 [node name="PoisonTimer" type="Timer" parent="." unique_id=136161791]
 unique_name_in_owner = true
@@ -12,58 +19,106 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 wait_time = 0.5
 
-[node name="HealthBar" type="ProgressBar" parent="." unique_id=1621257915]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=576495519]
+layout_mode = 2
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=291077439]
+layout_mode = 2
+
+[node name="HealthBar" type="ProgressBar" parent="MarginContainer/HBoxContainer" unique_id=1621257915]
 unique_name_in_owner = true
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 212.0
-offset_top = 42.0
-offset_right = 942.0
-offset_bottom = 74.0
-grow_horizontal = 2
-grow_vertical = 2
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_vertical = 1
 step = 1.0
 rounded = true
+fill_mode = 3
 show_percentage = false
 
-[node name="HealthLabel" type="Label" parent="HealthBar" unique_id=1034975741]
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer/HealthBar" unique_id=1617498541]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = -4.0
+offset_right = 5.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5707964
+
+[node name="HealthLabel" type="Label" parent="MarginContainer/HBoxContainer/HealthBar/Control" unique_id=1034975741]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -34.5
+offset_right = 2.5
+offset_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "1000"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("2_ra7b3")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HealthBar" unique_id=372125370]
+[node name="Control2" type="Control" parent="MarginContainer/HBoxContainer" unique_id=1967969224]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Control2" unique_id=665578442]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 32.0
-offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 4
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer/Control2/MarginContainer" unique_id=1711843886]
+layout_mode = 2
+
+[node name="StatusContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Control2/MarginContainer/Control" unique_id=1296972902]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = 520.0
+offset_right = 516.0
+offset_bottom = 23.0
+grow_vertical = 2
+rotation = -1.5707964
 alignment = 1
 
-[node name="PoisonLabel" type="Label" parent="HealthBar/HBoxContainer" unique_id=116783081]
+[node name="PoisonLabel" parent="MarginContainer/HBoxContainer/Control2/MarginContainer/Control/StatusContainer" unique_id=1234058335 instance=ExtResource("3_fv211")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
+size_flags_horizontal = 1
+color = Color(0.45490196, 0.7254902, 0.023529412, 1)
 
-[node name="FireLabel" type="Label" parent="HealthBar/HBoxContainer" unique_id=476861298]
+[node name="FireLabel" parent="MarginContainer/HBoxContainer/Control2/MarginContainer/Control/StatusContainer" unique_id=1097731505 instance=ExtResource("3_fv211")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
+size_flags_horizontal = 1
+color = Color(1, 0.4509804, 0, 1)
 
-[node name="HolyLabel" type="Label" parent="HealthBar/HBoxContainer" unique_id=1911319266]
+[node name="HolyLabel" parent="MarginContainer/HBoxContainer/Control2/MarginContainer/Control/StatusContainer" unique_id=947400498 instance=ExtResource("3_fv211")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
+size_flags_horizontal = 1
+color = Color(1, 0.93333334, 0.07450981, 1)
+
+[node name="ShieldLabel" parent="MarginContainer/HBoxContainer/Control2/MarginContainer/Control/StatusContainer" unique_id=364796733 instance=ExtResource("3_fv211")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 1
+color = Color(0, 0.6784314, 1, 1)
 
 [connection signal="timeout" from="PoisonTimer" to="." method="proc_poison"]
 [connection signal="timeout" from="FireTimer" to="." method="proc_fire"]

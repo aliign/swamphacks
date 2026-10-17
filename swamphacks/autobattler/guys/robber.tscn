@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b7ero3k7phuci"]
+
+[ext_resource type="PackedScene" uid="uid://b2qdjoaqpllxw" path="res://autobattler/ally.tscn" id="1_3fajm"]
+
+[node name="Robber" unique_id=575198037 instance=ExtResource("1_3fajm")]
+cooldown = 3.0
+damage = 8
+poison = 2

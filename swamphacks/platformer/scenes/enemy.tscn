@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://c4ai4gqgwt431"]
+
+[ext_resource type="Script" uid="uid://d0rno6icojmqi" path="res://platformer/scripts/enemy.gd" id="1_2j6h7"]
+[ext_resource type="Texture2D" uid="uid://d3xhgtbwwaxt5" path="res://platformer/assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/slime_green.png" id="1_6t3sr"]
+[ext_resource type="PackedScene" uid="uid://c706f3hpoa66o" path="res://platformer/scenes/killzone.tscn" id="2_vxugb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxugb"]
+atlas = ExtResource("1_6t3sr")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2j6h7"]
+atlas = ExtResource("1_6t3sr")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_205pr"]
+atlas = ExtResource("1_6t3sr")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_354a3"]
+atlas = ExtResource("1_6t3sr")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iexxu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxugb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2j6h7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_205pr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_354a3")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iexxu"]
+size = Vector2(36, 13)
+
+[node name="enemysquad" type="Node2D" unique_id=1429544134]
+script = ExtResource("1_2j6h7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=473285164]
+sprite_frames = SubResource("SpriteFrames_iexxu")
+animation = &"run"
+autoplay = "run"
+frame = 3
+frame_progress = 0.11021412
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1185784734]
+position = Vector2(-13, 0)
+sprite_frames = SubResource("SpriteFrames_iexxu")
+animation = &"run"
+autoplay = "run"
+frame = 3
+frame_progress = 0.11021412
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="." unique_id=341653401]
+position = Vector2(13, 0)
+sprite_frames = SubResource("SpriteFrames_iexxu")
+animation = &"run"
+autoplay = "run"
+frame = 3
+frame_progress = 0.11021412
+
+[node name="killzone" parent="." unique_id=321040900 instance=ExtResource("2_vxugb")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone" unique_id=675880721]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_iexxu")
+
+[node name="rcleft" type="RayCast2D" parent="." unique_id=1760419431]
+position = Vector2(0, 5)
+target_position = Vector2(-17, 0)
+
+[node name="rcright" type="RayCast2D" parent="." unique_id=1907271220]
+position = Vector2(0, 5)
+target_position = Vector2(17, 0)

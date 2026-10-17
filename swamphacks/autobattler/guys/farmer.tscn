@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ccyw8dd4byakl"]
+
+[ext_resource type="PackedScene" uid="uid://b2qdjoaqpllxw" path="res://autobattler/ally.tscn" id="1_pmxlp"]
+[ext_resource type="Script" uid="uid://ppv3wq47b6gs" path="res://autobattler/guys/farmer.gd" id="2_6kfss"]
+
+[node name="Farmer" unique_id=575198037 instance=ExtResource("1_pmxlp")]
+script = ExtResource("2_6kfss")
+art = null
+description = "Passive: Deals +100% Damage after dropping below 50% Health."
+cooldown = 4.5
+damage = 35

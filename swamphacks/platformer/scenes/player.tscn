@@ -213,3 +213,14 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=673537944]
 position = Vector2(0, 4.5)
 shape = SubResource("RectangleShape2D_a4k8f")
+
+[node name="dashcd" type="Timer" parent="." unique_id=445746283]
+one_shot = true
+
+[node name="dashdur" type="Timer" parent="." unique_id=1328125079]
+wait_time = 0.2
+one_shot = true
+
+[node name="jumpcd" type="Timer" parent="." unique_id=1189615432]
+wait_time = 0.75
+one_shot = true

@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dhbml56klslof"]
+
+[ext_resource type="PackedScene" uid="uid://dlgewwi46dh35" path="res://autobattler/battler_player.tscn" id="1_0ubeq"]
+[ext_resource type="PackedScene" uid="uid://c2fa4l344mqci" path="res://autobattler/cell.tscn" id="2_o2adi"]
+[ext_resource type="PackedScene" uid="uid://71nod8l2162j" path="res://autobattler/guys/cook.tscn" id="3_o2adi"]
+
+[node name="Test" type="Node2D" unique_id=1893630518]
+
+[node name="BattlerPlayer" parent="." unique_id=1068354107 instance=ExtResource("1_0ubeq")]
+
+[node name="Cell" parent="BattlerPlayer" unique_id=360891772 instance=ExtResource("2_o2adi")]
+position = Vector2(584, 520)
+
+[node name="Cell2" parent="BattlerPlayer" unique_id=326250029 instance=ExtResource("2_o2adi")]
+position = Vector2(448, 520)
+
+[node name="Cell3" parent="BattlerPlayer" unique_id=1504479728 instance=ExtResource("2_o2adi")]
+position = Vector2(584, 384)
+
+[node name="Cell4" parent="BattlerPlayer" unique_id=1779974090 instance=ExtResource("2_o2adi")]
+position = Vector2(448, 384)
+
+[node name="Cook" parent="." unique_id=575198037 node_paths=PackedStringArray("player") instance=ExtResource("3_o2adi")]
+position = Vector2(916, 449)
+player = NodePath("../BattlerPlayer")
+
+[node name="BattlerPlayer2" parent="." unique_id=791479393 instance=ExtResource("1_0ubeq")]
+position = Vector2(194, 142)
+
+[node name="Button" type="Button" parent="." unique_id=1857047104]
+offset_right = 138.0
+offset_bottom = 298.0
+
+[connection signal="pressed" from="Button" to="Cook" method="battle_start"]
