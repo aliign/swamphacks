@@ -9,7 +9,7 @@ class_name Ally
 @export var art : Texture2D
 
 @export_category("Mechanics")
-@export var cooldown : float:
+@export var cooldown : float = 1.0:
 	set(value):
 		cooldown = value if value >= 1.0 else 1.0
 @export var multicast : int:
@@ -20,32 +20,81 @@ class_name Ally
 @export var damage : int:
 	set(value):
 		damage = value if value >= 0 else 0
+		update_display()
 @export var poison : int:
 	set(value):
 		poison = value if value >= 0 else 0
+		update_display()
 @export var fire : int:
 	set(value):
 		fire = value if value >= 0 else 0
+		update_display()
 @export var magic : int:
 	set(value):
 		magic = value if value >= 0 else 0
+		update_display()
 @export var holy : int:
 	set(value):
 		holy = value if value >= 0 else 0
+		update_display()
 @export var shield : int:
 	set(value):
 		shield = value if value >= 0 else 0
+		update_display()
 @export var healing : int:
 	set(value):
 		healing = value if value >= 0 else 0
+		update_display()
 
+func update_display():
+	%DamageLabel.value = damage
+	%MagicLabel.value = magic
+	%PoisonLabel.value = poison
+	%FireLabel.value = fire
+	%HolyLabel.value = holy
+	%ShieldLabel.value = shield
+	%HealLabel.value = healing
 
 @onready var sprite : Sprite2D = %Sprite
 @onready var timer : Timer = %Timer
 
 func _ready() -> void:
 	sprite.texture = art
-	timer.wait_time = cooldown
+	update_display()
+
+func _process(delta: float) -> void:
+	%CooldownBar.value = %Timer.wait_time
+
+var hovering : bool = false:
+	set(value):
+		hovering = value
+		if hovering:
+			(sprite.material as ShaderMaterial).set_shader_parameter("outline_width", 0.02)
+		else:
+			(sprite.material as ShaderMaterial).set_shader_parameter("outline_width", 0.0)
+func mouse_start_hover() -> void:
+	hovering = true
+
+func mouse_end_hover() -> void:
+	hovering = false
+
+var clicked : bool = false
+func _physics_process(delta: float) -> void:
+	if hovering and not in_battle:
+		if Input.is_action_just_pressed("click"):
+			clicked = true
+	if clicked and not in_battle:
+		self.position = get_viewport().get_mouse_position()
+	if Input.is_action_just_released("click"):
+		clicked = false
+		var closest_cell : Cell = player.inventory_cells[0]
+		var closest_dist : float = INF
+		for cell in player.inventory_cells:
+			var dist = self.global_position.distance_squared_to(cell.global_position)
+			if dist < closest_dist:
+				closest_dist = dist
+				closest_cell = cell
+		self.global_position = closest_cell.global_position
 
 signal casted(caster : Ally)
 func cast() -> void:
@@ -58,10 +107,16 @@ func cast() -> void:
 	player.add_shield(shield)
 	casted.emit(self)
 
+var in_battle : bool = false
 signal started_battle(caster : Ally)
 func battle_start() -> void:
+	%CooldownBar.visible = true
+	timer.start()
+	in_battle = true
 	started_battle.emit(self)
 
 signal ended_battle(caster : Ally)
 func battle_end() -> void:
+	%CooldownBar.visible = false
+	in_battle = false
 	ended_battle.emit(self)

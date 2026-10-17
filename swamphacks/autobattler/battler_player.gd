@@ -1,7 +1,6 @@
 extends Node
 class_name BattlerPlayer
 
-
 @onready var health_bar : ProgressBar = %HealthBar
 @onready var health_label : Label = %HealthLabel
 @onready var poison_label : Label = %PoisonLabel
@@ -38,8 +37,11 @@ class_name BattlerPlayer
 		holy = value if value >= 0 else 0
 		update_health_display()
 
+var inventory_cells : Array[Cell] = []
 func _ready() -> void:
-	pass
+	for child in self.get_children():
+		if child is Cell:
+			inventory_cells.append(child)
 
 func update_health_display() -> void:
 	health_bar.max_value = max_health

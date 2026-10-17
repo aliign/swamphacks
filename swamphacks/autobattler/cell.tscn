@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c2fa4l344mqci"]
+
+[ext_resource type="Script" uid="uid://bwt3h6x4yw0qh" path="res://autobattler/cell.gd" id="1_ghflp"]
+
+[node name="Cell" type="Node2D" unique_id=2118728275]
+script = ExtResource("1_ghflp")
+
+[node name="Panel" type="Panel" parent="." unique_id=326250029]
+custom_minimum_size = Vector2(128, 128)
+custom_maximum_size = Vector2(128, 128)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -48.0
+offset_right = 48.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://71nod8l2162j"]
+
+[ext_resource type="PackedScene" uid="uid://b2qdjoaqpllxw" path="res://autobattler/ally.tscn" id="1_dlt6k"]
+
+[node name="Cook" unique_id=575198037 instance=ExtResource("1_dlt6k")]
+fire = 2
+healing = 10

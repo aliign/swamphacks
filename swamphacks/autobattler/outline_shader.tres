@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bqkvxpbnp7vbt"]
+
+[ext_resource type="Shader" uid="uid://b22fbg82amnfn" path="res://autobattler/outline_shader.gdshader" id="1_5jf1m"]
+
+[resource]
+shader = ExtResource("1_5jf1m")
+shader_parameter/outline_width = 4.0
+shader_parameter/outline_tint = Color(1, 1, 1, 1)
+shader_parameter/atlas_region_pos = Vector2(0, 0)
+shader_parameter/atlas_region_size = Vector2(1, 1)
+shader_parameter/draw_size = Vector2(1, 1)
