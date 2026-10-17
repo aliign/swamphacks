@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dgefqcup55p1s"]
 
+[ext_resource type="Script" uid="uid://dude0lc18wadu" path="res://autobattler/combat.gd" id="1_0hiik"]
 [ext_resource type="PackedScene" uid="uid://dlgewwi46dh35" path="res://autobattler/battler_player.tscn" id="1_jo7td"]
 [ext_resource type="PackedScene" uid="uid://c2fa4l344mqci" path="res://autobattler/cell.tscn" id="2_x6t3p"]
 [ext_resource type="PackedScene" uid="uid://dfv6tt3wgdyri" path="res://autobattler/battler_enemy.tscn" id="3_x6t3p"]
@@ -11,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_0hiik")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1909896085]
 layout_mode = 1

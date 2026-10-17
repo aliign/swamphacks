@@ -10,6 +10,7 @@ anchor_bottom = 1.0
 offset_right = 59.0
 grow_vertical = 2
 script = ExtResource("1_qex8r")
+team = 1
 
 [node name="PoisonTimer" type="Timer" parent="." unique_id=136161791]
 unique_name_in_owner = true

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bwt3h6x4yw0qh" path="res://autobattler/cell.gd" id="1_ghflp"]
 
-[node name="Cell" type="Control" unique_id=498725030]
+[node name="Cell" type="Control" unique_id=498725030 groups=["Cells"]]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_ghflp")

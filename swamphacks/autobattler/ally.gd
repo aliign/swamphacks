@@ -2,6 +2,7 @@ extends Node2D
 class_name Ally
 
 @export_category("Targets")
+@export_enum("Player", "Enemy") var team : int = 0
 @export var player : BattlerPlayer
 @export var target : BattlerPlayer
 
@@ -80,21 +81,27 @@ func mouse_end_hover() -> void:
 
 var clicked : bool = false
 func _physics_process(delta: float) -> void:
-	if hovering and not in_battle:
+	if hovering and not in_battle and team == 0:
 		if Input.is_action_just_pressed("click"):
 			clicked = true
-	if clicked and not in_battle:
+			var cell : Cell = get_closest_cell()
+			if cell.ally == self:
+				cell.ally = null
+	if clicked and not in_battle and team == 0:
 		self.position = get_viewport().get_mouse_position()
 	if Input.is_action_just_released("click"):
 		clicked = false
-		var closest_cell : Cell = player.inventory_cells[0]
-		var closest_dist : float = INF
-		for cell in player.inventory_cells:
-			var dist = self.global_position.distance_squared_to(cell.global_position)
-			if dist < closest_dist:
-				closest_dist = dist
-				closest_cell = cell
-		self.global_position = closest_cell.global_position
+		self.global_position = get_closest_cell().global_position
+
+func get_closest_cell() -> Cell:
+	var closest_cell : Cell = null
+	var closest_dist : float = INF
+	for cell in get_tree().get_nodes_in_group("Cells"):
+		var dist = self.global_position.distance_squared_to(cell.global_position)
+		if dist < closest_dist:
+			closest_dist = dist
+			closest_cell = cell
+	return closest_cell
 
 signal casted(caster : Ally)
 func cast() -> void:

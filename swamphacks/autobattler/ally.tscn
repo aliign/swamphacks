@@ -19,7 +19,17 @@ radius = 64.00781
 
 [node name="Ally" type="Node2D" unique_id=575198037]
 script = ExtResource("1_hbx8p")
+team = null
 art = ExtResource("1_0eafy")
+cooldown = null
+multicast = null
+damage = null
+poison = null
+fire = null
+magic = null
+holy = null
+shield = null
+healing = null
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=997238411]
 unique_name_in_owner = true

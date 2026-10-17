@@ -1,6 +1,8 @@
 extends Control
 class_name BattlerPlayer
 
+@export_enum("Player", "Enemy") var team : int = 0
+
 @onready var health_bar : ProgressBar = %HealthBar
 @onready var health_label : Label = %HealthLabel
 @onready var poison_label : Label = %PoisonLabel
@@ -9,7 +11,6 @@ class_name BattlerPlayer
 @onready var poison_timer : Timer = %PoisonTimer
 @onready var fire_timer : Timer = %FireTimer
 
-@export var cell_container : Control
 @export var max_health : int = 1000
 @export var health : int = max_health:
 	set(value):
@@ -44,9 +45,9 @@ class_name BattlerPlayer
 
 var inventory_cells : Array[Cell] = []
 func _ready() -> void:
-	for child in cell_container.get_children():
-		if child is Cell:
-			inventory_cells.append(child)
+	for cell in get_tree().get_nodes_in_group("Cells"):
+		if cell.team == team:
+			inventory_cells.append(cell)
 
 func update_health_display() -> void:
 	health_bar.max_value = max_health
