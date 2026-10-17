@@ -58,6 +58,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell2"), NodePath("../Cell3")]
+team = 0
+center = Vector2(0, 0)
 
 [node name="Cell2" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" unique_id=194054126 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
@@ -65,6 +67,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell"), NodePath("../Cell4")]
+team = 0
+center = Vector2(0, 0)
 
 [node name="Cell3" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" unique_id=986174954 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
@@ -72,6 +76,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell"), NodePath("../Cell4"), NodePath("../Cell5")]
+team = 0
+center = Vector2(0, 0)
 
 [node name="Cell4" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" unique_id=1659057811 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
@@ -79,6 +85,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell3"), NodePath("../Cell2"), NodePath("../Cell6")]
+team = 0
+center = Vector2(0, 0)
 
 [node name="Cell5" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" unique_id=51077740 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
@@ -86,6 +94,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell3"), NodePath(".")]
+team = 0
+center = Vector2(0, 0)
 
 [node name="Cell6" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" unique_id=496584702 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
@@ -93,6 +103,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell5"), NodePath("../Cell4")]
+team = 0
+center = Vector2(0, 0)
 
 [node name="BattlerEnemy" parent="HBoxContainer/HBoxContainer" unique_id=1313172140 instance=ExtResource("3_x6t3p")]
 layout_mode = 2
@@ -130,6 +142,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../../../../HBoxContainer/MarginContainer/GridContainer/Cell2"), NodePath("../../../../HBoxContainer/MarginContainer/GridContainer/Cell3")]
+team = 0
+center = Vector2(0, 0)
 
 [node name="Cell2" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" unique_id=1940858361 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
@@ -137,6 +151,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../../../../HBoxContainer/MarginContainer/GridContainer/Cell"), NodePath("../../../../HBoxContainer/MarginContainer/GridContainer/Cell4")]
+team = 0
+center = Vector2(0, 0)
 
 [node name="Cell3" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" unique_id=73076251 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
@@ -144,6 +160,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../../../../HBoxContainer/MarginContainer/GridContainer/Cell"), NodePath("../../../../HBoxContainer/MarginContainer/GridContainer/Cell4"), NodePath("../../../../HBoxContainer/MarginContainer/GridContainer/Cell5")]
+team = 0
+center = Vector2(0, 0)
 
 [node name="Cell4" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" unique_id=863419658 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
@@ -151,6 +169,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../../../../HBoxContainer/MarginContainer/GridContainer/Cell3"), NodePath("../../../../HBoxContainer/MarginContainer/GridContainer/Cell2"), NodePath("../../../../HBoxContainer/MarginContainer/GridContainer/Cell6")]
+team = 0
+center = Vector2(0, 0)
 
 [node name="Cell5" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" unique_id=518294600 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
@@ -158,6 +178,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../../../../HBoxContainer/MarginContainer/GridContainer/Cell3"), NodePath(".")]
+team = 0
+center = Vector2(0, 0)
 
 [node name="Cell6" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" unique_id=534203841 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
@@ -165,6 +187,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../../../../HBoxContainer/MarginContainer/GridContainer/Cell5"), NodePath("../../../../HBoxContainer/MarginContainer/GridContainer/Cell4")]
+team = 0
+center = Vector2(0, 0)
 
 [node name="Cook" parent="." unique_id=575198037 instance=ExtResource("5_cet5f")]
 position = Vector2(85, 68)

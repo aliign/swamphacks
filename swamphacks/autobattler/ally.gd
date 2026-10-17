@@ -93,14 +93,16 @@ func _physics_process(delta: float) -> void:
 				cell.ally = null
 	if clicked and not in_battle and team == 0:
 		self.position = get_viewport().get_mouse_position()
-	if Input.is_action_just_released("click"):
+	if Input.is_action_just_released("click") and not in_battle and team == 0:
 		clicked = false
 		self.global_position = get_closest_cell().center
+		get_closest_cell().ally = self
 
 func get_closest_cell() -> Cell:
 	var closest_cell : Cell = null
 	var closest_dist : float = INF
 	for cell in get_tree().get_nodes_in_group("Cells"):
+		if not cell is Cell: continue
 		var dist = self.global_position.distance_squared_to(cell.global_position)
 		if dist < closest_dist and (cell.ally == self or cell.ally == null):
 			closest_dist = dist

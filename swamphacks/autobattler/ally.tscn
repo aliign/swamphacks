@@ -114,7 +114,6 @@ art = ExtResource("1_0eafy")
 [node name="Sprite" type="Sprite2D" parent="." unique_id=997238411]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_qx6vg")
-texture = ExtResource("1_0eafy")
 
 [node name="Timer" type="Timer" parent="." unique_id=1656255211]
 unique_name_in_owner = true
