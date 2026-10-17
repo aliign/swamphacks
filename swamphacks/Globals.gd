@@ -1,3 +1,5 @@
 extends Node
 
-@export var inventory : Array[PackedScene] = []
+enum rank {COMMONER, UNCOMMONER, ESTEEMED, NOBILITY}
+
+@export var inventory : Array[String] = []

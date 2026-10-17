@@ -1,7 +1,12 @@
 [gd_scene format=3 uid="uid://db8gqophxq7ik"]
 
 [ext_resource type="PackedScene" uid="uid://b2qdjoaqpllxw" path="res://autobattler/ally.tscn" id="1_w742y"]
+[ext_resource type="Texture2D" uid="uid://drfflb7t20vn5" path="res://art/fortune_teller.png" id="2_gj0vx"]
 
 [node name="FortuneTeller" unique_id=575198037 instance=ExtResource("1_w742y")]
 cooldown = 3.0
+perm_magic = 12
 magic = 12
+
+[node name="Sprite" parent="." index="2" unique_id=818635638]
+texture = ExtResource("2_gj0vx")

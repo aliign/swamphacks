@@ -4,4 +4,5 @@
 
 [node name="Villager" unique_id=575198037 instance=ExtResource("1_qadxp")]
 cooldown = 4.0
+perm_damage = 15
 damage = 15

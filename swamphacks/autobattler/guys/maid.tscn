@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://dyjl43j54e5yb"]
 
 [ext_resource type="PackedScene" uid="uid://b2qdjoaqpllxw" path="res://autobattler/ally.tscn" id="1_w73to"]
+[ext_resource type="Texture2D" uid="uid://l3osfma3b2wb" path="res://art/maid.png" id="2_d64aa"]
 
 [node name="Maid" unique_id=575198037 instance=ExtResource("1_w73to")]
 cooldown = 2.5
 multicast = 2
+perm_damage = 3
 damage = 3
+
+[node name="Sprite" parent="." index="2" unique_id=818635638]
+texture = ExtResource("2_d64aa")

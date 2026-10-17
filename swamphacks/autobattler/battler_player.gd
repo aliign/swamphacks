@@ -2,6 +2,7 @@ extends Control
 class_name BattlerPlayer
 
 @export_enum("Player", "Enemy") var team : int = 0
+@export var target : BattlerPlayer
 
 @onready var health_bar : ProgressBar = %HealthBar
 @onready var health_label : Label = %HealthLabel
@@ -54,12 +55,16 @@ func _ready() -> void:
 var allies : Array[Ally] = []
 func start_battle() -> void:
 	for cell in inventory_cells:
-		cell.ally.connect("casted", casted_signal_bus)
-		cell.ally.connect("battle_started", battle_started_signal_bus)
-		cell.ally.connect("battle_ended", battle_ended_signal_bus)
-	for cell in inventory_cells:
-		cell.ally.battle_start()
+		if cell.ally == null: continue
 		allies.append(cell.ally)
+	for ally in allies:
+		ally.connect("casted", casted_signal_bus)
+		ally.connect("battle_started", battle_started_signal_bus)
+		ally.connect("battle_ended", battle_ended_signal_bus)
+		ally.target = target
+		ally.player = self
+	for ally in get_tree().get_nodes_in_group("Allies"):
+		ally.battle_start()
 
 func casted_signal_bus(ally : Ally) -> void:
 	for i in allies:

@@ -1,8 +1,14 @@
 [gd_scene format=3 uid="uid://71nod8l2162j"]
 
 [ext_resource type="PackedScene" uid="uid://b2qdjoaqpllxw" path="res://autobattler/ally.tscn" id="1_dlt6k"]
+[ext_resource type="Texture2D" uid="uid://b6be6vc1502wr" path="res://art/cook.png" id="2_q45nu"]
 
 [node name="Cook" unique_id=575198037 instance=ExtResource("1_dlt6k")]
 cooldown = 2.5
+perm_fire = 2
 fire = 2
+perm_healing = 5
 healing = 5
+
+[node name="Sprite" parent="." index="2" unique_id=818635638]
+texture = ExtResource("2_q45nu")

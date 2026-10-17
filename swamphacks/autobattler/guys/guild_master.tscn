@@ -1,7 +1,14 @@
 [gd_scene format=3 uid="uid://dbnstix6jh2du"]
 
 [ext_resource type="PackedScene" uid="uid://b2qdjoaqpllxw" path="res://autobattler/ally.tscn" id="1_sjt6t"]
+[ext_resource type="Texture2D" uid="uid://2qtfc0o7f8pa" path="res://art/guildmaster.png" id="2_jb8dx"]
 
 [node name="GuildMaster" unique_id=575198037 instance=ExtResource("1_sjt6t")]
 cooldown = 6.0
+perm_magic = 5
+magic = 5
+perm_shield = 40
 shield = 40
+
+[node name="Sprite" parent="." index="2" unique_id=818635638]
+texture = ExtResource("2_jb8dx")

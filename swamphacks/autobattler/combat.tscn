@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b7ero3k7phuci" path="res://autobattler/guys/robber.tscn" id="11_ymduy"]
 [ext_resource type="PackedScene" uid="uid://bw7cnmpgnc6o5" path="res://autobattler/guys/villager.tscn" id="12_y1gpt"]
 
-[node name="Combat" type="Control" unique_id=691949799]
+[node name="Combat" type="Control" unique_id=691949799 node_paths=PackedStringArray("player", "enemy")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,6 +22,28 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_0hiik")
+player = NodePath("HBoxContainer/HBoxContainer2/BattlerPlayer")
+enemy = NodePath("HBoxContainer/HBoxContainer/BattlerEnemy")
+player_team = Array[PackedScene]([ExtResource("5_cet5f"), ExtResource("6_itd30"), ExtResource("7_pv3ly"), ExtResource("8_k4qdb")])
+enemy_team = Array[PackedScene]([ExtResource("9_vyxnj"), ExtResource("10_kdvru"), ExtResource("11_ymduy"), ExtResource("12_y1gpt")])
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1885371616]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -40.0
+offset_right = 48.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 16
+
+[node name="StartBattle" type="Button" parent="MarginContainer" unique_id=1098637455]
+layout_mode = 2
+text = "Start Battle"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1909896085]
 layout_mode = 1
@@ -58,8 +80,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell2"), NodePath("../Cell3")]
-team = 0
-center = Vector2(0, 0)
 
 [node name="Cell2" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" unique_id=194054126 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
@@ -67,8 +87,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell"), NodePath("../Cell4")]
-team = 0
-center = Vector2(0, 0)
 
 [node name="Cell3" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" unique_id=986174954 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
@@ -76,8 +94,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell"), NodePath("../Cell4"), NodePath("../Cell5")]
-team = 0
-center = Vector2(0, 0)
 
 [node name="Cell4" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" unique_id=1659057811 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
@@ -85,8 +101,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell3"), NodePath("../Cell2"), NodePath("../Cell6")]
-team = 0
-center = Vector2(0, 0)
 
 [node name="Cell5" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" unique_id=51077740 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
@@ -94,8 +108,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell3"), NodePath(".")]
-team = 0
-center = Vector2(0, 0)
 
 [node name="Cell6" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" unique_id=496584702 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
@@ -103,23 +115,23 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell5"), NodePath("../Cell4")]
-team = 0
-center = Vector2(0, 0)
 
-[node name="BattlerEnemy" parent="HBoxContainer/HBoxContainer" unique_id=1313172140 instance=ExtResource("3_x6t3p")]
+[node name="BattlerEnemy" parent="HBoxContainer/HBoxContainer" unique_id=1313172140 node_paths=PackedStringArray("target") instance=ExtResource("3_x6t3p")]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_right = 32
+target = NodePath("../../HBoxContainer2/BattlerPlayer")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer" unique_id=1569231354]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="BattlerPlayer" parent="HBoxContainer/HBoxContainer2" unique_id=2131538996 instance=ExtResource("1_jo7td")]
+[node name="BattlerPlayer" parent="HBoxContainer/HBoxContainer2" unique_id=2131538996 node_paths=PackedStringArray("target") instance=ExtResource("1_jo7td")]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 32
+target = NodePath("../../HBoxContainer/BattlerEnemy")
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/HBoxContainer2" unique_id=715432317]
 layout_mode = 2
@@ -141,75 +153,47 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
-adjacency_list = [NodePath("../../../../HBoxContainer/MarginContainer/GridContainer/Cell2"), NodePath("../../../../HBoxContainer/MarginContainer/GridContainer/Cell3")]
-team = 0
-center = Vector2(0, 0)
+adjacency_list = [NodePath("../Cell2"), NodePath("../Cell3")]
+team = 1
 
 [node name="Cell2" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" unique_id=1940858361 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
-adjacency_list = [NodePath("../../../../HBoxContainer/MarginContainer/GridContainer/Cell"), NodePath("../../../../HBoxContainer/MarginContainer/GridContainer/Cell4")]
-team = 0
-center = Vector2(0, 0)
+adjacency_list = [NodePath("../Cell"), NodePath("../Cell4")]
+team = 1
 
 [node name="Cell3" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" unique_id=73076251 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
-adjacency_list = [NodePath("../../../../HBoxContainer/MarginContainer/GridContainer/Cell"), NodePath("../../../../HBoxContainer/MarginContainer/GridContainer/Cell4"), NodePath("../../../../HBoxContainer/MarginContainer/GridContainer/Cell5")]
-team = 0
-center = Vector2(0, 0)
+adjacency_list = [NodePath("../Cell"), NodePath("../Cell4"), NodePath("../Cell5")]
+team = 1
 
 [node name="Cell4" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" unique_id=863419658 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
-adjacency_list = [NodePath("../../../../HBoxContainer/MarginContainer/GridContainer/Cell3"), NodePath("../../../../HBoxContainer/MarginContainer/GridContainer/Cell2"), NodePath("../../../../HBoxContainer/MarginContainer/GridContainer/Cell6")]
-team = 0
-center = Vector2(0, 0)
+adjacency_list = [NodePath("../Cell3"), NodePath("../Cell2"), NodePath("../Cell6")]
+team = 1
 
 [node name="Cell5" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" unique_id=518294600 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
-adjacency_list = [NodePath("../../../../HBoxContainer/MarginContainer/GridContainer/Cell3"), NodePath(".")]
-team = 0
-center = Vector2(0, 0)
+adjacency_list = [NodePath("../Cell3"), NodePath(".")]
+team = 1
 
 [node name="Cell6" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" unique_id=534203841 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
-adjacency_list = [NodePath("../../../../HBoxContainer/MarginContainer/GridContainer/Cell5"), NodePath("../../../../HBoxContainer/MarginContainer/GridContainer/Cell4")]
-team = 0
-center = Vector2(0, 0)
+adjacency_list = [NodePath("../Cell5"), NodePath("../Cell4")]
+team = 1
 
-[node name="Cook" parent="." unique_id=575198037 instance=ExtResource("5_cet5f")]
-position = Vector2(85, 68)
-
-[node name="Farmer" parent="." unique_id=1045893849 instance=ExtResource("6_itd30")]
-position = Vector2(234, 46)
-
-[node name="FortuneTeller" parent="." unique_id=754723806 instance=ExtResource("7_pv3ly")]
-position = Vector2(403, 33)
-
-[node name="GuildMaster" parent="." unique_id=587971078 instance=ExtResource("8_k4qdb")]
-position = Vector2(543, 34)
-
-[node name="Journalist" parent="." unique_id=801084295 instance=ExtResource("9_vyxnj")]
-position = Vector2(701, 32)
-
-[node name="Maid" parent="." unique_id=1204875687 instance=ExtResource("10_kdvru")]
-position = Vector2(844, 28)
-
-[node name="Robber" parent="." unique_id=79822457 instance=ExtResource("11_ymduy")]
-position = Vector2(990, 38)
-
-[node name="Villager" parent="." unique_id=866508900 instance=ExtResource("12_y1gpt")]
-position = Vector2(1108, 156)
+[connection signal="pressed" from="MarginContainer/StartBattle" to="." method="start_battle"]
