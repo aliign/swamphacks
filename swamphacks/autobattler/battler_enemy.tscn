@@ -54,7 +54,7 @@ grow_vertical = 2
 rotation = 1.5707964
 alignment = 1
 
-[node name="PoisonLabel2" parent="MarginContainer/HBoxContainer/Control2/MarginContainer/Control/StatusContainer" unique_id=1234058335 instance=ExtResource("2_vo08r")]
+[node name="PoisonLabel" parent="MarginContainer/HBoxContainer/Control2/MarginContainer/Control/StatusContainer" unique_id=1234058335 instance=ExtResource("2_vo08r")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 1

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://db8gqophxq7ik"]
+
+[ext_resource type="PackedScene" uid="uid://b2qdjoaqpllxw" path="res://autobattler/ally.tscn" id="1_w742y"]
+
+[node name="FortuneTeller" unique_id=575198037 instance=ExtResource("1_w742y")]
+cooldown = 3.0
+magic = 12

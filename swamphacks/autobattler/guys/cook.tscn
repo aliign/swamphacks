@@ -3,5 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://b2qdjoaqpllxw" path="res://autobattler/ally.tscn" id="1_dlt6k"]
 
 [node name="Cook" unique_id=575198037 instance=ExtResource("1_dlt6k")]
+cooldown = 2.5
 fire = 2
-healing = 10
+healing = 5

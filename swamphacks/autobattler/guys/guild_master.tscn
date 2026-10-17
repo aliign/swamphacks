@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dbnstix6jh2du"]
+
+[ext_resource type="PackedScene" uid="uid://b2qdjoaqpllxw" path="res://autobattler/ally.tscn" id="1_sjt6t"]
+
+[node name="GuildMaster" unique_id=575198037 instance=ExtResource("1_sjt6t")]
+cooldown = 6.0
+shield = 40

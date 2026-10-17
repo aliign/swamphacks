@@ -5,9 +5,6 @@ class_name BattlerPlayer
 
 @onready var health_bar : ProgressBar = %HealthBar
 @onready var health_label : Label = %HealthLabel
-@onready var poison_label : Label = %PoisonLabel
-@onready var fire_label : Label = %FireLabel
-@onready var holy_label : Label = %HolyLabel
 @onready var poison_timer : Timer = %PoisonTimer
 @onready var fire_timer : Timer = %FireTimer
 
@@ -18,11 +15,13 @@ class_name BattlerPlayer
 		if health <= 0:
 			die()
 		update_health_display()
+		health_changed_signal_bus()
 @export var shield : int = 0:
 	set(value):
 		shield = value if value >= 0 else 0
 		update_health_display()
 		%ShieldLabel.value = shield
+		shield_changed_signal_bus()
 @export var poison : int = 0:
 	set(value):
 		if poison == 0 and value > 0:
@@ -30,6 +29,7 @@ class_name BattlerPlayer
 		poison = value if value >= 0 else 0
 		update_health_display()
 		%PoisonLabel.value = poison
+		poison_changed_signal_bus()
 @export var fire : int = 0:
 	set(value):
 		if fire == 0 and value > 0:
@@ -37,17 +37,61 @@ class_name BattlerPlayer
 		fire = value if value >= 0 else 0
 		update_health_display()
 		%FireLabel.value = fire
+		fire_changed_signal_bus()
 @export var holy : int = 0:
 	set(value):
 		holy = value if value >= 0 else 0
 		update_health_display()
 		%HolyLabel.value = holy
+		holy_changed_signal_bus()
 
 var inventory_cells : Array[Cell] = []
 func _ready() -> void:
 	for cell in get_tree().get_nodes_in_group("Cells"):
 		if cell.team == team:
 			inventory_cells.append(cell)
+
+var allies : Array[Ally] = []
+func start_battle() -> void:
+	for cell in inventory_cells:
+		cell.ally.connect("casted", casted_signal_bus)
+		cell.ally.connect("battle_started", battle_started_signal_bus)
+		cell.ally.connect("battle_ended", battle_ended_signal_bus)
+	for cell in inventory_cells:
+		cell.ally.battle_start()
+		allies.append(cell.ally)
+
+func casted_signal_bus(ally : Ally) -> void:
+	for i in allies:
+		i.on_cast(ally)
+
+func battle_started_signal_bus(ally : Ally) -> void:
+	for i in allies:
+		i.on_battle_start(ally)
+
+func battle_ended_signal_bus(ally : Ally) -> void:
+	for i in allies:
+		i.on_battle_end(ally)
+
+func health_changed_signal_bus() -> void:
+	for i in allies:
+		i.health_changed()
+
+func fire_changed_signal_bus() -> void:
+	for i in allies:
+		i.fire_changed()
+
+func holy_changed_signal_bus() -> void:
+	for i in allies:
+		i.holy_changed()
+
+func poison_changed_signal_bus() -> void:
+	for i in allies:
+		i.poison_changed()
+
+func shield_changed_signal_bus() -> void:
+	for i in allies:
+		i.shield_changed()
 
 func update_health_display() -> void:
 	health_bar.max_value = max_health

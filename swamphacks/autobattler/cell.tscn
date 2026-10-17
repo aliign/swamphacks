@@ -6,6 +6,8 @@
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_ghflp")
+team = null
+center = null
 
 [node name="Panel" type="Panel" parent="." unique_id=326250029]
 custom_minimum_size = Vector2(128, 128)
