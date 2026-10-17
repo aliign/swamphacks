@@ -1,3 +1,9 @@
 [gd_scene format=3 uid="uid://b2qdjoaqpllxw"]
 
 [node name="Ally" type="Node2D" unique_id=575198037]
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=997238411]
+unique_name_in_owner = true
+
+[node name="Timer" type="Timer" parent="." unique_id=1656255211]
+unique_name_in_owner = true
