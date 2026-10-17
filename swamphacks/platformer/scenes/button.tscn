@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bn0f4wob0jkxl"]
+
+[ext_resource type="Script" uid="uid://btvvria80k6wd" path="res://platformer/scripts/tbutton.gd" id="1_0ybvo"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_cqhw3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cqhw3"]
+
+[node name="button" type="Area2D" unique_id=1066875610]
+script = ExtResource("1_0ybvo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=857678309]
+scale = Vector2(0.03125003, 0.03125003)
+texture = ExtResource("2_cqhw3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1051971083]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_cqhw3")

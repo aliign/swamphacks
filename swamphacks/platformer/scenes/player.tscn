@@ -200,16 +200,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a4k8f"]
-size = Vector2(10, 16)
+size = Vector2(10, 15)
 
 [node name="player" type="CharacterBody2D" unique_id=801486421]
 script = ExtResource("1_43vy2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1876234826]
 sprite_frames = SubResource("SpriteFrames_iexxu")
-animation = &"crouch_run"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=673537944]
-position = Vector2(0, 4)
+position = Vector2(0, 4.5)
 shape = SubResource("RectangleShape2D_a4k8f")

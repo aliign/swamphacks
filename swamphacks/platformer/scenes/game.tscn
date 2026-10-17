@@ -2,6 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://comak30ipyuyk" path="res://platformer/assets/Nature_tileset_v_0.2.png" id="1_a4k8f"]
 [ext_resource type="PackedScene" uid="uid://qa7yrcdcjp7t" path="res://platformer/scenes/player.tscn" id="2_8kv8o"]
+[ext_resource type="FontFile" uid="uid://cfy50aobnbarh" path="res://platformer/assets/brackeys_platformer_assets/brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="4_0ooww"]
+[ext_resource type="PackedScene" uid="uid://8iyjhv3yy86v" path="res://platformer/scenes/door.tscn" id="5_0ooww"]
+[ext_resource type="Script" uid="uid://cwotfc3r0og15" path="res://platformer/scripts/tfencedoor_1.gd" id="5_7b6ib"]
+[ext_resource type="PackedScene" uid="uid://bn0f4wob0jkxl" path="res://platformer/scenes/button.tscn" id="6_s32hi"]
+[ext_resource type="PackedScene" uid="uid://c706f3hpoa66o" path="res://platformer/scenes/killzone.tscn" id="7_7b6ib"]
+[ext_resource type="Script" uid="uid://2ducyu5pxkfv" path="res://platformer/scripts/goesup.gd" id="7_vpy3c"]
+[ext_resource type="PackedScene" uid="uid://bq86vfx8q67vp" path="res://platformer/scenes/platform.tscn" id="8_0v3nn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_un8v2"]
 texture = ExtResource("1_a4k8f")
@@ -436,13 +443,13 @@ texture = ExtResource("1_a4k8f")
 0:13/0 = 0
 1:13/0 = 0
 2:13/0 = 0
-2:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, 8, -8, 8)
 3:13/0 = 0
 4:13/0 = 0
 5:13/0 = 0
 6:13/0 = 0
 7:13/0 = 0
-7:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, 8, -8, 8)
 8:13/0 = 0
 9:13/0 = 0
 10:13/0 = 0
@@ -1048,6 +1055,15 @@ texture = ExtResource("1_a4k8f")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_un8v2")
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1ewgl"]
+distance = -68.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iexxu"]
+size = Vector2(16, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0v3nn"]
+size = Vector2(124, 73)
+
 [node name="game" type="Node2D" unique_id=2030019003]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1874927814]
@@ -1059,3 +1075,97 @@ position = Vector2(6, -13)
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=664602306]
 zoom = Vector2(4, 4)
+limit_left = -9999996
+limit_top = -10000051
+limit_right = 10000004
+limit_bottom = 69
+
+[node name="killzoneworld" parent="." unique_id=321040900 instance=ExtResource("7_7b6ib")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzoneworld" unique_id=1389195558]
+shape = SubResource("WorldBoundaryShape2D_1ewgl")
+
+[node name="tutorial" type="Node" parent="." unique_id=1468009939]
+
+[node name="tlabel1" type="Label" parent="tutorial" unique_id=1405941843]
+visible = false
+offset_left = 108.0
+offset_top = -77.0
+offset_right = 213.0
+offset_bottom = -36.0
+theme_override_fonts/font = ExtResource("4_0ooww")
+theme_override_font_sizes/font_size = 8
+text = "there's a button somewhere
+(press e when you find it)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="tlabel2" type="Label" parent="tutorial" unique_id=588551272]
+visible = false
+offset_left = 788.0
+offset_top = -304.0
+offset_right = 893.0
+offset_bottom = -263.0
+theme_override_fonts/font = ExtResource("4_0ooww")
+theme_override_font_sizes/font_size = 8
+text = "what goes up..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="tfencedoor1" type="Area2D" parent="tutorial" unique_id=1368172395]
+position = Vector2(94, -60)
+script = ExtResource("5_7b6ib")
+
+[node name="door" parent="tutorial/tfencedoor1" unique_id=23311580 instance=ExtResource("5_0ooww")]
+position = Vector2(74, 60)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tutorial/tfencedoor1" unique_id=127752375]
+position = Vector2(58, 36)
+shape = SubResource("RectangleShape2D_iexxu")
+
+[node name="goesup" type="Area2D" parent="tutorial" unique_id=2133611019]
+position = Vector2(94, -60)
+script = ExtResource("7_vpy3c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tutorial/goesup" unique_id=1218091823]
+position = Vector2(746, -214.5)
+shape = SubResource("RectangleShape2D_0v3nn")
+
+[node name="tbutton1" parent="tutorial" unique_id=1066875610 instance=ExtResource("6_s32hi")]
+z_index = -5
+position = Vector2(6, -2)
+
+[node name="platforms" type="Node" parent="tutorial" unique_id=611760444]
+
+[node name="platforms" parent="tutorial/platforms" unique_id=2137928522 instance=ExtResource("8_0v3nn")]
+position = Vector2(584, -22)
+
+[node name="platforms2" parent="tutorial/platforms" unique_id=677405198 instance=ExtResource("8_0v3nn")]
+position = Vector2(584, -54)
+
+[node name="platforms3" parent="tutorial/platforms" unique_id=1915875856 instance=ExtResource("8_0v3nn")]
+position = Vector2(648, -86)
+
+[node name="platforms4" parent="tutorial/platforms" unique_id=1373430186 instance=ExtResource("8_0v3nn")]
+position = Vector2(712, -118)
+
+[node name="platforms5" parent="tutorial/platforms" unique_id=682778613 instance=ExtResource("8_0v3nn")]
+position = Vector2(776, -150)
+
+[node name="platforms6" parent="tutorial/platforms" unique_id=104640521 instance=ExtResource("8_0v3nn")]
+position = Vector2(840, -182)
+
+[connection signal="body_entered" from="tutorial/tfencedoor1" to="player" method="_on_label_1_int_body_entered"]
+[connection signal="body_entered" from="tutorial/tfencedoor1" to="tutorial/tfencedoor1" method="_on_body_entered"]
+[connection signal="body_exited" from="tutorial/tfencedoor1" to="tutorial/tfencedoor1" method="_on_body_exited"]
+[connection signal="body_exited" from="tutorial/tfencedoor1" to="tutorial/tbutton1" method="_on_fencedoor_1_body_exited"]
+[connection signal="input_event" from="tutorial/tfencedoor1" to="tutorial/tfencedoor1" method="_on_input_event"]
+[connection signal="body_entered" from="tutorial/goesup" to="player" method="_on_label_1_int_body_entered"]
+[connection signal="body_entered" from="tutorial/goesup" to="tutorial/goesup" method="_on_body_entered"]
+[connection signal="body_exited" from="tutorial/goesup" to="tutorial/tbutton1" method="_on_fencedoor_1_body_exited"]
+[connection signal="body_exited" from="tutorial/goesup" to="tutorial/goesup" method="_on_body_exited"]
+[connection signal="input_event" from="tutorial/goesup" to="tutorial/goesup" method="_on_input_event"]
+[connection signal="body_entered" from="tutorial/tbutton1" to="tutorial/tbutton1" method="_on_body_entered"]
+[connection signal="body_exited" from="tutorial/tbutton1" to="tutorial/tbutton1" method="_on_body_exited"]
