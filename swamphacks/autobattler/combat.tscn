@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://dgefqcup55p1s"]
+
+[ext_resource type="PackedScene" uid="uid://dlgewwi46dh35" path="res://autobattler/battler_player.tscn" id="1_jo7td"]
+[ext_resource type="PackedScene" uid="uid://c2fa4l344mqci" path="res://autobattler/cell.tscn" id="2_x6t3p"]
+[ext_resource type="PackedScene" uid="uid://dfv6tt3wgdyri" path="res://autobattler/battler_enemy.tscn" id="3_x6t3p"]
+
+[node name="Combat" type="Control" unique_id=691949799]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1909896085]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer" unique_id=729209386]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/HBoxContainer" unique_id=998325053]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 90
+theme_override_constants/margin_top = 95
+theme_override_constants/margin_right = 90
+theme_override_constants/margin_bottom = 95
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/HBoxContainer/MarginContainer" unique_id=692582072]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 2
+
+[node name="Cell" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" unique_id=498725030 instance=ExtResource("2_x6t3p")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Cell2" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" unique_id=194054126 instance=ExtResource("2_x6t3p")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Cell3" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" unique_id=986174954 instance=ExtResource("2_x6t3p")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Cell4" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" unique_id=1659057811 instance=ExtResource("2_x6t3p")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Cell5" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" unique_id=51077740 instance=ExtResource("2_x6t3p")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Cell6" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" unique_id=496584702 instance=ExtResource("2_x6t3p")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BattlerEnemy" parent="HBoxContainer/HBoxContainer" unique_id=1313172140 instance=ExtResource("3_x6t3p")]
+layout_mode = 2
+theme_override_constants/margin_right = 32
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer" unique_id=1569231354]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BattlerPlayer" parent="HBoxContainer/HBoxContainer2" unique_id=2131538996 instance=ExtResource("1_jo7td")]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/HBoxContainer2" unique_id=715432317]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 90
+theme_override_constants/margin_top = 95
+theme_override_constants/margin_right = 90
+theme_override_constants/margin_bottom = 95
+
+[node name="GridContainer2" type="GridContainer" parent="HBoxContainer/HBoxContainer2/MarginContainer" unique_id=2083254517]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 2
+
+[node name="Cell" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" unique_id=288416035 instance=ExtResource("2_x6t3p")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Cell2" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" unique_id=1261266083 instance=ExtResource("2_x6t3p")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Cell3" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" unique_id=1191655177 instance=ExtResource("2_x6t3p")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Cell4" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" unique_id=1216419673 instance=ExtResource("2_x6t3p")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Cell5" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" unique_id=731431673 instance=ExtResource("2_x6t3p")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Cell6" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" unique_id=670627911 instance=ExtResource("2_x6t3p")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

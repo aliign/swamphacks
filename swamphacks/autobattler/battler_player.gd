@@ -1,4 +1,4 @@
-extends Node
+extends Control
 class_name BattlerPlayer
 
 @onready var health_bar : ProgressBar = %HealthBar
@@ -9,6 +9,7 @@ class_name BattlerPlayer
 @onready var poison_timer : Timer = %PoisonTimer
 @onready var fire_timer : Timer = %FireTimer
 
+@export var cell_container : Control
 @export var max_health : int = 1000
 @export var health : int = max_health:
 	set(value):
@@ -20,26 +21,30 @@ class_name BattlerPlayer
 	set(value):
 		shield = value if value >= 0 else 0
 		update_health_display()
+		%ShieldLabel.value = shield
 @export var poison : int = 0:
 	set(value):
 		if poison == 0 and value > 0:
 			poison_timer.start()
 		poison = value if value >= 0 else 0
 		update_health_display()
+		%PoisonLabel.value = poison
 @export var fire : int = 0:
 	set(value):
 		if fire == 0 and value > 0:
 			fire_timer.start()
 		fire = value if value >= 0 else 0
 		update_health_display()
+		%FireLabel.value = fire
 @export var holy : int = 0:
 	set(value):
 		holy = value if value >= 0 else 0
 		update_health_display()
+		%HolyLabel.value = holy
 
 var inventory_cells : Array[Cell] = []
 func _ready() -> void:
-	for child in self.get_children():
+	for child in cell_container.get_children():
 		if child is Cell:
 			inventory_cells.append(child)
 
