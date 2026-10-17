@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 const SPEED = 130.0
-const JUMP_VELOCITY = -250.0
+const JUMP_VELOCITY = -250
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 
@@ -28,6 +28,7 @@ func _physics_process(delta: float) -> void:
 		if direction==0:
 			if Input.is_action_pressed("crouch"):
 				animated_sprite_2d.play("crouch")
+				global_position.y+=2.0
 			else:
 				animated_sprite_2d.play("idle")
 		else:
