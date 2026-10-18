@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dm6g3mrlevlw1"]
+
+[ext_resource type="PackedScene" uid="uid://d1axmyfts1q7k" path="res://platformer/scenes/collectablenpc.tscn" id="1_0gj3j"]
+[ext_resource type="Texture2D" uid="uid://blr1nm4mbxi8y" path="res://art/butler.png" id="2_y3eog"]
+
+[node name="Butler" unique_id=56177840 instance=ExtResource("1_0gj3j")]
+scene = "res://autobattler/guys/butler.tscn"
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1916608196]
+texture = ExtResource("2_y3eog")

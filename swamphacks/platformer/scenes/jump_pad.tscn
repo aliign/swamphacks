@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://chswgoq5djbsl"]
+
+[ext_resource type="Script" uid="uid://b06sv5fatewfb" path="res://platformer/scenes/jump_pad.gd" id="1_cj0vl"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_s8f44"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqers"]
+size = Vector2(16, 16)
+
+[node name="JumpPad" type="Node2D" unique_id=946477716]
+script = ExtResource("1_cj0vl")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=617497271]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1134535877]
+shape = SubResource("RectangleShape2D_gqers")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=484094660]
+position = Vector2(0, 4)
+scale = Vector2(0.125, 0.0625)
+texture = ExtResource("2_s8f44")
+
+[connection signal="body_entered" from="Area2D" to="." method="on_body_enter"]

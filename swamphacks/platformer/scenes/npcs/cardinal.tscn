@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dnij4u117qixx"]
+
+[ext_resource type="PackedScene" uid="uid://d1axmyfts1q7k" path="res://platformer/scenes/collectablenpc.tscn" id="1_4eayo"]
+[ext_resource type="Texture2D" uid="uid://rkhvvgtihn30" path="res://art/cardinal.png" id="2_d61g0"]
+
+[node name="Cardinal" unique_id=56177840 instance=ExtResource("1_4eayo")]
+scene = "res://autobattler/guys/cardinal.tscn"
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1916608196]
+texture = ExtResource("2_d61g0")

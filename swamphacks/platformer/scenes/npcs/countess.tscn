@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://daitrmvsoag0k"]
+
+[ext_resource type="PackedScene" uid="uid://d1axmyfts1q7k" path="res://platformer/scenes/collectablenpc.tscn" id="1_jb83e"]
+[ext_resource type="Texture2D" uid="uid://dsjbrfrx7xpdl" path="res://art/countess.png" id="2_wxa2n"]
+
+[node name="collectablenpc" unique_id=56177840 instance=ExtResource("1_jb83e")]
+scene = "res://autobattler/guys/countess.tscn"
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1916608196]
+texture = ExtResource("2_wxa2n")

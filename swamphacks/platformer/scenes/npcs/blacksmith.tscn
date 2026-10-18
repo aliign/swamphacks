@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b3iljp3xhepra"]
+
+[ext_resource type="PackedScene" uid="uid://d1axmyfts1q7k" path="res://platformer/scenes/collectablenpc.tscn" id="1_ctm3i"]
+[ext_resource type="Texture2D" uid="uid://bxpuhnlphdc5h" path="res://art/blacksmith.png" id="2_5iirs"]
+
+[node name="Blacksmith" unique_id=56177840 instance=ExtResource("1_ctm3i")]
+scene = "res://autobattler/guys/blacksmith.tscn"
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1916608196]
+texture = ExtResource("2_5iirs")

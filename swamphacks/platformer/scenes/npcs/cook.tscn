@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dvnli0y7lr7uu"]
+
+[ext_resource type="PackedScene" uid="uid://d1axmyfts1q7k" path="res://platformer/scenes/collectablenpc.tscn" id="1_b1jug"]
+[ext_resource type="Texture2D" uid="uid://b6be6vc1502wr" path="res://art/cook.png" id="2_u8day"]
+
+[node name="collectablenpc" unique_id=56177840 instance=ExtResource("1_b1jug")]
+scene = "res://autobattler/guys/cook.tscn"
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1916608196]
+texture = ExtResource("2_u8day")

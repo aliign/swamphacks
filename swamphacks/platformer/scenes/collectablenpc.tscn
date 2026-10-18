@@ -1,22 +1,7 @@
 [gd_scene format=3 uid="uid://d1axmyfts1q7k"]
 
-[ext_resource type="Texture2D" uid="uid://cegy8xg5ehh6c" path="res://platformer/assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/knight.png" id="1_f5jnl"]
+[ext_resource type="Material" uid="uid://bqkvxpbnp7vbt" path="res://autobattler/outline_shader.tres" id="2_74kt2"]
 [ext_resource type="Script" uid="uid://bkb217k1xnmf4" path="res://platformer/scripts/collectablenpc.gd" id="2_o5tic"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o5tic"]
-atlas = ExtResource("1_f5jnl")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_iexxu"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o5tic")
-}],
-"loop": 1,
-"name": &"idle",
-"speed": 5.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iexxu"]
 size = Vector2(40, 30)
@@ -27,9 +12,10 @@ size = Vector2(10, 16)
 [node name="collectablenpc" type="CharacterBody2D" unique_id=56177840 groups=["Collectables"]]
 script = ExtResource("2_o5tic")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=960099253]
-sprite_frames = SubResource("SpriteFrames_iexxu")
-animation = &"idle"
+[node name="AnimatedSprite2D" type="Sprite2D" parent="." unique_id=1916608196]
+material = ExtResource("2_74kt2")
+position = Vector2(0, 3)
+scale = Vector2(0.02, 0.02)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=783628731]
 position = Vector2(0, 2)
