@@ -1,23 +1,38 @@
 [gd_scene format=4 uid="uid://brhmb1yqn7as3"]
 
-[ext_resource type="PackedScene" uid="uid://c706f3hpoa66o" path="res://platformer/scenes/killzone.tscn" id="1_rj586"]
-[ext_resource type="PackedScene" uid="uid://qa7yrcdcjp7t" path="res://platformer/scenes/player.tscn" id="2_4d7sh"]
-[ext_resource type="Texture2D" uid="uid://comak30ipyuyk" path="res://platformer/assets/Nature_tileset_v_0.2.png" id="3_ir8iy"]
-[ext_resource type="Theme" uid="uid://cpfkplj12ttbv" path="res://default_theme.tres" id="4_hqns4"]
-[ext_resource type="PackedScene" uid="uid://d1axmyfts1q7k" path="res://platformer/scenes/collectablenpc.tscn" id="5_x0ka3"]
-[ext_resource type="PackedScene" uid="uid://b180frphs3dlx" path="res://platformer/scenes/oneway.tscn" id="6_rj586"]
-[ext_resource type="PackedScene" uid="uid://3yu8m8ltj0js" path="res://platformer/scenes/flashing_platform.tscn" id="7_4d7sh"]
-[ext_resource type="PackedScene" uid="uid://bn0f4wob0jkxl" path="res://platformer/scenes/button.tscn" id="7_nr8wp"]
-[ext_resource type="Script" uid="uid://c5b8gim7jbfqn" path="res://platformer/scripts/wallbutton.gd" id="8_d2bti"]
-[ext_resource type="Script" uid="uid://bstm2uyge1l7y" path="res://static_body_2d.gd" id="9_hqns4"]
-[ext_resource type="PackedScene" uid="uid://chswgoq5djbsl" path="res://platformer/scenes/jump_pad.tscn" id="10_ir8iy"]
-[ext_resource type="PackedScene" uid="uid://bq3pnq2d6mqo" path="res://platformer/scenes/movingplat.tscn" id="12_x0ka3"]
+[ext_resource type="PackedScene" uid="uid://c706f3hpoa66o" path="res://platformer/scenes/killzone.tscn" id="1_yppfq"]
+[ext_resource type="PackedScene" uid="uid://qa7yrcdcjp7t" path="res://platformer/scenes/player.tscn" id="2_dwe8p"]
+[ext_resource type="Texture2D" uid="uid://comak30ipyuyk" path="res://platformer/assets/Nature_tileset_v_0.2.png" id="3_rr2jh"]
+[ext_resource type="Theme" uid="uid://cpfkplj12ttbv" path="res://default_theme.tres" id="4_qnwje"]
+[ext_resource type="PackedScene" uid="uid://d1axmyfts1q7k" path="res://platformer/scenes/collectablenpc.tscn" id="5_pyn0u"]
+[ext_resource type="PackedScene" uid="uid://b180frphs3dlx" path="res://platformer/scenes/oneway.tscn" id="6_r78xc"]
+[ext_resource type="PackedScene" uid="uid://3yu8m8ltj0js" path="res://platformer/scenes/flashing_platform.tscn" id="7_2s8p0"]
+[ext_resource type="PackedScene" uid="uid://chswgoq5djbsl" path="res://platformer/scenes/jump_pad.tscn" id="8_jbp0s"]
+[ext_resource type="Script" uid="uid://bstm2uyge1l7y" path="res://static_body_2d.gd" id="9_4f4xt"]
+[ext_resource type="PackedScene" uid="uid://bq3pnq2d6mqo" path="res://platformer/scenes/movingplat.tscn" id="10_psj4m"]
+[ext_resource type="PackedScene" uid="uid://dibp0ow18h7nf" path="res://platformer/scenes/npcs/villager.tscn" id="11_yppfq"]
+[ext_resource type="PackedScene" uid="uid://bysetkn84lyx1" path="res://platformer/scenes/npcs/journalist.tscn" id="12_rr2jh"]
+[ext_resource type="PackedScene" uid="uid://dm4uoouqwxcls" path="res://platformer/scenes/npcs/farmer.tscn" id="13_qnwje"]
+[ext_resource type="PackedScene" uid="uid://dvnli0y7lr7uu" path="res://platformer/scenes/npcs/cook.tscn" id="14_qnwje"]
+[ext_resource type="PackedScene" uid="uid://cr8offnspfpiv" path="res://platformer/scenes/npcs/maid.tscn" id="15_2s8p0"]
+[ext_resource type="PackedScene" uid="uid://cw6l3ktuc3i72" path="res://platformer/scenes/npcs/guildmaster.tscn" id="16_jbp0s"]
+[ext_resource type="PackedScene" uid="uid://d16v3llqjr3l1" path="res://platformer/scenes/npcs/fortune_teller.tscn" id="17_4f4xt"]
+[ext_resource type="PackedScene" uid="uid://dm6g3mrlevlw1" path="res://platformer/scenes/npcs/butler.tscn" id="18_jbp0s"]
+[ext_resource type="PackedScene" uid="uid://bu3juyyioflx4" path="res://platformer/scenes/npcs/priest.tscn" id="19_psj4m"]
+[ext_resource type="PackedScene" uid="uid://r18agcqsv4mx" path="res://platformer/scenes/npcs/imperialknightcommander.tscn" id="20_tyfd4"]
+[ext_resource type="PackedScene" uid="uid://daitrmvsoag0k" path="res://platformer/scenes/npcs/countess.tscn" id="21_dfv5b"]
+[ext_resource type="PackedScene" uid="uid://bcn7vgrai65w2" path="res://platformer/scenes/npcs/headmaid.tscn" id="22_bfiya"]
+[ext_resource type="PackedScene" uid="uid://b3iljp3xhepra" path="res://platformer/scenes/npcs/blacksmith.tscn" id="23_6d4q7"]
+[ext_resource type="PackedScene" uid="uid://igu3ofkb8fs" path="res://platformer/scenes/npcs/huntress.tscn" id="24_f62t3"]
+[ext_resource type="PackedScene" uid="uid://dum3ngo7ibxd8" path="res://platformer/scenes/npcs/sorcerer.tscn" id="25_oumdx"]
+[ext_resource type="PackedScene" uid="uid://dnij4u117qixx" path="res://platformer/scenes/npcs/cardinal.tscn" id="26_t7sby"]
+[ext_resource type="PackedScene" uid="uid://b5cyb0k6e3gil" path="res://platformer/scenes/npcs/marquess.tscn" id="27_u4kwp"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ta5nu"]
 distance = -68.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_flf07"]
-texture = ExtResource("3_ir8iy")
+texture = ExtResource("3_rr2jh")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -1171,9 +1186,6 @@ size = Vector2(16, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yo84t"]
 size = Vector2(16, 16)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fs4d3"]
-size = Vector2(24, 24)
-
 [sub_resource type="Animation" id="Animation_0h7mo"]
 length = 0.001
 tracks/0/type = "value"
@@ -1327,15 +1339,15 @@ _data = {
 
 [node name="Node2D" type="Node2D" unique_id=934382259]
 
-[node name="killzoneworld" parent="." unique_id=321040900 instance=ExtResource("1_rj586")]
+[node name="killzoneworld" parent="." unique_id=321040900 instance=ExtResource("1_yppfq")]
 position = Vector2(0, 163)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzoneworld" unique_id=1556688698]
 shape = SubResource("WorldBoundaryShape2D_ta5nu")
 
-[node name="player" parent="." unique_id=801486421 instance=ExtResource("2_4d7sh")]
+[node name="player" parent="." unique_id=801486421 instance=ExtResource("2_dwe8p")]
 z_index = 1
-position = Vector2(1064, -384)
+position = Vector2(11, -12)
 CROUCH_MULT = 1.5
 jump_height = 46
 jump_descent_time = 0.28
@@ -1365,7 +1377,7 @@ offset_bottom = 274.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.094, 0.094)
-theme = ExtResource("4_hqns4")
+theme = ExtResource("4_qnwje")
 theme_override_font_sizes/font_size = 64
 text = "wasd/arrows - movement
 q - dash  e - interact s - crouch"
@@ -1374,78 +1386,80 @@ vertical_alignment = 1
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="collectablenpc" parent="." unique_id=56177840 instance=ExtResource("5_x0ka3")]
+[node name="collectablenpc" parent="." unique_id=56177840 instance=ExtResource("5_pyn0u")]
+process_mode = 4
+visible = false
 position = Vector2(108, -12)
 scale = Vector2(-1, 1)
 
 [node name="hatches" type="Node" parent="." unique_id=91712731]
 
-[node name="hatch1" parent="hatches" unique_id=2097178733 instance=ExtResource("6_rj586")]
+[node name="hatch1" parent="hatches" unique_id=2097178733 instance=ExtResource("6_r78xc")]
 position = Vector2(424, -240)
 
-[node name="hatch9" parent="hatches" unique_id=237493636 instance=ExtResource("6_rj586")]
+[node name="hatch9" parent="hatches" unique_id=237493636 instance=ExtResource("6_r78xc")]
 position = Vector2(344, -336)
 
-[node name="hatch2" parent="hatches" unique_id=1808724622 instance=ExtResource("6_rj586")]
+[node name="hatch2" parent="hatches" unique_id=1808724622 instance=ExtResource("6_r78xc")]
 position = Vector2(400, -160)
 
-[node name="hatch3" parent="hatches" unique_id=446568520 instance=ExtResource("6_rj586")]
+[node name="hatch3" parent="hatches" unique_id=446568520 instance=ExtResource("6_r78xc")]
 position = Vector2(360, -120)
 
-[node name="hatch4" parent="hatches" unique_id=1617104835 instance=ExtResource("6_rj586")]
+[node name="hatch4" parent="hatches" unique_id=1617104835 instance=ExtResource("6_r78xc")]
 position = Vector2(424, -80)
 
-[node name="hatch5" parent="hatches" unique_id=15591014 instance=ExtResource("6_rj586")]
+[node name="hatch5" parent="hatches" unique_id=15591014 instance=ExtResource("6_r78xc")]
 position = Vector2(400, -40)
 
-[node name="hatch6" parent="hatches" unique_id=1242814631 instance=ExtResource("6_rj586")]
+[node name="hatch6" parent="hatches" unique_id=1242814631 instance=ExtResource("6_r78xc")]
 position = Vector2(640, -184)
 
-[node name="hatch7" parent="hatches" unique_id=319037299 instance=ExtResource("6_rj586")]
+[node name="hatch7" parent="hatches" unique_id=319037299 instance=ExtResource("6_r78xc")]
 position = Vector2(640, -232)
 
-[node name="hatch8" parent="hatches" unique_id=2083306941 instance=ExtResource("6_rj586")]
+[node name="hatch8" parent="hatches" unique_id=2083306941 instance=ExtResource("6_r78xc")]
 position = Vector2(640, -280)
 
 [node name="FlashingPlatforms" type="Node2D" parent="." unique_id=199096748]
 
-[node name="FlashingPlatform" parent="FlashingPlatforms" unique_id=934555406 instance=ExtResource("7_4d7sh")]
+[node name="FlashingPlatform" parent="FlashingPlatforms" unique_id=934555406 instance=ExtResource("7_2s8p0")]
 position = Vector2(1024, -184)
 alternate = true
 
-[node name="FlashingPlatform3" parent="FlashingPlatforms" unique_id=459969219 instance=ExtResource("7_4d7sh")]
+[node name="FlashingPlatform3" parent="FlashingPlatforms" unique_id=459969219 instance=ExtResource("7_2s8p0")]
 position = Vector2(848, -344)
 
-[node name="FlashingPlatform10" parent="FlashingPlatforms" unique_id=843142815 instance=ExtResource("7_4d7sh")]
+[node name="FlashingPlatform10" parent="FlashingPlatforms" unique_id=843142815 instance=ExtResource("7_2s8p0")]
 position = Vector2(864, -344)
 
-[node name="FlashingPlatform4" parent="FlashingPlatforms" unique_id=1735340383 instance=ExtResource("7_4d7sh")]
+[node name="FlashingPlatform4" parent="FlashingPlatforms" unique_id=1735340383 instance=ExtResource("7_2s8p0")]
 position = Vector2(320, -352)
 
-[node name="FlashingPlatform5" parent="FlashingPlatforms" unique_id=753134441 instance=ExtResource("7_4d7sh")]
+[node name="FlashingPlatform5" parent="FlashingPlatforms" unique_id=753134441 instance=ExtResource("7_2s8p0")]
 position = Vector2(320, -368)
 
-[node name="FlashingPlatform6" parent="FlashingPlatforms" unique_id=1221085994 instance=ExtResource("7_4d7sh")]
+[node name="FlashingPlatform6" parent="FlashingPlatforms" unique_id=1221085994 instance=ExtResource("7_2s8p0")]
 position = Vector2(320, -384)
 
-[node name="FlashingPlatform7" parent="FlashingPlatforms" unique_id=2091049619 instance=ExtResource("7_4d7sh")]
+[node name="FlashingPlatform7" parent="FlashingPlatforms" unique_id=2091049619 instance=ExtResource("7_2s8p0")]
 position = Vector2(288, -352)
 alternate = true
 
-[node name="FlashingPlatform8" parent="FlashingPlatforms" unique_id=950525765 instance=ExtResource("7_4d7sh")]
+[node name="FlashingPlatform8" parent="FlashingPlatforms" unique_id=950525765 instance=ExtResource("7_2s8p0")]
 position = Vector2(288, -368)
 alternate = true
 
-[node name="FlashingPlatform9" parent="FlashingPlatforms" unique_id=1063692850 instance=ExtResource("7_4d7sh")]
+[node name="FlashingPlatform9" parent="FlashingPlatforms" unique_id=1063692850 instance=ExtResource("7_2s8p0")]
 position = Vector2(256, -352)
 
 [node name="BouncePads" type="Node2D" parent="." unique_id=711691041]
 
-[node name="JumpPad" parent="BouncePads" unique_id=946477716 instance=ExtResource("10_ir8iy")]
+[node name="JumpPad" parent="BouncePads" unique_id=946477716 instance=ExtResource("8_jbp0s")]
 position = Vector2(1040, -360)
 strength = 570
 
-[node name="JumpPad2" parent="BouncePads" unique_id=541294977 instance=ExtResource("10_ir8iy")]
+[node name="JumpPad2" parent="BouncePads" unique_id=541294977 instance=ExtResource("8_jbp0s")]
 position = Vector2(992, -528)
 strength = 650
 
@@ -1459,7 +1473,7 @@ shape = SubResource("RectangleShape2D_gqers")
 [node name="StaticBody2D" type="StaticBody2D" parent="Area2D" unique_id=1824097863]
 collision_layer = 0
 collision_mask = 0
-script = ExtResource("9_hqns4")
+script = ExtResource("9_4f4xt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/StaticBody2D" unique_id=837745048]
 position = Vector2(0, 8)
@@ -1497,18 +1511,9 @@ theme_override_font_sizes/font_size = 128
 text = "60"
 horizontal_alignment = 1
 
-[node name="wallbutt" parent="." unique_id=1066875610 instance=ExtResource("7_nr8wp")]
-process_mode = 4
-position = Vector2(430, -46)
-script = ExtResource("8_d2bti")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wallbutt" unique_id=862814664]
-position = Vector2(-6, 0)
-shape = SubResource("RectangleShape2D_fs4d3")
-
 [node name="movinghatches" type="Node" parent="." unique_id=840111699]
 
-[node name="movingplat" parent="movinghatches" unique_id=1301551418 instance=ExtResource("12_x0ka3")]
+[node name="movingplat" parent="movinghatches" unique_id=1301551418 instance=ExtResource("10_psj4m")]
 position = Vector2(1216, -77)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="movinghatches/movingplat" unique_id=1700598321]
@@ -1516,27 +1521,85 @@ root_node = NodePath("../../..")
 libraries/ = SubResource("AnimationLibrary_d2bti")
 autoplay = &"ani1"
 
-[node name="movingplat2" parent="movinghatches" unique_id=768715233 instance=ExtResource("12_x0ka3")]
+[node name="movingplat2" parent="movinghatches" unique_id=768715233 instance=ExtResource("10_psj4m")]
 position = Vector2(1208, -117)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="movinghatches/movingplat2" unique_id=1991565298]
 libraries/ = SubResource("AnimationLibrary_k73cj")
 autoplay = &"ani2"
 
-[node name="movingplat3" parent="movinghatches" unique_id=367341775 instance=ExtResource("12_x0ka3")]
+[node name="movingplat3" parent="movinghatches" unique_id=367341775 instance=ExtResource("10_psj4m")]
 position = Vector2(1208, -165)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="movinghatches/movingplat3" unique_id=1426714573]
 libraries/ = SubResource("AnimationLibrary_ta5nu")
 autoplay = &"ani3"
 
-[node name="movingplat4" parent="movinghatches" unique_id=705886406 instance=ExtResource("12_x0ka3")]
+[node name="movingplat4" parent="movinghatches" unique_id=705886406 instance=ExtResource("10_psj4m")]
 position = Vector2(1208, -205)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="movinghatches/movingplat4" unique_id=1224785855]
 libraries/ = SubResource("AnimationLibrary_fs4d3")
 autoplay = &"ani4"
 
+[node name="spawns" type="Node" parent="." unique_id=2072427474]
+
+[node name="villager" parent="spawns" unique_id=1398845295 instance=ExtResource("11_yppfq")]
+position = Vector2(108, -12)
+rotation = -3.1415927
+scale = Vector2(1, -1)
+
+[node name="journalist" parent="spawns" unique_id=1346375335 instance=ExtResource("12_rr2jh")]
+position = Vector2(349, -260)
+
+[node name="farmer" parent="spawns" unique_id=1470560278 instance=ExtResource("13_qnwje")]
+position = Vector2(435, -60)
+scale = Vector2(-1, 1)
+
+[node name="cook" parent="spawns" unique_id=1220256251 instance=ExtResource("14_qnwje")]
+position = Vector2(435, -300)
+rotation = -3.1415927
+scale = Vector2(1, -1)
+
+[node name="maid" parent="spawns" unique_id=1518166616 instance=ExtResource("15_2s8p0")]
+position = Vector2(477, -76)
+
+[node name="guildmaster" parent="spawns" unique_id=1248434469 instance=ExtResource("16_jbp0s")]
+position = Vector2(528, -252)
+scale = Vector2(-1, 1)
+
+[node name="fortuneteller" parent="spawns" unique_id=854634493 instance=ExtResource("17_4f4xt")]
+position = Vector2(637, -76)
+
+[node name="butler" parent="spawns" unique_id=626621886 instance=ExtResource("18_jbp0s")]
+position = Vector2(1083, -236)
+scale = Vector2(-1, 1)
+
+[node name="priest" parent="spawns" unique_id=1891520938 instance=ExtResource("19_psj4m")]
+position = Vector2(456, -468)
+
+[node name="impknightcom" parent="spawns" unique_id=1521225714 instance=ExtResource("20_tyfd4")]
+position = Vector2(717, -156)
+
+[node name="countess" parent="spawns" unique_id=476180248 instance=ExtResource("21_dfv5b")]
+position = Vector2(1021, -68)
+
+[node name="headmaid" parent="spawns" unique_id=1073689637 instance=ExtResource("22_bfiya")]
+position = Vector2(717, -252)
+
+[node name="blacksmith" parent="spawns" unique_id=1341070508 instance=ExtResource("23_6d4q7")]
+position = Vector2(237, -140)
+
+[node name="huntress" parent="spawns" unique_id=1650399935 instance=ExtResource("24_f62t3")]
+position = Vector2(763, -12)
+
+[node name="sorcerer" parent="spawns" unique_id=1613793749 instance=ExtResource("25_oumdx")]
+position = Vector2(1083, -364)
+
+[node name="cardinal" parent="spawns" unique_id=1851079280 instance=ExtResource("26_t7sby")]
+position = Vector2(991, -492)
+
+[node name="marquess" parent="spawns" unique_id=16334950 instance=ExtResource("27_u4kwp")]
+position = Vector2(1475, -148)
+
 [connection signal="body_entered" from="Area2D" to="Area2D/StaticBody2D" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="wallbutt" to="wallbutt" method="_on_body_entered"]
-[connection signal="body_exited" from="wallbutt" to="wallbutt" method="_on_body_exited"]
