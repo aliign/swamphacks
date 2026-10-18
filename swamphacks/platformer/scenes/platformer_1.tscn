@@ -4,9 +4,14 @@
 [ext_resource type="Theme" uid="uid://cpfkplj12ttbv" path="res://default_theme.tres" id="2_306lk"]
 [ext_resource type="PackedScene" uid="uid://d1axmyfts1q7k" path="res://platformer/scenes/collectablenpc.tscn" id="3_kwmh5"]
 [ext_resource type="Texture2D" uid="uid://dinwkdrfek4yx" path="res://platformer/assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/platforms.png" id="4_tm324"]
+[ext_resource type="PackedScene" uid="uid://bn0f4wob0jkxl" path="res://platformer/scenes/button.tscn" id="5_jithg"]
+[ext_resource type="Script" uid="uid://c5b8gim7jbfqn" path="res://platformer/scripts/wallbutton.gd" id="6_1qmg0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jithg"]
 size = Vector2(16, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iexxu"]
+size = Vector2(24, 24)
 
 [node name="platformer1" unique_id=441126252 instance=ExtResource("1_203al")]
 
@@ -140,4 +145,14 @@ theme_override_font_sizes/font_size = 128
 text = "60"
 horizontal_alignment = 1
 
+[node name="wallbutt" parent="." index="8" unique_id=1066875610 instance=ExtResource("5_jithg")]
+position = Vector2(426, -84)
+script = ExtResource("6_1qmg0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wallbutt" index="1" unique_id=429923856]
+position = Vector2(-6, 0)
+shape = SubResource("RectangleShape2D_iexxu")
+
 [connection signal="timeout" from="gametime" to="." method="_on_gametime_timeout"]
+[connection signal="body_entered" from="wallbutt" to="wallbutt" method="_on_body_entered"]
+[connection signal="body_exited" from="wallbutt" to="wallbutt" method="_on_body_exited"]

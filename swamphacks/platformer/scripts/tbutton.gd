@@ -9,6 +9,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			tfencedoor_1.disabled=true
 			tlabel_1.text="good job!"
 			queue_free()
+			
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		inside=true

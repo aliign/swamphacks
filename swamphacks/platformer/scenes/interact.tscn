@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://dukss8kn2dufk"]
-
-[ext_resource type="Script" uid="uid://mldtdim22bhf" path="res://platformer/scripts/interact.gd" id="1_nuhxi"]
-
-[node name="interact" type="Area2D" unique_id=1474477555]
-script = ExtResource("1_nuhxi")

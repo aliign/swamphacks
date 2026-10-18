@@ -11,7 +11,7 @@ func _ready() -> void:
 			collectable.connect("collected", on_collected)
 
 func _process(delta: float) -> void:
-	if started:
+	if !gametime.is_stopped():
 		timepassed -= delta
 		updatetext()
 
@@ -25,3 +25,7 @@ func on_collected():
 		started=true
 		timer.show()
 		gametime.start()
+		
+func _on_gametime_timeout() -> void:
+	timer.queue_free()
+	get_tree().change_scene_to_file("res://platformer/scenes/platformer_1.tscn")
