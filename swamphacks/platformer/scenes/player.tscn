@@ -221,9 +221,7 @@ air_acceleration_frames = 6
 air_deceleration_frames = 6
 jump_height = 30
 jump_descent_time = 0.28
-apex_duration = 0.0
-apex_bonus_speed = 1.0
-apex_gravity = 1.0
+apex_gravity = 0.9
 max_fall_speed = 300
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1876234826]
