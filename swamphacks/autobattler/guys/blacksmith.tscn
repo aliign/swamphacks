@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bu3qhostdqjqb"]
+
+[ext_resource type="PackedScene" uid="uid://b2qdjoaqpllxw" path="res://autobattler/ally.tscn" id="1_sd0tf"]
+[ext_resource type="Script" uid="uid://vkpdf8ynmb61" path="res://blacksmith.gd" id="2_lyyun"]
+[ext_resource type="Texture2D" uid="uid://bxpuhnlphdc5h" path="res://art/blacksmith.png" id="3_yhpd0"]
+
+[node name="Blacksmith" unique_id=729490585 instance=ExtResource("1_sd0tf")]
+script = ExtResource("2_lyyun")
+description = "Passive: Attacks with 1 Fire for every 5 Damage"
+perm_cooldown = 5.0
+cooldown = 5.0
+perm_damage = 20
+damage = 20
+perm_fire = 4
+fire = 4
+
+[node name="Sprite" parent="." index="2" unique_id=818635638]
+texture = ExtResource("3_yhpd0")

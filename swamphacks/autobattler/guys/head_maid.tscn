@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://drywu0hgnqfqt"]
+
+[ext_resource type="PackedScene" uid="uid://b2qdjoaqpllxw" path="res://autobattler/ally.tscn" id="1_c4wjw"]
+[ext_resource type="Texture2D" uid="uid://bs5bo43k85ppm" path="res://art/head_maid.png" id="2_257xr"]
+[ext_resource type="Script" uid="uid://c8aknq7onchks" path="res://autobattler/guys/head_maid.gd" id="2_h2f3p"]
+
+[node name="HeadMaid" unique_id=729490585 instance=ExtResource("1_c4wjw")]
+script = ExtResource("2_h2f3p")
+rank = 2
+description = "On Cast: Adjacent Allies get +4 Healing"
+perm_cooldown = 4.5
+cooldown = 4.5
+perm_multicast = 2
+multicast = 2
+perm_healing = 10
+healing = 10
+
+[node name="Sprite" parent="." index="2" unique_id=818635638]
+texture = ExtResource("2_257xr")

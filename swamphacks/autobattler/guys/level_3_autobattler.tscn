@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://bltuvu8ig5ayf"]
+
+[ext_resource type="PackedScene" uid="uid://dgefqcup55p1s" path="res://autobattler/combat.tscn" id="1_btxg7"]
+[ext_resource type="PackedScene" uid="uid://dc1cybkjyy5o1" path="res://autobattler/guys/priest.tscn" id="2_bvavo"]
+[ext_resource type="PackedScene" uid="uid://cys65vn54sug2" path="res://autobattler/guys/butler.tscn" id="3_p81mh"]
+[ext_resource type="PackedScene" uid="uid://dtegasf4gcwlm" path="res://autobattler/guys/marquess.tscn" id="5_28srj"]
+[ext_resource type="PackedScene" uid="uid://d3fuy3dth6cuf" path="res://autobattler/guys/countess.tscn" id="6_bvavo"]
+[ext_resource type="PackedScene" uid="uid://dbnstix6jh2du" path="res://autobattler/guys/guild_master.tscn" id="6_p81mh"]
+
+[node name="Level3" unique_id=691949799 instance=ExtResource("1_btxg7")]
+enemy_team = Array[PackedScene]([ExtResource("2_bvavo"), ExtResource("3_p81mh"), ExtResource("5_28srj"), ExtResource("6_bvavo"), ExtResource("6_p81mh")])
+
+[node name="Cell" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" parent_id_path=PackedInt32Array(692582072) index="0" unique_id=498725030]
+left_column = true
+
+[node name="Cell3" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" parent_id_path=PackedInt32Array(692582072) index="2" unique_id=986174954]
+left_column = true
+
+[node name="Cell5" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" parent_id_path=PackedInt32Array(692582072) index="4" unique_id=51077740]
+left_column = true
+
+[node name="BattlerEnemy" parent="HBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(729209386) index="1" unique_id=1313172140]
+max_health = 1200
+
+[node name="BattlerPlayer" parent="HBoxContainer/HBoxContainer2" parent_id_path=PackedInt32Array(1569231354) index="0" unique_id=2131538996]
+max_health = 1200
+
+[node name="Cell" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" parent_id_path=PackedInt32Array(2083254517) index="0" unique_id=1025022052]
+left_column = true
+
+[node name="Cell3" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" parent_id_path=PackedInt32Array(2083254517) index="2" unique_id=73076251]
+left_column = true
+
+[node name="Cell5" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" parent_id_path=PackedInt32Array(2083254517) index="4" unique_id=518294600]
+left_column = true
+
+[node name="Name" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" parent_id_path=PackedInt32Array(160314562) index="0" unique_id=547634600]
+theme_override_constants/outline_size = 5
+
+[node name="Rank" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" parent_id_path=PackedInt32Array(160314562) index="1" unique_id=1472820172]
+theme_override_constants/outline_size = 5
+
+[node name="CooldownLabel" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer2/TextureRect/CenterContainer" parent_id_path=PackedInt32Array(2065028429) index="0" unique_id=1901091765]
+theme_override_constants/outline_size = 5
+
+[node name="Description" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1953217515) index="2" unique_id=490149132]
+theme_override_constants/outline_size = 5
+
+[node name="DamageDescription" parent="MasterInfo/ExtraInfo/Panel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1168351761) index="0" unique_id=1541965222]
+theme_override_constants/outline_size = 5
+
+[node name="MagicDescription" parent="MasterInfo/ExtraInfo/Panel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1168351761) index="1" unique_id=203410414]
+theme_override_constants/outline_size = 5
+
+[node name="PoisonDescription" parent="MasterInfo/ExtraInfo/Panel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1168351761) index="2" unique_id=1511487596]
+theme_override_constants/outline_size = 5
+
+[node name="FireDescription" parent="MasterInfo/ExtraInfo/Panel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1168351761) index="3" unique_id=233150023]
+theme_override_constants/outline_size = 5
+
+[node name="HolyDescription" parent="MasterInfo/ExtraInfo/Panel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1168351761) index="4" unique_id=1637134361]
+theme_override_constants/outline_size = 5
+
+[node name="ShieldDescription" parent="MasterInfo/ExtraInfo/Panel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1168351761) index="5" unique_id=1899215475]
+theme_override_constants/outline_size = 5
+
+[node name="HealingDescription" parent="MasterInfo/ExtraInfo/Panel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1168351761) index="6" unique_id=728519795]
+theme_override_constants/outline_size = 5
+
+[node name="MulticastDescription" parent="MasterInfo/ExtraInfo/Panel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1168351761) index="7" unique_id=1189036686]
+theme_override_constants/outline_size = 5
