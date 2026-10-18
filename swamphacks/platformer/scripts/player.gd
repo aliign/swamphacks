@@ -1,14 +1,15 @@
 extends CharacterBody2D
 class_name Player
 
-const SPEED = 130.0
-const JUMP_VELOCITY = -250
-const DASH_MULT = 3
+const SPEED = 80.0
+const JUMP_VELOCITY = -210
 const CROUCH_MULT = 0.5
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var dashcd: Timer = $dashcd
 @onready var dashdur: Timer = $dashdur
-
+@onready var standbox: CollisionShape2D = $CollisionShape2D
+@onready var crouchbox: CollisionShape2D = $crouchbox
+@onready var iscrouch: RayCast2D = $iscrouch
 @export var dash_curve : Curve
 
 func _physics_process(delta: float) -> void:
@@ -28,21 +29,30 @@ func _physics_process(delta: float) -> void:
 			animated_sprite_2d.flip_h=false
 		elif direction<0:
 			animated_sprite_2d.flip_h=true
-			
 		if is_on_floor():
 			if direction==0:
-				if Input.is_action_pressed("crouch"):
+				if Input.is_action_pressed("crouch") or iscrouch.is_colliding():
 					animated_sprite_2d.play("crouch")
+					crouchbox.set_deferred("disabled", false)
+					standbox.set_deferred("disabled", true)
 					global_position.y+=2.0
 				else:
 					animated_sprite_2d.play("idle")
+					crouchbox.set_deferred("disabled", true)
+					standbox.set_deferred("disabled", false)
 			else:
-				if Input.is_action_pressed("crouch"):
+				if Input.is_action_pressed("crouch") or iscrouch.is_colliding():
 					animated_sprite_2d.play("crouch_run")
+					crouchbox.set_deferred("disabled", false)
+					standbox.set_deferred("disabled", true)
 				else:
 					animated_sprite_2d.play("run")
+					crouchbox.set_deferred("disabled", true)
+					standbox.set_deferred("disabled", false)
 		else:
 			animated_sprite_2d.play("jump")
+			crouchbox.set_deferred("disabled", true)
+			standbox.set_deferred("disabled", false)
 		
 		if direction:
 			if Input.is_action_pressed("crouch"):
@@ -51,7 +61,6 @@ func _physics_process(delta: float) -> void:
 				if dashcd.is_stopped():
 					dashcd.start()
 					dashdur.start()
-					#velocity.x = direction * SPEED * DASH_MULT
 				else:
 					if dashdur.is_stopped():
 						velocity.x= direction * SPEED
