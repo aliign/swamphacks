@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dc8qe7lti88r4"
-path="res://.godot/imported/robber.png-d21ad48325140dfa510377660ddf8154.ctex"
+uid="uid://rkhvvgtihn30"
+path="res://.godot/imported/cardinal.png-50129365a7b430731b91da27d6fbeee4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/robber.png"
-dest_files=["res://.godot/imported/robber.png-d21ad48325140dfa510377660ddf8154.ctex"]
+source_file="res://art/cardinal.png"
+dest_files=["res://.godot/imported/cardinal.png-50129365a7b430731b91da27d6fbeee4.ctex"]
 
 [params]
 
