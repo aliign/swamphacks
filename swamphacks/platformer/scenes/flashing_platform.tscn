@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://3yu8m8ltj0js"]
+
+[ext_resource type="Script" uid="uid://corh4di2nm2nf" path="res://platformer/scenes/flashing_platform.gd" id="1_476h8"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_jplwt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqers"]
+size = Vector2(16, 16)
+
+[node name="FlashingPlatform" type="StaticBody2D" unique_id=934555406]
+script = ExtResource("1_476h8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=477954299]
+shape = SubResource("RectangleShape2D_gqers")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1399517134]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("1_jplwt")
+
+[node name="Timer" type="Timer" parent="." unique_id=2109654285]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="on_timer_timeout"]
