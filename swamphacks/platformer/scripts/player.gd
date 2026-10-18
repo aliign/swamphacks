@@ -15,7 +15,7 @@ const CROUCH_MULT = 0.5
 
 var input_vector : Vector2 = Vector2.ZERO
 func handle_input() -> void:
-	input_vector = Input.get_vector("move_left", "move_right", "jump", "crouch")
+	input_vector = Input.get_vector("move_left", "move_right", "up", "crouch")
 
 	jump_pressed_frames_ago += 1
 	if (Input.is_action_just_pressed("jump")):
