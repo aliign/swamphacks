@@ -110,3 +110,34 @@ shape = SubResource("RectangleShape2D_jithg")
 one_way_collision = true
 
 [node name="gametime" type="Timer" parent="." index="6" unique_id=816291839]
+wait_time = 60.0
+one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="7" unique_id=1737269350]
+
+[node name="Control" type="Control" parent="CanvasLayer" index="0" unique_id=807877788]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control" index="0" unique_id=1302230517]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -127.5
+offset_right = 127.5
+offset_bottom = 175.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.72221845, 0, 0.24689153, 1)
+theme_override_font_sizes/font_size = 128
+text = "60"
+horizontal_alignment = 1
+
+[connection signal="timeout" from="gametime" to="." method="_on_gametime_timeout"]

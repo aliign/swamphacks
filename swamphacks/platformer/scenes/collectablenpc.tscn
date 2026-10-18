@@ -25,6 +25,7 @@ size = Vector2(40, 30)
 size = Vector2(10, 16)
 
 [node name="collectablenpc" type="CharacterBody2D" unique_id=56177840 groups=["Collectables"]]
+script = ExtResource("2_o5tic")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=960099253]
 sprite_frames = SubResource("SpriteFrames_iexxu")
@@ -32,7 +33,6 @@ animation = &"idle"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=783628731]
 position = Vector2(0, 2)
-script = ExtResource("2_o5tic")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1095746257]
 position = Vector2(0, -5)
@@ -43,5 +43,5 @@ position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_1ewgl")
 disabled = true
 
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
-[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_body_exited"]
