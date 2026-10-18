@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://gu4anvii6cxd"]
 
+[ext_resource type="Script" uid="uid://c8oos8aphx2hv" path="res://platformmap.gd" id="1_6d4q7"]
 [ext_resource type="PackedScene" uid="uid://c706f3hpoa66o" path="res://platformer/scenes/killzone.tscn" id="1_yppfq"]
 [ext_resource type="PackedScene" uid="uid://qa7yrcdcjp7t" path="res://platformer/scenes/player.tscn" id="2_dwe8p"]
 [ext_resource type="Texture2D" uid="uid://comak30ipyuyk" path="res://platformer/assets/Nature_tileset_v_0.2.png" id="3_rr2jh"]
@@ -1338,7 +1339,10 @@ _data = {
 &"ani4": SubResource("Animation_rjqkl")
 }
 
-[node name="Node2D" type="Node2D" unique_id=934382259]
+[node name="Node2D" type="Node2D" unique_id=934382259 node_paths=PackedStringArray("player", "t")]
+script = ExtResource("1_6d4q7")
+player = NodePath("player")
+t = NodePath("gametime")
 
 [node name="killzoneworld" parent="." unique_id=321040900 instance=ExtResource("1_yppfq")]
 position = Vector2(0, 163)
@@ -1485,8 +1489,9 @@ position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_yo84t")
 
 [node name="gametime" type="Timer" parent="." unique_id=1430601216]
-wait_time = 60.0
+wait_time = 20.0
 one_shot = true
+autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1540735821]
 
@@ -1716,3 +1721,4 @@ rotation = -1.5760323
 color = Color(0.2784314, 0.16862746, 0.14901961, 1)
 
 [connection signal="body_entered" from="Area2D" to="Area2D/StaticBody2D" method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="gametime" to="." method="on_timer"]

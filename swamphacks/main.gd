@@ -16,6 +16,7 @@ func timer():
 	$Node2D.visible = false
 	$Node2D.player.position = Vector2.ZERO
 	level += 1
+	$Node2D.t.wait_time += 20
 
 func won():
 	if level == 5:
