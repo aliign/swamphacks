@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bn0f4wob0jkxl" path="res://platformer/scenes/button.tscn" id="5_jithg"]
 [ext_resource type="Script" uid="uid://c5b8gim7jbfqn" path="res://platformer/scripts/wallbutton.gd" id="6_1qmg0"]
 [ext_resource type="PackedScene" uid="uid://bq3pnq2d6mqo" path="res://platformer/scenes/movingplat.tscn" id="7_o8ipe"]
+[ext_resource type="Script" uid="uid://ca5x6vn4ruidn" path="res://platformer/scripts/animation_player.gd" id="8_5mnne"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kcluk"]
 size = Vector2(32, 16)
@@ -27,7 +28,74 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(360, -413), Vector2(552, -413)]
+"values": [Vector2(552, -453), Vector2(360, -453)]
+}
+
+[sub_resource type="Animation" id="Animation_0cex3"]
+resource_name = "ani1"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(360, -373), Vector2(552, -373)]
+}
+
+[sub_resource type="Animation" id="Animation_siaby"]
+resource_name = "ani2"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(552, -413), Vector2(360, -413)]
+}
+
+[sub_resource type="Animation" id="Animation_mxmxk"]
+resource_name = "ani3"
+length = 1.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(360, -453), Vector2(552, -453)]
+}
+
+[sub_resource type="Animation" id="Animation_obsmj"]
+resource_name = "ani4"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(552, -493), Vector2(360, -493)]
 }
 
 [sub_resource type="Animation" id="Animation_5mnne"]
@@ -50,6 +118,10 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0cex3"]
 _data = {
 &"RESET": SubResource("Animation_o8ipe"),
+&"ani1": SubResource("Animation_0cex3"),
+&"ani2": SubResource("Animation_siaby"),
+&"ani3": SubResource("Animation_mxmxk"),
+&"ani4": SubResource("Animation_obsmj"),
 &"movement": SubResource("Animation_5mnne")
 }
 
@@ -214,18 +286,34 @@ shape = SubResource("RectangleShape2D_iexxu")
 [node name="movinghatches" type="Node" parent="." index="9" unique_id=2062487709]
 
 [node name="movingplat" parent="movinghatches" index="0" unique_id=1301551418 instance=ExtResource("7_o8ipe")]
-position = Vector2(360, -413)
+position = Vector2(552, -453)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="movinghatches/movingplat" index="2" unique_id=893072738]
 libraries/ = SubResource("AnimationLibrary_0cex3")
-autoplay = &"movement"
+autoplay = &"ani1"
 
 [node name="movingplat2" parent="movinghatches" index="1" unique_id=622776691 instance=ExtResource("7_o8ipe")]
-position = Vector2(360, -413)
+position = Vector2(552, -453)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="movinghatches/movingplat2" index="2" unique_id=183895940]
 libraries/ = SubResource("AnimationLibrary_0cex3")
-autoplay = &"RESET"
+autoplay = &"ani2"
+
+[node name="movingplat3" parent="movinghatches" index="2" unique_id=569867814 instance=ExtResource("7_o8ipe")]
+position = Vector2(552, -453)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="movinghatches/movingplat3" index="2" unique_id=829311042]
+libraries/ = SubResource("AnimationLibrary_0cex3")
+autoplay = &"ani3"
+script = ExtResource("8_5mnne")
+
+[node name="movingplat4" parent="movinghatches" index="3" unique_id=778536794 instance=ExtResource("7_o8ipe")]
+position = Vector2(552, -453)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="movinghatches/movingplat4" index="2" unique_id=1760060606]
+libraries/ = SubResource("AnimationLibrary_0cex3")
+autoplay = &"ani4"
+script = ExtResource("8_5mnne")
 
 [connection signal="timeout" from="gametime" to="." method="_on_gametime_timeout"]
 [connection signal="body_entered" from="wallbutt" to="wallbutt" method="_on_body_entered"]
