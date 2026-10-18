@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 const SPEED = 80.0
-const JUMP_VELOCITY = -210
+const JUMP_VELOCITY = -250
 const CROUCH_MULT = 0.5
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var dashcd: Timer = $dashcd
