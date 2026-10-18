@@ -11,3 +11,9 @@ class_name Cell
 var center : Vector2 = global_position + (size * 0.5):
 	get():
 		return global_position + (size * 0.5)
+
+@export var color : Color
+func _ready() -> void:
+	var styleBox: StyleBoxFlat = %Panel.get_theme_stylebox("panel").duplicate()
+	styleBox.bg_color = color
+	%Panel.add_theme_stylebox_override("panel", styleBox)

@@ -7,14 +7,20 @@ class_name Ally
 @export var target : BattlerPlayer
 
 @export_category("Details")
-@export var rank : Globals.rank = Globals.COMMONER
+@export var rank : Globals.rank = Globals.rank.COMMONER
 @export var description : String
 
 @export_category("Mechanics")
+@export var perm_cooldown : float = 1.0:
+	set(value):
+		perm_cooldown = value if value >= 1.0 else 1.0
+		cooldown = perm_cooldown if perm_cooldown > cooldown else cooldown
+		update_display()
 @export var cooldown : float = 1.0:
 	set(value):
 		cooldown = value if value >= 1.0 else 1.0
-@export var perm_multicast : int:
+		%Timer.wait_time = cooldown
+@export var perm_multicast : int = 1:
 	set(value):
 		perm_multicast = value if value >= 1 else 1
 		multicast = perm_multicast if perm_multicast > multicast else multicast
@@ -98,6 +104,7 @@ func update_display():
 	%ShieldLabel.value = shield
 	%HealLabel.value = healing
 	%MulticastLabel.value = multicast - 1
+	%CooldownBar.max_value = cooldown
 
 @onready var sprite : Sprite2D = %Sprite
 @onready var timer : Timer = %Timer
@@ -107,6 +114,8 @@ func _ready() -> void:
 	await get_tree().create_timer(0.1).timeout
 	self.global_position = get_closest_cell().center
 	get_closest_cell().ally = self
+	if team != 0:
+		sprite.scale.x *= -1
 
 func _process(delta: float) -> void:
 	%CooldownBar.value = %Timer.time_left
@@ -116,12 +125,16 @@ var hovering : bool = false:
 	set(value):
 		hovering = value
 		sprite.scale = original_scale * 1.1 if hovering else original_scale
+		if team != 0:
+			sprite.scale.x *= -1
 
 func mouse_start_hover() -> void:
 	hovering = true
+	Globals.highlighted_ally = self
 
 func mouse_end_hover() -> void:
 	hovering = false
+	Globals.highlighted_ally = null
 
 var clicked : bool = false
 func _physics_process(delta: float) -> void:

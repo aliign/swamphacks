@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://drfflb7t20vn5" path="res://art/fortune_teller.png" id="2_gj0vx"]
 
 [node name="FortuneTeller" unique_id=575198037 instance=ExtResource("1_w742y")]
+perm_cooldown = 3.0
 cooldown = 3.0
 perm_magic = 12
 magic = 12

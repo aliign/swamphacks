@@ -7,9 +7,8 @@
 [node name="Journalist" unique_id=575198037 instance=ExtResource("1_6vpjh")]
 script = ExtResource("2_t2057")
 description = "Start of Battle: Give adjacent Allies +5 Damage."
+perm_cooldown = 3.0
 cooldown = 3.0
-perm_damage = 1
-damage = 1
 
 [node name="Sprite" parent="." index="2" unique_id=818635638]
 texture = ExtResource("3_tbfmc")

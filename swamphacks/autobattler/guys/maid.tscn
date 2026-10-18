@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://l3osfma3b2wb" path="res://art/maid.png" id="2_d64aa"]
 
 [node name="Maid" unique_id=575198037 instance=ExtResource("1_w73to")]
+perm_cooldown = 2.5
 cooldown = 2.5
 multicast = 2
 perm_damage = 3

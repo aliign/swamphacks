@@ -21,7 +21,7 @@ wait_time = 0.5
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=576495519]
 layout_mode = 2
 theme_override_constants/margin_top = 64
-theme_override_constants/margin_bottom = 64
+theme_override_constants/margin_bottom = 128
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=291077439]
 layout_mode = 2
@@ -37,7 +37,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_right = 0
 
 [node name="Control" type="Control" parent="MarginContainer/HBoxContainer/Control2/MarginContainer" unique_id=1711843886]
 layout_mode = 2
@@ -45,42 +44,47 @@ layout_mode = 2
 [node name="StatusContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Control2/MarginContainer/Control" unique_id=1296972902]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
 offset_left = 23.0
-offset_right = 543.0
-offset_bottom = -497.0
-grow_vertical = 2
+offset_right = 911.1464
+offset_bottom = 37.0
 rotation = 1.5707964
 alignment = 1
 
 [node name="PoisonLabel" parent="MarginContainer/HBoxContainer/Control2/MarginContainer/Control/StatusContainer" unique_id=1234058335 instance=ExtResource("2_vo08r")]
 unique_name_in_owner = true
+visible = false
+z_index = 1
 layout_mode = 2
 size_flags_horizontal = 1
 color = Color(0.45490196, 0.7254902, 0.023529412, 1)
 
 [node name="FireLabel" parent="MarginContainer/HBoxContainer/Control2/MarginContainer/Control/StatusContainer" unique_id=1725150468 instance=ExtResource("2_vo08r")]
 unique_name_in_owner = true
+visible = false
+z_index = 1
 layout_mode = 2
 size_flags_horizontal = 1
 color = Color(1, 0.4509804, 0, 1)
 
 [node name="HolyLabel" parent="MarginContainer/HBoxContainer/Control2/MarginContainer/Control/StatusContainer" unique_id=706602651 instance=ExtResource("2_vo08r")]
 unique_name_in_owner = true
+visible = false
+z_index = 1
 layout_mode = 2
 size_flags_horizontal = 1
 color = Color(1, 0.93333334, 0.07450981, 1)
 
 [node name="ShieldLabel" parent="MarginContainer/HBoxContainer/Control2/MarginContainer/Control/StatusContainer" unique_id=1209581509 instance=ExtResource("2_vo08r")]
 unique_name_in_owner = true
+visible = false
+z_index = 1
 layout_mode = 2
 size_flags_horizontal = 1
 color = Color(0, 0.6784314, 1, 1)
 
 [node name="HealthBar" type="ProgressBar" parent="MarginContainer/HBoxContainer" unique_id=1621257915]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(32, 0)
+custom_minimum_size = Vector2(54, 0)
 layout_mode = 2
 size_flags_vertical = 1
 step = 1.0
@@ -108,11 +112,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -18.500004
-offset_right = -13.499996
-offset_bottom = 23.0
+offset_left = -31.0
+offset_top = -20.0
+offset_right = -23.0
+offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 27
 text = "1000"
 horizontal_alignment = 1
 vertical_alignment = 1

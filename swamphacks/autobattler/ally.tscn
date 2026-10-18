@@ -62,8 +62,32 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_psh55"]
-resource_name = "enemy_attack"
+resource_name = "attack"
 length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:rotation")
+tracks/0/interp = 4
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.025, 0.5),
+"transitions": PackedFloat32Array(0.5, 0.25, 1),
+"update": 0,
+"values": [0.0, -0.17453292519943295, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.025, 0.5),
+"transitions": PackedFloat32Array(0.5, 0.25, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-10, -5), Vector2(0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_psh55"]
 _data = {
@@ -82,10 +106,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 64.0
-offset_bottom = 64.0
+offset_left = -106.688
+offset_top = -106.688
+offset_right = 106.688
+offset_bottom = 106.688
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -96,9 +120,9 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -64.0
-offset_right = 18.0
-offset_bottom = 64.0
+offset_top = -106.68801
+offset_right = 30.006
+offset_bottom = 106.68801
 grow_vertical = 2
 fill_mode = 3
 show_percentage = false
@@ -111,10 +135,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -75.0
-offset_right = 40.0
-offset_bottom = 75.0
+offset_left = -52.0
+offset_top = -107.0
+offset_right = 52.0
+offset_bottom = 106.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_behavior_recursive = 2
@@ -179,12 +203,13 @@ color = Color(0.007843138, 0.7607843, 0.36078432, 1)
 [node name="MulticastLabel" parent="Interactable/Control/Display" unique_id=1344433491 instance=ExtResource("5_cgaan")]
 unique_name_in_owner = true
 layout_mode = 2
-color = Color(0.24840015, 0.24840018, 0.24840015, 1)
+color = Color(1, 0.20784314, 0.6313726, 1)
+multicast = true
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=818635638]
 unique_name_in_owner = true
 material = ExtResource("2_xya7e")
-scale = Vector2(0.14, 0.14)
+scale = Vector2(0.233, 0.233)
 texture = ExtResource("2_qx6vg")
 
 [node name="Timer" type="Timer" parent="." unique_id=1656255211]

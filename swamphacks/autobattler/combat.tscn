@@ -12,6 +12,14 @@
 [ext_resource type="PackedScene" uid="uid://dyjl43j54e5yb" path="res://autobattler/guys/maid.tscn" id="10_kdvru"]
 [ext_resource type="PackedScene" uid="uid://b7ero3k7phuci" path="res://autobattler/guys/robber.tscn" id="11_ymduy"]
 [ext_resource type="PackedScene" uid="uid://bw7cnmpgnc6o5" path="res://autobattler/guys/villager.tscn" id="12_y1gpt"]
+[ext_resource type="Texture2D" uid="uid://jkxr75oemo35" path="res://art/combat_background.png" id="13_pv3ly"]
+[ext_resource type="Texture2D" uid="uid://c1scwey58k85h" path="res://art/combat_foreground.png" id="14_k4qdb"]
+[ext_resource type="Script" uid="uid://qfn028ykakng" path="res://autobattler/info.gd" id="15_y1gpt"]
+[ext_resource type="Texture2D" uid="uid://dsjbrfrx7xpdl" path="res://art/countess.png" id="15_ymduy"]
+[ext_resource type="Material" uid="uid://bqkvxpbnp7vbt" path="res://autobattler/outline_shader.tres" id="16_xc8vd"]
+[ext_resource type="Texture2D" uid="uid://cbvjok76ck6ee" path="res://art/farmer.png" id="16_y1gpt"]
+[ext_resource type="Theme" uid="uid://cpfkplj12ttbv" path="res://default_theme.tres" id="17_xc8vd"]
+[ext_resource type="PackedScene" uid="uid://bdhnv3qehl7dh" path="res://autobattler/number_display.tscn" id="18_5286h"]
 
 [node name="Combat" type="Control" unique_id=691949799 node_paths=PackedStringArray("player", "enemy")]
 layout_mode = 3
@@ -20,29 +28,57 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
+mouse_filter = 1
 script = ExtResource("1_0hiik")
 player = NodePath("HBoxContainer/HBoxContainer2/BattlerPlayer")
 enemy = NodePath("HBoxContainer/HBoxContainer/BattlerEnemy")
 player_team = Array[PackedScene]([ExtResource("5_cet5f"), ExtResource("6_itd30"), ExtResource("7_pv3ly"), ExtResource("8_k4qdb")])
 enemy_team = Array[PackedScene]([ExtResource("9_vyxnj"), ExtResource("10_kdvru"), ExtResource("11_ymduy"), ExtResource("12_y1gpt")])
 
+[node name="Background" type="TextureRect" parent="." unique_id=1479371684]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_pv3ly")
+expand_mode = 2
+
+[node name="Foreground" type="TextureRect" parent="." unique_id=1372204426]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
+texture = ExtResource("14_k4qdb")
+expand_mode = 2
+
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1885371616]
+z_index = 2
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -48.0
-offset_top = -40.0
-offset_right = 48.0
+offset_left = -83.0
+offset_top = -78.0
+offset_right = 85.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/margin_bottom = 16
 
 [node name="StartBattle" type="Button" parent="MarginContainer" unique_id=1098637455]
+z_index = 2
 layout_mode = 2
+mouse_behavior_recursive = 2
 text = "Start Battle"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1909896085]
@@ -63,10 +99,10 @@ mouse_filter = 2
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
-theme_override_constants/margin_left = 90
-theme_override_constants/margin_top = 95
-theme_override_constants/margin_right = 90
-theme_override_constants/margin_bottom = 95
+theme_override_constants/margin_left = 161
+theme_override_constants/margin_top = 169
+theme_override_constants/margin_right = 172
+theme_override_constants/margin_bottom = 165
 
 [node name="GridContainer" type="GridContainer" parent="HBoxContainer/HBoxContainer/MarginContainer" unique_id=692582072]
 layout_mode = 2
@@ -80,6 +116,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell2"), NodePath("../Cell3")]
+color = Color(0.94509804, 0.7529412, 0.42352942, 1)
 
 [node name="Cell2" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" unique_id=194054126 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
@@ -87,6 +124,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell"), NodePath("../Cell4")]
+color = Color(0.94509804, 0.7529412, 0.42352942, 1)
 
 [node name="Cell3" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" unique_id=986174954 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
@@ -94,6 +132,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell"), NodePath("../Cell4"), NodePath("../Cell5")]
+color = Color(0.94509804, 0.7529412, 0.42352942, 1)
 
 [node name="Cell4" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" unique_id=1659057811 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
@@ -101,6 +140,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell3"), NodePath("../Cell2"), NodePath("../Cell6")]
+color = Color(0.94509804, 0.7529412, 0.42352942, 1)
 
 [node name="Cell5" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" unique_id=51077740 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
@@ -108,6 +148,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell3"), NodePath(".")]
+color = Color(0.94509804, 0.7529412, 0.42352942, 1)
 
 [node name="Cell6" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" unique_id=496584702 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
@@ -115,11 +156,12 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell5"), NodePath("../Cell4")]
+color = Color(0.94509804, 0.7529412, 0.42352942, 1)
 
 [node name="BattlerEnemy" parent="HBoxContainer/HBoxContainer" unique_id=1313172140 node_paths=PackedStringArray("target") instance=ExtResource("3_x6t3p")]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/margin_right = 32
+theme_override_constants/margin_right = 53
 target = NodePath("../../HBoxContainer2/BattlerPlayer")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer" unique_id=1569231354]
@@ -130,17 +172,17 @@ mouse_filter = 2
 [node name="BattlerPlayer" parent="HBoxContainer/HBoxContainer2" unique_id=2131538996 node_paths=PackedStringArray("target") instance=ExtResource("1_jo7td")]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/margin_left = 32
+theme_override_constants/margin_left = 53
 target = NodePath("../../HBoxContainer/BattlerEnemy")
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/HBoxContainer2" unique_id=715432317]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
-theme_override_constants/margin_left = 90
-theme_override_constants/margin_top = 95
-theme_override_constants/margin_right = 90
-theme_override_constants/margin_bottom = 95
+theme_override_constants/margin_left = 180
+theme_override_constants/margin_top = 169
+theme_override_constants/margin_right = 152
+theme_override_constants/margin_bottom = 165
 
 [node name="GridContainer2" type="GridContainer" parent="HBoxContainer/HBoxContainer2/MarginContainer" unique_id=2083254517]
 layout_mode = 2
@@ -155,6 +197,7 @@ size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell2"), NodePath("../Cell3")]
 team = 1
+color = Color(0.87058824, 0.92941177, 0.94509804, 1)
 
 [node name="Cell2" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" unique_id=1940858361 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
@@ -163,6 +206,7 @@ size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell"), NodePath("../Cell4")]
 team = 1
+color = Color(0.87058824, 0.92941177, 0.94509804, 1)
 
 [node name="Cell3" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" unique_id=73076251 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
@@ -171,6 +215,7 @@ size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell"), NodePath("../Cell4"), NodePath("../Cell5")]
 team = 1
+color = Color(0.87058824, 0.92941177, 0.94509804, 1)
 
 [node name="Cell4" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" unique_id=863419658 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
@@ -179,6 +224,7 @@ size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell3"), NodePath("../Cell2"), NodePath("../Cell6")]
 team = 1
+color = Color(0.87058824, 0.92941177, 0.94509804, 1)
 
 [node name="Cell5" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" unique_id=518294600 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
@@ -187,6 +233,7 @@ size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell3"), NodePath(".")]
 team = 1
+color = Color(0.87058824, 0.92941177, 0.94509804, 1)
 
 [node name="Cell6" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" unique_id=534203841 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
@@ -195,5 +242,287 @@ size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell5"), NodePath("../Cell4")]
 team = 1
+color = Color(0.87058824, 0.92941177, 0.94509804, 1)
+
+[node name="MasterInfo" type="Control" parent="." unique_id=1323882686]
+z_index = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("15_y1gpt")
+
+[node name="Info" type="MarginContainer" parent="MasterInfo" unique_id=1719871328]
+z_index = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 705
+theme_override_constants/margin_right = 705
+theme_override_constants/margin_bottom = 430
+
+[node name="Panel" type="Panel" parent="MasterInfo/Info" unique_id=1495035848]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MasterInfo/Info/Panel" unique_id=1301906386]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MasterInfo/Info/Panel/MarginContainer" unique_id=1953217515]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer" unique_id=1683201709]
+layout_mode = 2
+
+[node name="Sprite" type="TextureRect" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=428962837]
+unique_name_in_owner = true
+material = ExtResource("16_xc8vd")
+layout_mode = 2
+texture = ExtResource("15_ymduy")
+expand_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=160314562]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=547634600]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "Marquess"
+
+[node name="Rank" type="Label" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1472820172]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Royalty"
+
+[node name="MarginContainer" type="MarginContainer" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer" unique_id=598771688]
+layout_mode = 2
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="CenterContainer" type="CenterContainer" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer" unique_id=2115878491]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer" unique_id=1731784280]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer2" unique_id=1026600873]
+material = ExtResource("16_xc8vd")
+layout_mode = 2
+texture = ExtResource("16_y1gpt")
+expand_mode = 2
+
+[node name="Display" type="GridContainer" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer2" unique_id=1102739230]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("17_xc8vd")
+columns = 4
+
+[node name="DamageLabel" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer2/Display" unique_id=1234058335 instance=ExtResource("18_5286h")]
+unique_name_in_owner = true
+layout_mode = 2
+color = Color(0.8571204, 0.12291927, 0, 1)
+
+[node name="MagicLabel" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer2/Display" unique_id=1968118894 instance=ExtResource("18_5286h")]
+unique_name_in_owner = true
+layout_mode = 2
+color = Color(0.7607843, 0.48235294, 1, 1)
+
+[node name="PoisonLabel" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer2/Display" unique_id=1595098175 instance=ExtResource("18_5286h")]
+unique_name_in_owner = true
+layout_mode = 2
+color = Color(0.45490196, 0.7254902, 0.023529412, 1)
+
+[node name="FireLabel" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer2/Display" unique_id=1125159648 instance=ExtResource("18_5286h")]
+unique_name_in_owner = true
+layout_mode = 2
+color = Color(1, 0.4509804, 0, 1)
+
+[node name="HolyLabel" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer2/Display" unique_id=1822446564 instance=ExtResource("18_5286h")]
+unique_name_in_owner = true
+layout_mode = 2
+color = Color(1, 0.93333334, 0.07450981, 1)
+
+[node name="ShieldLabel" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer2/Display" unique_id=1280890741 instance=ExtResource("18_5286h")]
+unique_name_in_owner = true
+layout_mode = 2
+color = Color(0, 0.6784314, 1, 1)
+
+[node name="HealLabel" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer2/Display" unique_id=622448620 instance=ExtResource("18_5286h")]
+unique_name_in_owner = true
+layout_mode = 2
+color = Color(0.007843138, 0.7607843, 0.36078432, 1)
+
+[node name="MulticastLabel" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer2/Display" unique_id=71427933 instance=ExtResource("18_5286h")]
+unique_name_in_owner = true
+layout_mode = 2
+color = Color(1, 0.20784314, 0.6313726, 1)
+multicast = true
+
+[node name="Description" type="RichTextLabel" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer" unique_id=490149132]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+fit_content = true
+
+[node name="ExtraInfo" type="MarginContainer" parent="MasterInfo" unique_id=234356663]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 705
+theme_override_constants/margin_top = 685
+theme_override_constants/margin_right = 705
+
+[node name="Panel" type="Panel" parent="MasterInfo/ExtraInfo" unique_id=1433797870]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MasterInfo/ExtraInfo/Panel" unique_id=865093369]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MasterInfo/ExtraInfo/Panel/MarginContainer" unique_id=1168351761]
+layout_mode = 2
+
+[node name="DamageDescription" type="RichTextLabel" parent="MasterInfo/ExtraInfo/Panel/MarginContainer/VBoxContainer" unique_id=1541965222]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 18
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/mono_font_size = 18
+bbcode_enabled = true
+text = "[color=#db1f00][b]Damage[/b][/color] reduces the health of the opponent."
+fit_content = true
+
+[node name="MagicDescription" type="RichTextLabel" parent="MasterInfo/ExtraInfo/Panel/MarginContainer/VBoxContainer" unique_id=203410414]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 18
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/mono_font_size = 18
+bbcode_enabled = true
+text = "[color=#c27bff][b]Magic Damage[/b][/color] damages through shield."
+fit_content = true
+
+[node name="PoisonDescription" type="RichTextLabel" parent="MasterInfo/ExtraInfo/Panel/MarginContainer/VBoxContainer" unique_id=1511487596]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 18
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/mono_font_size = 18
+bbcode_enabled = true
+text = "[color=74b906][b]Poison[/b][/color] damages every second, through shield."
+fit_content = true
+
+[node name="FireDescription" type="RichTextLabel" parent="MasterInfo/ExtraInfo/Panel/MarginContainer/VBoxContainer" unique_id=233150023]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 18
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/mono_font_size = 18
+bbcode_enabled = true
+text = "[color=ff7300][b]Fire[/b][/color] damages every half second, but diminishes after damaging."
+fit_content = true
+
+[node name="HolyDescription" type="RichTextLabel" parent="MasterInfo/ExtraInfo/Panel/MarginContainer/VBoxContainer" unique_id=1637134361]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 18
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/mono_font_size = 18
+bbcode_enabled = true
+text = "[color=ffee13][b]Holy[/b][/color] increases the damage of regular damage."
+fit_content = true
+
+[node name="ShieldDescription" type="RichTextLabel" parent="MasterInfo/ExtraInfo/Panel/MarginContainer/VBoxContainer" unique_id=1899215475]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 18
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/mono_font_size = 18
+bbcode_enabled = true
+text = "[color=00adff][b]Shield[/b][/color] blocks regular damage and fire."
+fit_content = true
+
+[node name="HealingDescription" type="RichTextLabel" parent="MasterInfo/ExtraInfo/Panel/MarginContainer/VBoxContainer" unique_id=728519795]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 18
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/mono_font_size = 18
+bbcode_enabled = true
+text = "[color=02c25c][b]Healing[/b][/color] replenishes your health.[color=3f3f3f]"
+fit_content = true
+
+[node name="MulticastDescription" type="RichTextLabel" parent="MasterInfo/ExtraInfo/Panel/MarginContainer/VBoxContainer" unique_id=1189036686]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 18
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/mono_font_size = 18
+bbcode_enabled = true
+text = "[color=ff35a1][b]Multicast[/b][/color] makes units attack twice per cooldown."
+fit_content = true
 
 [connection signal="pressed" from="MarginContainer/StartBattle" to="." method="start_battle"]

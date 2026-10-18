@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dlfoeg8xq776t"]
+
+[ext_resource type="PackedScene" uid="uid://b2qdjoaqpllxw" path="res://autobattler/ally.tscn" id="1_l68rq"]
+[ext_resource type="Texture2D" uid="uid://c88wk14vv2pxu" path="res://art/imperial_knight_commander.png" id="2_aee4g"]
+[ext_resource type="Script" uid="uid://bvjg7n61tsiqv" path="res://autobattler/guys/imperial_night_commander.gd" id="2_w4jnj"]
+
+[node name="ImperialNightCommander" unique_id=729490585 instance=ExtResource("1_l68rq")]
+script = ExtResource("2_w4jnj")
+rank = 3
+description = "On Battle Start: has +400% Damage if no Adjacent Allies."
+perm_cooldown = 8.0
+cooldown = 8.0
+perm_damage = 50
+damage = 50
+
+[node name="Sprite" parent="." index="2" unique_id=818635638]
+texture = ExtResource("2_aee4g")

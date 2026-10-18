@@ -1,11 +1,12 @@
 extends Ally
 
+var doubled : bool = false
 func cast() -> void:
-	var dmg : int = damage
-	if player.health <= player.max_health * 0.5:
-		dmg *= 2
+	if player.health <= player.max_health * 0.5 and not doubled:
+		damage = damage * 2
+		doubled = true
 	for i in multicast:
-		target.take_damage(dmg)
+		target.take_damage(damage)
 		target.take_magic_damage(magic)
 		target.add_poison(poison)
 		target.add_fire(fire)

@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b2qdjoaqpllxw" path="res://autobattler/ally.tscn" id="1_qadxp"]
 
 [node name="Villager" unique_id=575198037 instance=ExtResource("1_qadxp")]
+perm_cooldown = 4.0
 cooldown = 4.0
-perm_damage = 15
-damage = 15
+perm_healing = 15
+healing = 15

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dc8qe7lti88r4" path="res://art/robber.png" id="2_n7jvs"]
 
 [node name="Robber" unique_id=575198037 instance=ExtResource("1_3fajm")]
+perm_cooldown = 3.0
 cooldown = 3.0
 perm_damage = 8
 damage = 8

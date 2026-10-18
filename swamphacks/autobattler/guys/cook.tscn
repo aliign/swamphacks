@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b6be6vc1502wr" path="res://art/cook.png" id="2_q45nu"]
 
 [node name="Cook" unique_id=575198037 instance=ExtResource("1_dlt6k")]
+perm_cooldown = 2.5
 cooldown = 2.5
 perm_fire = 2
 fire = 2

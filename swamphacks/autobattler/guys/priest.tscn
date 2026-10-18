@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dc1cybkjyy5o1"]
+
+[ext_resource type="PackedScene" uid="uid://b2qdjoaqpllxw" path="res://autobattler/ally.tscn" id="1_5sddl"]
+[ext_resource type="Script" uid="uid://dqi5l16de8j2w" path="res://autobattler/guys/priest.gd" id="2_1yjuk"]
+[ext_resource type="Texture2D" uid="uid://cif57twu3iwtt" path="res://art/priest.png" id="2_2dn4o"]
+
+[node name="Priest" unique_id=729490585 instance=ExtResource("1_5sddl")]
+script = ExtResource("2_1yjuk")
+team = null
+rank = 2
+description = "On Battle Start: -25% Cooldowns on Allies in the Right Column."
+perm_cooldown = 3.0
+cooldown = 3.0
+perm_multicast = null
+multicast = null
+perm_damage = null
+damage = null
+perm_poison = null
+poison = null
+perm_fire = null
+fire = null
+perm_magic = null
+magic = null
+perm_holy = 5
+holy = 5
+perm_shield = null
+shield = null
+perm_healing = null
+healing = null
+
+[node name="Sprite" parent="." index="2" unique_id=818635638]
+texture = ExtResource("2_2dn4o")

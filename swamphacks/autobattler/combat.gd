@@ -12,7 +12,8 @@ func start_battle() -> void:
 
 func _ready() -> void:
 	if Globals.inventory:
-		player_team = Globals.inventory
+		for string in Globals.inventory:
+			player_team.append(load(string))
 	spawn_player_team()
 	spawn_enemy_team()
 

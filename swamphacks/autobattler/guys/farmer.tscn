@@ -7,6 +7,7 @@
 [node name="Farmer" unique_id=575198037 instance=ExtResource("1_pmxlp")]
 script = ExtResource("2_6kfss")
 description = "Passive: Deals +100% Damage after dropping below 50% Health."
+perm_cooldown = 4.5
 cooldown = 4.5
 perm_damage = 35
 damage = 35

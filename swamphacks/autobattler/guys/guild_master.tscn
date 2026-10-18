@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://2qtfc0o7f8pa" path="res://art/guildmaster.png" id="2_jb8dx"]
 
 [node name="GuildMaster" unique_id=575198037 instance=ExtResource("1_sjt6t")]
+rank = 1
+perm_cooldown = 6.0
 cooldown = 6.0
 perm_magic = 5
 magic = 5

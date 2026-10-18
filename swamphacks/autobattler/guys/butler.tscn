@@ -7,6 +7,13 @@
 [node name="Butler" unique_id=729490585 instance=ExtResource("1_mv21c")]
 script = ExtResource("2_20y1l")
 rank = 2
+description = "On Battle Start: Adjacent Commoners gain +1 Multicast"
+perm_cooldown = 3.5
+cooldown = 3.5
+perm_shield = 30
+shield = 30
+perm_healing = 10
+healing = 10
 
 [node name="Sprite" parent="." index="2" unique_id=818635638]
 texture = ExtResource("2_mdtt2")

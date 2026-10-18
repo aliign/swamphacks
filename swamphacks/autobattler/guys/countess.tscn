@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://d3fuy3dth6cuf"]
+
+[ext_resource type="PackedScene" uid="uid://b2qdjoaqpllxw" path="res://autobattler/ally.tscn" id="1_djml0"]
+[ext_resource type="Script" uid="uid://sulotgfsf6gl" path="res://autobattler/guys/countess.gd" id="2_gplud"]
+[ext_resource type="Texture2D" uid="uid://dsjbrfrx7xpdl" path="res://art/countess.png" id="2_i8d3p"]
+
+[node name="Countess" unique_id=729490585 instance=ExtResource("1_djml0")]
+script = ExtResource("2_gplud")
+rank = 3
+description = "On Battle Start: Adjacent Allies have +100% Shield and +100% Magic Damage."
+perm_cooldown = 5.0
+cooldown = 5.0
+holy = 2
+healing = 10
+
+[node name="Sprite" parent="." index="2" unique_id=818635638]
+texture = ExtResource("2_i8d3p")

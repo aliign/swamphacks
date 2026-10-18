@@ -3,15 +3,15 @@
 [ext_resource type="Script" uid="uid://du02pxh7vsr0f" path="res://autobattler/number_display.gd" id="1_78tyn"]
 
 [node name="NumberDisplay" type="PanelContainer" unique_id=1234058335]
-custom_maximum_size = Vector2(-1, 23)
+custom_maximum_size = Vector2(-1, 38.341)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -9.5
+offset_left = -15.836487
 offset_top = -11.5
-offset_right = 9.5
+offset_right = 15.836487
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
@@ -21,13 +21,14 @@ script = ExtResource("1_78tyn")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1267261838]
 layout_mode = 2
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_right = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_right = 3
 
 [node name="Label" type="Label" parent="MarginContainer" unique_id=2067959939]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_font_sizes/font_size = 27
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
