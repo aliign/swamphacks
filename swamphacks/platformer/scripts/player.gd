@@ -43,7 +43,10 @@ func handle_horizontal_movement() -> void:
 	else:
 		var acceleration = ground_acceleration if is_on_floor() else air_acceleration
 		var max_speed = ground_max_speed if is_on_floor() else air_max_speed
-		velocity.x = move_toward(velocity.x, input_vector.x * max_speed * apex_multiplier, acceleration * apex_multiplier)
+		if is_on_floor():
+			velocity.x = move_toward(velocity.x, input_vector.x * max_speed, acceleration)
+		else:
+			velocity.x = move_toward(velocity.x, input_vector.x * max_speed * apex_multiplier, acceleration * apex_multiplier)
 
 @export_group("Leniency")
 @export var input_buffer_frames : int = 4
@@ -140,14 +143,10 @@ func _physics_process(delta: float) -> void:
 			standbox.set_deferred("disabled", false)
 		
 		if input_vector.x:
-			if Input.is_action_pressed("crouch"):
+			if Input.is_action_pressed("crouch") and is_on_floor():
 				velocity.x = input_vector.x * SPEED * CROUCH_MULT
 			elif Input.is_action_pressed("dash"):
 				if dashcd.is_stopped():
 					dashcd.start()
 					dashdur.start()
-				else:
-					if dashdur.is_stopped():
-						#velocity.x= input_vector.x * SPEED
-						pass
 	move_and_slide()
