@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dtegasf4gcwlm"]
+
+[ext_resource type="PackedScene" uid="uid://b2qdjoaqpllxw" path="res://autobattler/ally.tscn" id="1_4erhw"]
+[ext_resource type="Script" uid="uid://csgrhhqsgv0hu" path="res://marquess.gd" id="2_f8rhp"]
+[ext_resource type="Texture2D" uid="uid://cwavcc1ojdmwr" path="res://art/marquess.png" id="3_f8rhp"]
+
+[node name="Marquess" unique_id=729490585 instance=ExtResource("1_4erhw")]
+script = ExtResource("2_f8rhp")
+rank = 3
+description = "On Cast: Removes Poison from your Team equal to Poison Damage."
+perm_cooldown = 4.0
+cooldown = 4.0
+perm_poison = 3
+poison = 3
+perm_holy = 3
+holy = 3
+
+[node name="Sprite" parent="." index="2" unique_id=818635638]
+texture = ExtResource("3_f8rhp")

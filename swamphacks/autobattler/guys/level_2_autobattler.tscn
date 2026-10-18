@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bwebcoo57urmg"]
+
+[ext_resource type="PackedScene" uid="uid://dgefqcup55p1s" path="res://autobattler/combat.tscn" id="1_tp0km"]
+[ext_resource type="PackedScene" uid="uid://71nod8l2162j" path="res://autobattler/guys/cook.tscn" id="2_2uye5"]
+[ext_resource type="PackedScene" uid="uid://dc1cybkjyy5o1" path="res://autobattler/guys/priest.tscn" id="3_jwmbr"]
+[ext_resource type="PackedScene" uid="uid://bu3qhostdqjqb" path="res://autobattler/guys/blacksmith.tscn" id="4_ajn8i"]
+[ext_resource type="PackedScene" uid="uid://ccyw8dd4byakl" path="res://autobattler/guys/farmer.tscn" id="5_mcbqy"]
+
+[node name="Level2" unique_id=691949799 instance=ExtResource("1_tp0km")]
+enemy_team = Array[PackedScene]([ExtResource("2_2uye5"), ExtResource("3_jwmbr"), ExtResource("4_ajn8i"), ExtResource("5_mcbqy")])
+
+[node name="BattlerEnemy" parent="HBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(729209386) index="1" unique_id=1313172140]
+max_health = 700
+
+[node name="BattlerPlayer" parent="HBoxContainer/HBoxContainer2" parent_id_path=PackedInt32Array(1569231354) index="0" unique_id=2131538996]
+max_health = 700

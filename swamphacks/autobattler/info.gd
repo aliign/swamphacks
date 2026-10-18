@@ -25,5 +25,6 @@ func _process(delta: float) -> void:
 		%ShieldDescription.visible = true if ally.shield > 0 else false
 		%HealingDescription.visible = true if ally.healing > 0 else false
 		%MulticastDescription.visible = true if ally.multicast > 1 else false
+		%CooldownLabel.text = "%0.1f" % ally.cooldown if ally.multicast > 0 else "N/A"
 	else:
 		self.visible = false

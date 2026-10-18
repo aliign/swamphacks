@@ -4,20 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://dlgewwi46dh35" path="res://autobattler/battler_player.tscn" id="1_jo7td"]
 [ext_resource type="PackedScene" uid="uid://c2fa4l344mqci" path="res://autobattler/cell.tscn" id="2_x6t3p"]
 [ext_resource type="PackedScene" uid="uid://dfv6tt3wgdyri" path="res://autobattler/battler_enemy.tscn" id="3_x6t3p"]
-[ext_resource type="PackedScene" uid="uid://71nod8l2162j" path="res://autobattler/guys/cook.tscn" id="5_cet5f"]
-[ext_resource type="PackedScene" uid="uid://ccyw8dd4byakl" path="res://autobattler/guys/farmer.tscn" id="6_itd30"]
-[ext_resource type="PackedScene" uid="uid://db8gqophxq7ik" path="res://autobattler/guys/fortune_teller.tscn" id="7_pv3ly"]
-[ext_resource type="PackedScene" uid="uid://dbnstix6jh2du" path="res://autobattler/guys/guild_master.tscn" id="8_k4qdb"]
-[ext_resource type="PackedScene" uid="uid://pbl1h4ry45my" path="res://autobattler/guys/journalist.tscn" id="9_vyxnj"]
-[ext_resource type="PackedScene" uid="uid://dyjl43j54e5yb" path="res://autobattler/guys/maid.tscn" id="10_kdvru"]
-[ext_resource type="PackedScene" uid="uid://b7ero3k7phuci" path="res://autobattler/guys/robber.tscn" id="11_ymduy"]
-[ext_resource type="PackedScene" uid="uid://bw7cnmpgnc6o5" path="res://autobattler/guys/villager.tscn" id="12_y1gpt"]
+[ext_resource type="Texture2D" uid="uid://di2fa182w5r6b" path="res://art/stopwatch.png" id="10_cet5f"]
 [ext_resource type="Texture2D" uid="uid://jkxr75oemo35" path="res://art/combat_background.png" id="13_pv3ly"]
 [ext_resource type="Texture2D" uid="uid://c1scwey58k85h" path="res://art/combat_foreground.png" id="14_k4qdb"]
 [ext_resource type="Script" uid="uid://qfn028ykakng" path="res://autobattler/info.gd" id="15_y1gpt"]
 [ext_resource type="Texture2D" uid="uid://dsjbrfrx7xpdl" path="res://art/countess.png" id="15_ymduy"]
 [ext_resource type="Material" uid="uid://bqkvxpbnp7vbt" path="res://autobattler/outline_shader.tres" id="16_xc8vd"]
-[ext_resource type="Texture2D" uid="uid://cbvjok76ck6ee" path="res://art/farmer.png" id="16_y1gpt"]
 [ext_resource type="Theme" uid="uid://cpfkplj12ttbv" path="res://default_theme.tres" id="17_xc8vd"]
 [ext_resource type="PackedScene" uid="uid://bdhnv3qehl7dh" path="res://autobattler/number_display.tscn" id="18_5286h"]
 
@@ -32,8 +24,6 @@ mouse_filter = 1
 script = ExtResource("1_0hiik")
 player = NodePath("HBoxContainer/HBoxContainer2/BattlerPlayer")
 enemy = NodePath("HBoxContainer/HBoxContainer/BattlerEnemy")
-player_team = Array[PackedScene]([ExtResource("5_cet5f"), ExtResource("6_itd30"), ExtResource("7_pv3ly"), ExtResource("8_k4qdb")])
-enemy_team = Array[PackedScene]([ExtResource("9_vyxnj"), ExtResource("10_kdvru"), ExtResource("11_ymduy"), ExtResource("12_y1gpt")])
 
 [node name="Background" type="TextureRect" parent="." unique_id=1479371684]
 z_index = -1
@@ -110,52 +100,69 @@ size_flags_horizontal = 3
 mouse_filter = 2
 columns = 2
 
-[node name="Cell" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" unique_id=498725030 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
+[node name="Cell" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" unique_id=498725030 node_paths=PackedStringArray("adjacency_list", "adj_down", "adj_right") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell2"), NodePath("../Cell3")]
+adj_down = NodePath("../Cell3")
+adj_right = NodePath("../Cell2")
+left_column = true
 color = Color(0.94509804, 0.7529412, 0.42352942, 1)
 
-[node name="Cell2" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" unique_id=194054126 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
+[node name="Cell2" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" unique_id=194054126 node_paths=PackedStringArray("adjacency_list", "adj_down", "adj_left") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell"), NodePath("../Cell4")]
+adj_down = NodePath("../Cell4")
+adj_left = NodePath("../Cell")
 color = Color(0.94509804, 0.7529412, 0.42352942, 1)
 
-[node name="Cell3" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" unique_id=986174954 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
+[node name="Cell3" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" unique_id=986174954 node_paths=PackedStringArray("adjacency_list", "adj_up", "adj_down", "adj_right") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell"), NodePath("../Cell4"), NodePath("../Cell5")]
+adj_up = NodePath("../Cell")
+adj_down = NodePath("../Cell5")
+adj_right = NodePath("../Cell4")
+left_column = true
 color = Color(0.94509804, 0.7529412, 0.42352942, 1)
 
-[node name="Cell4" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" unique_id=1659057811 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
+[node name="Cell4" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" unique_id=1659057811 node_paths=PackedStringArray("adjacency_list", "adj_up", "adj_down", "adj_left") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell3"), NodePath("../Cell2"), NodePath("../Cell6")]
+adj_up = NodePath("../Cell2")
+adj_down = NodePath("../Cell6")
+adj_left = NodePath("../Cell3")
 color = Color(0.94509804, 0.7529412, 0.42352942, 1)
 
-[node name="Cell5" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" unique_id=51077740 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
+[node name="Cell5" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" unique_id=51077740 node_paths=PackedStringArray("adjacency_list", "adj_up", "adj_right") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell3"), NodePath(".")]
+adj_up = NodePath("../Cell3")
+adj_right = NodePath("../Cell6")
+left_column = true
 color = Color(0.94509804, 0.7529412, 0.42352942, 1)
 
-[node name="Cell6" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" unique_id=496584702 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
+[node name="Cell6" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" unique_id=496584702 node_paths=PackedStringArray("adjacency_list", "adj_up", "adj_left") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell5"), NodePath("../Cell4")]
+adj_up = NodePath("../Cell4")
+adj_left = NodePath("../Cell5")
 color = Color(0.94509804, 0.7529412, 0.42352942, 1)
 
 [node name="BattlerEnemy" parent="HBoxContainer/HBoxContainer" unique_id=1313172140 node_paths=PackedStringArray("target") instance=ExtResource("3_x6t3p")]
@@ -190,57 +197,74 @@ size_flags_horizontal = 3
 mouse_filter = 2
 columns = 2
 
-[node name="Cell" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" unique_id=1025022052 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
+[node name="Cell" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" unique_id=1025022052 node_paths=PackedStringArray("adjacency_list", "adj_down", "adj_right") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell2"), NodePath("../Cell3")]
+adj_down = NodePath("../Cell3")
+adj_right = NodePath("../Cell2")
+left_column = true
 team = 1
 color = Color(0.87058824, 0.92941177, 0.94509804, 1)
 
-[node name="Cell2" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" unique_id=1940858361 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
+[node name="Cell2" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" unique_id=1940858361 node_paths=PackedStringArray("adjacency_list", "adj_down", "adj_left") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell"), NodePath("../Cell4")]
+adj_down = NodePath("../Cell4")
+adj_left = NodePath("../Cell")
 team = 1
 color = Color(0.87058824, 0.92941177, 0.94509804, 1)
 
-[node name="Cell3" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" unique_id=73076251 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
+[node name="Cell3" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" unique_id=73076251 node_paths=PackedStringArray("adjacency_list", "adj_up", "adj_down", "adj_right") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell"), NodePath("../Cell4"), NodePath("../Cell5")]
+adj_up = NodePath("../Cell")
+adj_down = NodePath("../Cell5")
+adj_right = NodePath("../Cell4")
+left_column = true
 team = 1
 color = Color(0.87058824, 0.92941177, 0.94509804, 1)
 
-[node name="Cell4" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" unique_id=863419658 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
+[node name="Cell4" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" unique_id=863419658 node_paths=PackedStringArray("adjacency_list", "adj_up", "adj_down", "adj_left") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell3"), NodePath("../Cell2"), NodePath("../Cell6")]
+adj_up = NodePath("../Cell2")
+adj_down = NodePath("../Cell6")
+adj_left = NodePath("../Cell3")
 team = 1
 color = Color(0.87058824, 0.92941177, 0.94509804, 1)
 
-[node name="Cell5" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" unique_id=518294600 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
+[node name="Cell5" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" unique_id=518294600 node_paths=PackedStringArray("adjacency_list", "adj_up", "adj_right") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell3"), NodePath(".")]
+adj_up = NodePath("../Cell3")
+adj_right = NodePath("../Cell6")
+left_column = true
 team = 1
 color = Color(0.87058824, 0.92941177, 0.94509804, 1)
 
-[node name="Cell6" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" unique_id=534203841 node_paths=PackedStringArray("adjacency_list") instance=ExtResource("2_x6t3p")]
+[node name="Cell6" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" unique_id=534203841 node_paths=PackedStringArray("adjacency_list", "adj_up", "adj_left") instance=ExtResource("2_x6t3p")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 adjacency_list = [NodePath("../Cell5"), NodePath("../Cell4")]
+adj_up = NodePath("../Cell4")
+adj_left = NodePath("../Cell5")
 team = 1
 color = Color(0.87058824, 0.92941177, 0.94509804, 1)
 
@@ -300,12 +324,16 @@ layout_mode = 2
 [node name="Name" type="Label" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=547634600]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 56
 text = "Marquess"
 
 [node name="Rank" type="Label" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1472820172]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 40
 text = "Royalty"
 
@@ -323,51 +351,74 @@ layout_mode = 2
 [node name="TextureRect" type="TextureRect" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer2" unique_id=1026600873]
 material = ExtResource("16_xc8vd")
 layout_mode = 2
-texture = ExtResource("16_y1gpt")
+texture = ExtResource("10_cet5f")
 expand_mode = 2
 
-[node name="Display" type="GridContainer" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer2" unique_id=1102739230]
+[node name="CenterContainer" type="CenterContainer" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer2/TextureRect" unique_id=2065028429]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CooldownLabel" type="Label" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer2/TextureRect/CenterContainer" unique_id=1901091765]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("17_xc8vd")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 36
+
+[node name="Control" type="Control" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer2" unique_id=352929525]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer2" unique_id=921925014]
+layout_mode = 2
+
+[node name="Display" type="GridContainer" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer2/CenterContainer" unique_id=1102739230]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("17_xc8vd")
 columns = 4
 
-[node name="DamageLabel" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer2/Display" unique_id=1234058335 instance=ExtResource("18_5286h")]
+[node name="DamageLabel" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer2/CenterContainer/Display" unique_id=1234058335 instance=ExtResource("18_5286h")]
 unique_name_in_owner = true
 layout_mode = 2
 color = Color(0.8571204, 0.12291927, 0, 1)
 
-[node name="MagicLabel" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer2/Display" unique_id=1968118894 instance=ExtResource("18_5286h")]
+[node name="MagicLabel" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer2/CenterContainer/Display" unique_id=1968118894 instance=ExtResource("18_5286h")]
 unique_name_in_owner = true
 layout_mode = 2
 color = Color(0.7607843, 0.48235294, 1, 1)
 
-[node name="PoisonLabel" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer2/Display" unique_id=1595098175 instance=ExtResource("18_5286h")]
+[node name="PoisonLabel" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer2/CenterContainer/Display" unique_id=1595098175 instance=ExtResource("18_5286h")]
 unique_name_in_owner = true
 layout_mode = 2
 color = Color(0.45490196, 0.7254902, 0.023529412, 1)
 
-[node name="FireLabel" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer2/Display" unique_id=1125159648 instance=ExtResource("18_5286h")]
+[node name="FireLabel" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer2/CenterContainer/Display" unique_id=1125159648 instance=ExtResource("18_5286h")]
 unique_name_in_owner = true
 layout_mode = 2
 color = Color(1, 0.4509804, 0, 1)
 
-[node name="HolyLabel" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer2/Display" unique_id=1822446564 instance=ExtResource("18_5286h")]
+[node name="HolyLabel" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer2/CenterContainer/Display" unique_id=1822446564 instance=ExtResource("18_5286h")]
 unique_name_in_owner = true
 layout_mode = 2
 color = Color(1, 0.93333334, 0.07450981, 1)
 
-[node name="ShieldLabel" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer2/Display" unique_id=1280890741 instance=ExtResource("18_5286h")]
+[node name="ShieldLabel" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer2/CenterContainer/Display" unique_id=1280890741 instance=ExtResource("18_5286h")]
 unique_name_in_owner = true
 layout_mode = 2
 color = Color(0, 0.6784314, 1, 1)
 
-[node name="HealLabel" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer2/Display" unique_id=622448620 instance=ExtResource("18_5286h")]
+[node name="HealLabel" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer2/CenterContainer/Display" unique_id=622448620 instance=ExtResource("18_5286h")]
 unique_name_in_owner = true
 layout_mode = 2
 color = Color(0.007843138, 0.7607843, 0.36078432, 1)
 
-[node name="MulticastLabel" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer2/Display" unique_id=71427933 instance=ExtResource("18_5286h")]
+[node name="MulticastLabel" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/MarginContainer/CenterContainer/HBoxContainer2/CenterContainer/Display" unique_id=71427933 instance=ExtResource("18_5286h")]
 unique_name_in_owner = true
 layout_mode = 2
 color = Color(1, 0.20784314, 0.6313726, 1)
@@ -376,6 +427,8 @@ multicast = true
 [node name="Description" type="RichTextLabel" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer" unique_id=490149132]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 24
 theme_override_font_sizes/bold_font_size = 24
 theme_override_font_sizes/bold_italics_font_size = 24
@@ -416,8 +469,8 @@ layout_mode = 2
 [node name="DamageDescription" type="RichTextLabel" parent="MasterInfo/ExtraInfo/Panel/MarginContainer/VBoxContainer" unique_id=1541965222]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 18
 theme_override_font_sizes/bold_italics_font_size = 18
@@ -430,8 +483,8 @@ fit_content = true
 [node name="MagicDescription" type="RichTextLabel" parent="MasterInfo/ExtraInfo/Panel/MarginContainer/VBoxContainer" unique_id=203410414]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 18
 theme_override_font_sizes/bold_italics_font_size = 18
@@ -444,8 +497,8 @@ fit_content = true
 [node name="PoisonDescription" type="RichTextLabel" parent="MasterInfo/ExtraInfo/Panel/MarginContainer/VBoxContainer" unique_id=1511487596]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 18
 theme_override_font_sizes/bold_italics_font_size = 18
@@ -458,8 +511,8 @@ fit_content = true
 [node name="FireDescription" type="RichTextLabel" parent="MasterInfo/ExtraInfo/Panel/MarginContainer/VBoxContainer" unique_id=233150023]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 18
 theme_override_font_sizes/bold_italics_font_size = 18
@@ -472,8 +525,8 @@ fit_content = true
 [node name="HolyDescription" type="RichTextLabel" parent="MasterInfo/ExtraInfo/Panel/MarginContainer/VBoxContainer" unique_id=1637134361]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 18
 theme_override_font_sizes/bold_italics_font_size = 18
@@ -486,8 +539,8 @@ fit_content = true
 [node name="ShieldDescription" type="RichTextLabel" parent="MasterInfo/ExtraInfo/Panel/MarginContainer/VBoxContainer" unique_id=1899215475]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 18
 theme_override_font_sizes/bold_italics_font_size = 18
@@ -500,8 +553,8 @@ fit_content = true
 [node name="HealingDescription" type="RichTextLabel" parent="MasterInfo/ExtraInfo/Panel/MarginContainer/VBoxContainer" unique_id=728519795]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 18
 theme_override_font_sizes/bold_italics_font_size = 18
@@ -514,8 +567,8 @@ fit_content = true
 [node name="MulticastDescription" type="RichTextLabel" parent="MasterInfo/ExtraInfo/Panel/MarginContainer/VBoxContainer" unique_id=1189036686]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 18
 theme_override_font_sizes/bold_italics_font_size = 18

@@ -22,12 +22,12 @@ class_name Ally
 		%Timer.wait_time = cooldown
 @export var perm_multicast : int = 1:
 	set(value):
-		perm_multicast = value if value >= 1 else 1
+		perm_multicast = value if value >= 0 else 1
 		multicast = perm_multicast if perm_multicast > multicast else multicast
 		update_display()
 @export var multicast : int = 1:
 	set(value):
-		multicast = value if value >=1 else 1
+		multicast = value if value >= 0 else 1
 		update_display()
 
 @export_category("Damage")
@@ -191,10 +191,10 @@ signal battle_started(caster : Ally)
 func battle_start() -> void:
 	var closest_cell : Cell = get_closest_cell()
 	if closest_cell.ally == self:
-		%CooldownBar.visible = true
+		%CooldownBar.visible = true if perm_multicast > 0 else false
 		%CooldownBar.max_value = cooldown
 		%Timer.wait_time = cooldown
-		timer.start()
+		if perm_multicast > 0: timer.start()
 		battle_started.emit(self)
 	else:
 		self.visible = false

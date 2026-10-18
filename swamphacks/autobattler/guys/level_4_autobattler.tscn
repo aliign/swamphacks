@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dodr083inyvlo"]
+
+[ext_resource type="PackedScene" uid="uid://dgefqcup55p1s" path="res://autobattler/combat.tscn" id="1_lxwy4"]
+[ext_resource type="PackedScene" uid="uid://bw7cnmpgnc6o5" path="res://autobattler/guys/villager.tscn" id="2_ivfny"]
+[ext_resource type="PackedScene" uid="uid://dbn0p3debrtab" path="res://autobattler/guys/cardinal.tscn" id="3_k3v5a"]
+[ext_resource type="PackedScene" uid="uid://71nod8l2162j" path="res://autobattler/guys/cook.tscn" id="4_8hrgh"]
+[ext_resource type="PackedScene" uid="uid://dyjl43j54e5yb" path="res://autobattler/guys/maid.tscn" id="5_d2qta"]
+[ext_resource type="PackedScene" uid="uid://drywu0hgnqfqt" path="res://autobattler/guys/head_maid.tscn" id="5_k3v5a"]
+[ext_resource type="PackedScene" uid="uid://dc1cybkjyy5o1" path="res://autobattler/guys/priest.tscn" id="6_ko4r4"]
+
+[node name="Level4" unique_id=691949799 instance=ExtResource("1_lxwy4")]
+enemy_team = Array[PackedScene]([ExtResource("5_d2qta"), ExtResource("6_ko4r4"), ExtResource("5_k3v5a"), ExtResource("2_ivfny"), ExtResource("3_k3v5a"), ExtResource("4_8hrgh")])
+
+[node name="Cell5" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" parent_id_path=PackedInt32Array(2083254517) index="4" unique_id=518294600 node_paths=PackedStringArray("adjacency_list")]
+adjacency_list = [NodePath("../Cell3"), NodePath("../Cell6")]

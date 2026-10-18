@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dqvf2n53adxe1"]
+
+[ext_resource type="PackedScene" uid="uid://b2qdjoaqpllxw" path="res://autobattler/ally.tscn" id="1_sxgh0"]
+[ext_resource type="Script" uid="uid://bqcq75k5cfkxv" path="res://autobattler/guys/you.gd" id="2_7rwx7"]
+[ext_resource type="Texture2D" uid="uid://cps0qkscncdtf" path="res://art/main.png" id="2_eytaa"]
+
+[node name="You" unique_id=729490585 instance=ExtResource("1_sxgh0")]
+script = ExtResource("2_7rwx7")
+rank = 4
+description = "On Battle Start: +1 to each Adjacent Ally's stats for each unique Rank in your Inventory"
+perm_multicast = 0
+multicast = 0
+
+[node name="Sprite" parent="." index="2" unique_id=818635638]
+texture = ExtResource("2_eytaa")

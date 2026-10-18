@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bosjbbkgssgkv"]
+
+[ext_resource type="PackedScene" uid="uid://dgefqcup55p1s" path="res://autobattler/combat.tscn" id="1_ogejk"]
+[ext_resource type="PackedScene" uid="uid://dbnstix6jh2du" path="res://autobattler/guys/guild_master.tscn" id="2_0y0q1"]
+[ext_resource type="PackedScene" uid="uid://ccyw8dd4byakl" path="res://autobattler/guys/farmer.tscn" id="3_lsxxk"]
+[ext_resource type="PackedScene" uid="uid://dyjl43j54e5yb" path="res://autobattler/guys/maid.tscn" id="4_6np1p"]
+
+[node name="Level1" unique_id=691949799 instance=ExtResource("1_ogejk")]
+enemy_team = Array[PackedScene]([ExtResource("2_0y0q1"), ExtResource("3_lsxxk"), ExtResource("4_6np1p")])
+
+[node name="Cell" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" parent_id_path=PackedInt32Array(692582072) index="0" unique_id=498725030]
+left_column = true
+
+[node name="Cell3" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" parent_id_path=PackedInt32Array(692582072) index="2" unique_id=986174954]
+left_column = true
+
+[node name="Cell5" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" parent_id_path=PackedInt32Array(692582072) index="4" unique_id=51077740]
+left_column = true
+
+[node name="BattlerEnemy" parent="HBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(729209386) index="1" unique_id=1313172140]
+max_health = 300
+
+[node name="BattlerPlayer" parent="HBoxContainer/HBoxContainer2" parent_id_path=PackedInt32Array(1569231354) index="0" unique_id=2131538996]
+max_health = 300
+
+[node name="Cell" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" parent_id_path=PackedInt32Array(2083254517) index="0" unique_id=1025022052]
+left_column = true
+
+[node name="Cell3" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" parent_id_path=PackedInt32Array(2083254517) index="2" unique_id=73076251]
+left_column = true
+
+[node name="Cell5" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" parent_id_path=PackedInt32Array(2083254517) index="4" unique_id=518294600]
+left_column = true
