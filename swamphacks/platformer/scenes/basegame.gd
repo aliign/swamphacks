@@ -8,7 +8,6 @@ var timepassed: float = 60
 func _ready() -> void:
 	for collectable in get_tree().get_nodes_in_group("Collectables"):
 		if collectable is CharacterBody2D:
-			print(collectable.get_signal_list())
 			collectable.connect("collected", on_collected)
 
 func _process(delta: float) -> void:
