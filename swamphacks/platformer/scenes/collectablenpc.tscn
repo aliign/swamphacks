@@ -24,7 +24,7 @@ size = Vector2(40, 30)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ewgl"]
 size = Vector2(10, 16)
 
-[node name="collectablenpc" type="CharacterBody2D" unique_id=56177840]
+[node name="collectablenpc" type="CharacterBody2D" unique_id=56177840 groups=["Collectables"]]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=960099253]
 sprite_frames = SubResource("SpriteFrames_iexxu")
