@@ -8,4 +8,4 @@ func on_timer():
 	timer.emit()
 
 func _process(delta: float) -> void:
-	%Label.text = str(t.time_left)
+	%Label.text = "%02d" % [str(t.time_left)]
