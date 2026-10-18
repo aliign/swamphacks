@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dtegasf4gcwlm"]
 
 [ext_resource type="PackedScene" uid="uid://b2qdjoaqpllxw" path="res://autobattler/ally.tscn" id="1_4erhw"]
-[ext_resource type="Script" uid="uid://csgrhhqsgv0hu" path="res://marquess.gd" id="2_f8rhp"]
+[ext_resource type="Script" uid="uid://5lsva87usu05" path="res://autobattler/guys/marquess.gd" id="2_f8rhp"]
 [ext_resource type="Texture2D" uid="uid://cwavcc1ojdmwr" path="res://art/marquess.png" id="3_f8rhp"]
 
 [node name="Marquess" unique_id=729490585 instance=ExtResource("1_4erhw")]

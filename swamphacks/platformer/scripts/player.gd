@@ -4,7 +4,7 @@ class_name Player
 const SPEED = 80.0
 const JUMP_VELOCITY = -250
 @export var CROUCH_MULT : float = 0.5
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animated_sprite_2d: Sprite2D = $AnimatedSprite2D
 @onready var dashcd: Timer = $dashcd
 @onready var dashdur: Timer = $dashdur
 @onready var standbox: CollisionShape2D = $CollisionShape2D
@@ -120,25 +120,24 @@ func _physics_process(delta: float) -> void:
 		if is_on_floor():
 			if input_vector.x==0:
 				if Input.is_action_pressed("crouch") or iscrouch.is_colliding():
-					animated_sprite_2d.play("crouch")
+					animated_sprite_2d.scale.y = 0.01
 					crouchbox.set_deferred("disabled", false)
 					standbox.set_deferred("disabled", true)
 					global_position.y+=2.0
 				else:
-					animated_sprite_2d.play("idle")
+					animated_sprite_2d.scale.y = 0.02
 					crouchbox.set_deferred("disabled", true)
 					standbox.set_deferred("disabled", false)
 			else:
 				if Input.is_action_pressed("crouch") or iscrouch.is_colliding():
-					animated_sprite_2d.play("crouch_run")
+					animated_sprite_2d.scale.y = 0.01
 					crouchbox.set_deferred("disabled", false)
 					standbox.set_deferred("disabled", true)
 				else:
-					animated_sprite_2d.play("run")
+					animated_sprite_2d.scale.y = 0.02
 					crouchbox.set_deferred("disabled", true)
 					standbox.set_deferred("disabled", false)
 		else:
-			animated_sprite_2d.play("jump")
 			crouchbox.set_deferred("disabled", true)
 			standbox.set_deferred("disabled", false)
 		

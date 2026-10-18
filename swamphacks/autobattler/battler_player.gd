@@ -103,9 +103,11 @@ func update_health_display() -> void:
 	health_bar.value = health
 	health_label.text = str(health)
 
+signal died(player : BattlerPlayer)
 func die():
 	fire_timer.stop()
 	poison_timer.stop()
+	emit_signal("died", self)
 
 func proc_poison():
 	health -= poison

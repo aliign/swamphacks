@@ -6,33 +6,20 @@
 [ext_resource type="PackedScene" uid="uid://dtegasf4gcwlm" path="res://autobattler/guys/marquess.tscn" id="5_28srj"]
 [ext_resource type="PackedScene" uid="uid://d3fuy3dth6cuf" path="res://autobattler/guys/countess.tscn" id="6_bvavo"]
 [ext_resource type="PackedScene" uid="uid://dbnstix6jh2du" path="res://autobattler/guys/guild_master.tscn" id="6_p81mh"]
+[ext_resource type="Texture2D" uid="uid://bo748puov1nek" path="res://art/duke.png" id="7_p81mh"]
 
 [node name="Level3" unique_id=691949799 instance=ExtResource("1_btxg7")]
 enemy_team = Array[PackedScene]([ExtResource("2_bvavo"), ExtResource("3_p81mh"), ExtResource("5_28srj"), ExtResource("6_bvavo"), ExtResource("6_p81mh")])
 
-[node name="Cell" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" parent_id_path=PackedInt32Array(692582072) index="0" unique_id=498725030]
-left_column = true
-
-[node name="Cell3" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" parent_id_path=PackedInt32Array(692582072) index="2" unique_id=986174954]
-left_column = true
-
-[node name="Cell5" parent="HBoxContainer/HBoxContainer/MarginContainer/GridContainer" parent_id_path=PackedInt32Array(692582072) index="4" unique_id=51077740]
-left_column = true
+[node name="SlashManager" parent="." index="1" unique_id=410839108]
+opponent_texture = ExtResource("7_p81mh")
+opponent_name = "Duke"
 
 [node name="BattlerEnemy" parent="HBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(729209386) index="1" unique_id=1313172140]
 max_health = 1200
 
 [node name="BattlerPlayer" parent="HBoxContainer/HBoxContainer2" parent_id_path=PackedInt32Array(1569231354) index="0" unique_id=2131538996]
 max_health = 1200
-
-[node name="Cell" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" parent_id_path=PackedInt32Array(2083254517) index="0" unique_id=1025022052]
-left_column = true
-
-[node name="Cell3" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" parent_id_path=PackedInt32Array(2083254517) index="2" unique_id=73076251]
-left_column = true
-
-[node name="Cell5" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" parent_id_path=PackedInt32Array(2083254517) index="4" unique_id=518294600]
-left_column = true
 
 [node name="Name" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" parent_id_path=PackedInt32Array(160314562) index="0" unique_id=547634600]
 theme_override_constants/outline_size = 5

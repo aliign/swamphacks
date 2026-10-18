@@ -1,7 +1,11 @@
 extends Control
 
+@export var opponent_texture : Texture2D
+@export var opponent_name : String
 
 func _ready() -> void:
+	%RightPortrait.texture = opponent_texture
+	$"../VersusLabel".text += opponent_name + "[/color]"
 	close()
 
 var original_pos : Vector2

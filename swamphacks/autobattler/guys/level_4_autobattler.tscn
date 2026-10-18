@@ -7,9 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://dyjl43j54e5yb" path="res://autobattler/guys/maid.tscn" id="5_d2qta"]
 [ext_resource type="PackedScene" uid="uid://drywu0hgnqfqt" path="res://autobattler/guys/head_maid.tscn" id="5_k3v5a"]
 [ext_resource type="PackedScene" uid="uid://dc1cybkjyy5o1" path="res://autobattler/guys/priest.tscn" id="6_ko4r4"]
+[ext_resource type="Texture2D" uid="uid://cdqujcr7nsksu" path="res://art/emperor.png" id="8_8hrgh"]
 
 [node name="Level4" unique_id=691949799 instance=ExtResource("1_lxwy4")]
 enemy_team = Array[PackedScene]([ExtResource("5_d2qta"), ExtResource("6_ko4r4"), ExtResource("5_k3v5a"), ExtResource("2_ivfny"), ExtResource("3_k3v5a"), ExtResource("4_8hrgh")])
+
+[node name="SlashManager" parent="." index="1" unique_id=410839108]
+opponent_texture = ExtResource("8_8hrgh")
+opponent_name = "Emperor"
 
 [node name="Cell5" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" parent_id_path=PackedInt32Array(2083254517) index="4" unique_id=518294600 node_paths=PackedStringArray("adjacency_list")]
 adjacency_list = [NodePath("../Cell3"), NodePath("../Cell6")]

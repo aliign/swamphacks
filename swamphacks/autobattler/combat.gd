@@ -29,3 +29,18 @@ func spawn_enemy_team() -> void:
 		var new_ally = i.instantiate()
 		self.add_child(new_ally)
 		new_ally.team = 1
+
+signal won
+func win(node : BattlerPlayer):
+	var tween = get_tree().create_tween()
+	tween.set_trans(Tween.TRANS_ELASTIC)
+	tween.tween_property(%Win, "position", Vector2.ZERO, 1.0)
+	won.emit()
+
+func lose(node : BattlerPlayer):
+	var tween = get_tree().create_tween()
+	tween.set_trans(Tween.TRANS_ELASTIC)
+	tween.tween_property(%Lose, "position", Vector2.ZERO, 1.0)
+
+func restart():
+	get_tree().change_scene_to_file("res://main.tscn")

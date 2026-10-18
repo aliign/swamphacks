@@ -43,6 +43,42 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(-1920, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%SlashManager/../VersusLabel:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1088)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("%SlashManager/../Win:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1083)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%SlashManager/../Lose:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1083)]
+}
 
 [sub_resource type="Animation" id="Animation_pv3ly"]
 resource_name = "close"
@@ -71,6 +107,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(-3840, -540), Vector2(-960, -540), Vector2(-960, -540), Vector2(-2880, -540)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%SlashManager/../VersusLabel:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8666667, 2.1, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -1088), Vector2(0, 0), Vector2(0, 0), Vector2(0, -1088)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k4qdb"]
 _data = {
@@ -90,13 +138,28 @@ script = ExtResource("1_0hiik")
 player = NodePath("HBoxContainer/HBoxContainer2/BattlerPlayer")
 enemy = NodePath("HBoxContainer/HBoxContainer/BattlerEnemy")
 
-[node name="Label" type="Label" parent="." unique_id=309865514]
+[node name="VersusLabel" type="RichTextLabel" parent="." unique_id=1554517232]
+z_index = 50
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -1088.0
+offset_bottom = -1088.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("17_xc8vd")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 24
+theme_override_font_sizes/normal_font_size = 256
+theme_override_font_sizes/bold_font_size = 256
+theme_override_font_sizes/bold_italics_font_size = 256
+theme_override_font_sizes/italics_font_size = 256
+theme_override_font_sizes/mono_font_size = 256
+bbcode_enabled = true
+text = "VERSUS:
+[color=#9f5c54]"
+horizontal_alignment = 1
 
 [node name="SlashManager" type="Control" parent="." unique_id=410839108]
 unique_name_in_owner = true
@@ -123,7 +186,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -2880.0
 offset_top = -540.0
-offset_right = 960.0
+offset_right = 960.001
 offset_bottom = 1620.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -157,7 +220,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 960.0
 offset_top = -540.0
-offset_right = 4800.0
+offset_right = 4800.0005
 offset_bottom = 1620.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -480,6 +543,7 @@ layout_mode = 2
 [node name="Name" type="Label" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=547634600]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("17_xc8vd")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 56
@@ -488,6 +552,7 @@ text = "Marquess"
 [node name="Rank" type="Label" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1472820172]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("17_xc8vd")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 40
@@ -583,6 +648,7 @@ multicast = true
 [node name="Description" type="RichTextLabel" parent="MasterInfo/Info/Panel/MarginContainer/VBoxContainer" unique_id=490149132]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("17_xc8vd")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 24
@@ -625,6 +691,7 @@ layout_mode = 2
 [node name="DamageDescription" type="RichTextLabel" parent="MasterInfo/ExtraInfo/Panel/MarginContainer/VBoxContainer" unique_id=1541965222]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("17_xc8vd")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 18
@@ -639,6 +706,7 @@ fit_content = true
 [node name="MagicDescription" type="RichTextLabel" parent="MasterInfo/ExtraInfo/Panel/MarginContainer/VBoxContainer" unique_id=203410414]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("17_xc8vd")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 18
@@ -653,6 +721,7 @@ fit_content = true
 [node name="PoisonDescription" type="RichTextLabel" parent="MasterInfo/ExtraInfo/Panel/MarginContainer/VBoxContainer" unique_id=1511487596]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("17_xc8vd")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 18
@@ -667,6 +736,7 @@ fit_content = true
 [node name="FireDescription" type="RichTextLabel" parent="MasterInfo/ExtraInfo/Panel/MarginContainer/VBoxContainer" unique_id=233150023]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("17_xc8vd")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 18
@@ -681,6 +751,7 @@ fit_content = true
 [node name="HolyDescription" type="RichTextLabel" parent="MasterInfo/ExtraInfo/Panel/MarginContainer/VBoxContainer" unique_id=1637134361]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("17_xc8vd")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 18
@@ -695,6 +766,7 @@ fit_content = true
 [node name="ShieldDescription" type="RichTextLabel" parent="MasterInfo/ExtraInfo/Panel/MarginContainer/VBoxContainer" unique_id=1899215475]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("17_xc8vd")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 18
@@ -709,6 +781,7 @@ fit_content = true
 [node name="HealingDescription" type="RichTextLabel" parent="MasterInfo/ExtraInfo/Panel/MarginContainer/VBoxContainer" unique_id=728519795]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("17_xc8vd")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 18
@@ -723,6 +796,7 @@ fit_content = true
 [node name="MulticastDescription" type="RichTextLabel" parent="MasterInfo/ExtraInfo/Panel/MarginContainer/VBoxContainer" unique_id=1189036686]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("17_xc8vd")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 18
@@ -733,5 +807,72 @@ theme_override_font_sizes/mono_font_size = 18
 bbcode_enabled = true
 text = "[color=ff35a1][b]Multicast[/b][/color] makes units attack twice per cooldown."
 fit_content = true
+
+[node name="Win" type="RichTextLabel" parent="." unique_id=1964858137]
+unique_name_in_owner = true
+z_index = 60
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1083.0
+offset_bottom = 1082.9985
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_xc8vd")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 24
+theme_override_font_sizes/normal_font_size = 256
+theme_override_font_sizes/bold_font_size = 256
+theme_override_font_sizes/bold_italics_font_size = 256
+theme_override_font_sizes/italics_font_size = 256
+theme_override_font_sizes/mono_font_size = 256
+bbcode_enabled = true
+text = "[color=ffee13]You Won![/color]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lose" type="RichTextLabel" parent="." unique_id=1980020282]
+z_index = 60
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1083.0
+offset_bottom = 1083.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_xc8vd")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 24
+theme_override_font_sizes/normal_font_size = 256
+theme_override_font_sizes/bold_font_size = 256
+theme_override_font_sizes/bold_italics_font_size = 256
+theme_override_font_sizes/italics_font_size = 256
+theme_override_font_sizes/mono_font_size = 256
+bbcode_enabled = true
+text = "[color=db1f00]You lost...[/color]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Lose" unique_id=1057753699]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 883
+theme_override_constants/margin_top = 766
+theme_override_constants/margin_right = 883
+theme_override_constants/margin_bottom = 249
+
+[node name="Button" type="Button" parent="Lose/MarginContainer" unique_id=1114510147]
+layout_mode = 2
+theme = ExtResource("17_xc8vd")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "Try Again?"
 
 [connection signal="pressed" from="MarginContainer/StartBattle" to="." method="start_battle"]
