@@ -6,6 +6,7 @@
 
 [node name="Blacksmith" unique_id=729490585 instance=ExtResource("1_sd0tf")]
 script = ExtResource("2_lyyun")
+rank = 1
 description = "Passive: Attacks with 1 Fire for every 5 Damage"
 perm_cooldown = 5.0
 cooldown = 5.0

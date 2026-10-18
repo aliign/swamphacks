@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dum3ngo7ibxd8"]
+
+[ext_resource type="PackedScene" uid="uid://d1axmyfts1q7k" path="res://platformer/scenes/collectablenpc.tscn" id="1_nd2mf"]
+[ext_resource type="Texture2D" uid="uid://cgaoaei1bbb23" path="res://art/sorcerer.png" id="2_l1dd2"]
+
+[node name="collectablenpc" unique_id=56177840 instance=ExtResource("1_nd2mf")]
+scene = "res://autobattler/guys/sorcerer.tscn"
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1916608196]
+texture = ExtResource("2_l1dd2")

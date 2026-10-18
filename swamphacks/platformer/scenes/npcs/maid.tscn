@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cr8offnspfpiv"]
+
+[ext_resource type="PackedScene" uid="uid://d1axmyfts1q7k" path="res://platformer/scenes/collectablenpc.tscn" id="1_u88gn"]
+[ext_resource type="Texture2D" uid="uid://l3osfma3b2wb" path="res://art/maid.png" id="2_pgij5"]
+
+[node name="collectablenpc" unique_id=56177840 instance=ExtResource("1_u88gn")]
+scene = "res://autobattler/guys/maid.tscn"
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1916608196]
+texture = ExtResource("2_pgij5")

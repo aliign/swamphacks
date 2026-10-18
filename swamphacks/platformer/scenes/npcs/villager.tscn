@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dibp0ow18h7nf"]
+
+[ext_resource type="PackedScene" uid="uid://d1axmyfts1q7k" path="res://platformer/scenes/collectablenpc.tscn" id="1_e517f"]
+[ext_resource type="Texture2D" uid="uid://b7tsstlnf0j3n" path="res://art/villager.png" id="2_h03w7"]
+
+[node name="collectablenpc" unique_id=56177840 instance=ExtResource("1_e517f")]
+scene = "res://autobattler/guys/villager.tscn"
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1916608196]
+texture = ExtResource("2_h03w7")

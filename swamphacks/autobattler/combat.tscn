@@ -2,8 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dude0lc18wadu" path="res://autobattler/combat.gd" id="1_0hiik"]
 [ext_resource type="PackedScene" uid="uid://dlgewwi46dh35" path="res://autobattler/battler_player.tscn" id="1_jo7td"]
+[ext_resource type="Script" uid="uid://dbjfkrcpd1il1" path="res://autobattler/versus.gd" id="2_itd30"]
 [ext_resource type="PackedScene" uid="uid://c2fa4l344mqci" path="res://autobattler/cell.tscn" id="2_x6t3p"]
+[ext_resource type="Texture2D" uid="uid://72of28ahnx85" path="res://art/slash_left.png" id="3_k4qdb"]
 [ext_resource type="PackedScene" uid="uid://dfv6tt3wgdyri" path="res://autobattler/battler_enemy.tscn" id="3_x6t3p"]
+[ext_resource type="Texture2D" uid="uid://b2i3jv8r4wh73" path="res://art/prince_bust.png" id="4_kdvru"]
+[ext_resource type="Texture2D" uid="uid://cdb31m7awxtyc" path="res://art/slash_right.png" id="4_vyxnj"]
 [ext_resource type="Texture2D" uid="uid://di2fa182w5r6b" path="res://art/stopwatch.png" id="10_cet5f"]
 [ext_resource type="Texture2D" uid="uid://jkxr75oemo35" path="res://art/combat_background.png" id="13_pv3ly"]
 [ext_resource type="Texture2D" uid="uid://c1scwey58k85h" path="res://art/combat_foreground.png" id="14_k4qdb"]
@@ -12,6 +16,67 @@
 [ext_resource type="Material" uid="uid://bqkvxpbnp7vbt" path="res://autobattler/outline_shader.tres" id="16_xc8vd"]
 [ext_resource type="Theme" uid="uid://cpfkplj12ttbv" path="res://default_theme.tres" id="17_xc8vd"]
 [ext_resource type="PackedScene" uid="uid://bdhnv3qehl7dh" path="res://autobattler/number_display.tscn" id="18_5286h"]
+
+[sub_resource type="Animation" id="Animation_itd30"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightSlash:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1920, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftSlash:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1920, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pv3ly"]
+resource_name = "close"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightSlash:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(10, 0, 2, 8),
+"update": 0,
+"values": [Vector2(1950, -540), Vector2(-960, -540), Vector2(-960, -540), Vector2(1440, -540)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftSlash:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(10, 0, 2, 8),
+"update": 0,
+"values": [Vector2(-3840, -540), Vector2(-960, -540), Vector2(-960, -540), Vector2(-2880, -540)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k4qdb"]
+_data = {
+&"RESET": SubResource("Animation_itd30"),
+&"close": SubResource("Animation_pv3ly")
+}
 
 [node name="Combat" type="Control" unique_id=691949799 node_paths=PackedStringArray("player", "enemy")]
 layout_mode = 3
@@ -24,6 +89,97 @@ mouse_filter = 1
 script = ExtResource("1_0hiik")
 player = NodePath("HBoxContainer/HBoxContainer2/BattlerPlayer")
 enemy = NodePath("HBoxContainer/HBoxContainer/BattlerEnemy")
+
+[node name="Label" type="Label" parent="." unique_id=309865514]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SlashManager" type="Control" parent="." unique_id=410839108]
+unique_name_in_owner = true
+z_index = 40
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_itd30")
+
+[node name="VersusAnimationPlayer" type="AnimationPlayer" parent="SlashManager" unique_id=1194971941]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_k4qdb")
+
+[node name="LeftSlash" type="TextureRect" parent="SlashManager" unique_id=1940128111]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2880.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 1620.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_k4qdb")
+
+[node name="MarginContainer" type="MarginContainer" parent="SlashManager/LeftSlash" unique_id=47329346]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 833
+theme_override_constants/margin_top = 526
+theme_override_constants/margin_right = 2338
+
+[node name="LeftPortrait" type="TextureRect" parent="SlashManager/LeftSlash/MarginContainer" unique_id=174574061]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("4_kdvru")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="RightSlash" type="TextureRect" parent="SlashManager" unique_id=506809005]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 960.0
+offset_top = -540.0
+offset_right = 4800.0
+offset_bottom = 1620.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_vyxnj")
+
+[node name="MarginContainer" type="MarginContainer" parent="SlashManager/RightSlash" unique_id=1492042661]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2338
+theme_override_constants/margin_top = 526
+theme_override_constants/margin_right = 833
+
+[node name="RightPortrait" type="TextureRect" parent="SlashManager/RightSlash/MarginContainer" unique_id=111686711]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("4_kdvru")
+expand_mode = 5
+stretch_mode = 5
 
 [node name="Background" type="TextureRect" parent="." unique_id=1479371684]
 z_index = -1

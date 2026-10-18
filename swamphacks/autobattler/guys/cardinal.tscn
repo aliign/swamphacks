@@ -6,6 +6,7 @@
 
 [node name="Cardinal" unique_id=729490585 instance=ExtResource("1_5v2ki")]
 script = ExtResource("2_jb8pp")
+rank = 3
 description = "Passive: Deals Holy equal to Adjacent Healing."
 perm_cooldown = 6.0
 cooldown = 6.0

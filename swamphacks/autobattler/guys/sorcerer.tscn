@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bvjq5ce157yk7"]
+
+[ext_resource type="PackedScene" uid="uid://b2qdjoaqpllxw" path="res://autobattler/ally.tscn" id="1_qgelk"]
+[ext_resource type="Texture2D" uid="uid://cgaoaei1bbb23" path="res://art/sorcerer.png" id="2_pilic"]
+[ext_resource type="Script" uid="uid://bbtpgvncc4q4o" path="res://autobattler/guys/sorcerer.gd" id="2_trptc"]
+
+[node name="Sorceress" unique_id=729490585 instance=ExtResource("1_qgelk")]
+script = ExtResource("2_trptc")
+rank = 2
+description = "On Battle Start: +1 Multicast if Ally below Shields."
+perm_poison = 1
+poison = 1
+fire = 1
+perm_magic = 1
+
+[node name="Sprite" parent="." index="2" unique_id=818635638]
+texture = ExtResource("2_pilic")

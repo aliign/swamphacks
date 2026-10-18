@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bs8wqp6mqkccv"]
+
+[ext_resource type="PackedScene" uid="uid://b2qdjoaqpllxw" path="res://autobattler/ally.tscn" id="1_dvhwd"]
+[ext_resource type="Script" uid="uid://ca327ugexmnmd" path="res://autobattler/guys/huntress.gd" id="2_o3ljf"]
+[ext_resource type="Texture2D" uid="uid://b8lalmsa31w2i" path="res://art/huntress.png" id="2_rf7n0"]
+
+[node name="Huntress" unique_id=729490585 instance=ExtResource("1_dvhwd")]
+script = ExtResource("2_o3ljf")
+rank = 1
+description = "On Battle Start: Allies in the Same Column Receive +100% Fire."
+perm_cooldown = 3.5
+cooldown = 3.5
+perm_damage = 8
+damage = 8
+perm_fire = 8
+fire = 8
+
+[node name="Sprite" parent="." index="2" unique_id=818635638]
+texture = ExtResource("2_rf7n0")
