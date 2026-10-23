@@ -9,14 +9,6 @@
 [node name="Level1" unique_id=691949799 instance=ExtResource("1_ogejk")]
 enemy_team = Array[PackedScene]([ExtResource("2_0y0q1"), ExtResource("3_lsxxk"), ExtResource("4_6np1p")])
 
-[node name="VersusLabel" parent="." index="0" unique_id=1554517232]
-theme_override_font_sizes/normal_font_size = 256
-theme_override_font_sizes/bold_font_size = 256
-theme_override_font_sizes/bold_italics_font_size = 256
-theme_override_font_sizes/italics_font_size = 256
-theme_override_font_sizes/mono_font_size = 256
-bbcode_enabled = true
-
 [node name="SlashManager" parent="." index="1" unique_id=410839108]
 opponent_texture = ExtResource("5_lsxxk")
 opponent_name = "Lord"

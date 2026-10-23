@@ -385,6 +385,7 @@ adj_left = NodePath("../Cell5")
 color = Color(0.94509804, 0.7529412, 0.42352942, 1)
 
 [node name="BattlerEnemy" parent="HBoxContainer/HBoxContainer" unique_id=1313172140 node_paths=PackedStringArray("target") instance=ExtResource("3_x6t3p")]
+unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_right = 53
@@ -396,6 +397,7 @@ size_flags_horizontal = 3
 mouse_filter = 2
 
 [node name="BattlerPlayer" parent="HBoxContainer/HBoxContainer2" unique_id=2131538996 node_paths=PackedStringArray("target") instance=ExtResource("1_jo7td")]
+unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 53
@@ -833,6 +835,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Lose" type="RichTextLabel" parent="." unique_id=1980020282]
+unique_name_in_owner = true
 z_index = 60
 layout_mode = 1
 anchors_preset = 15
@@ -876,3 +879,5 @@ theme_override_font_sizes/font_size = 24
 text = "Try Again?"
 
 [connection signal="pressed" from="MarginContainer/StartBattle" to="." method="start_battle"]
+[connection signal="died" from="HBoxContainer/HBoxContainer/BattlerEnemy" to="." method="lose"]
+[connection signal="died" from="HBoxContainer/HBoxContainer2/BattlerPlayer" to="." method="win"]

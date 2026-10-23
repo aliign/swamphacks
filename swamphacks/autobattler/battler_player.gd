@@ -48,6 +48,7 @@ class_name BattlerPlayer
 
 var inventory_cells : Array[Cell] = []
 func _ready() -> void:
+	update_health_display()
 	for cell in get_tree().get_nodes_in_group("Cells"):
 		if cell.team == team:
 			inventory_cells.append(cell)

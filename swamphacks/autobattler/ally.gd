@@ -103,7 +103,7 @@ func update_display():
 	%HolyLabel.value = holy
 	%ShieldLabel.value = shield
 	%HealLabel.value = healing
-	%MulticastLabel.value = multicast - 1
+	%MulticastLabel.value = multicast
 	%CooldownBar.max_value = cooldown
 
 @onready var sprite : Sprite2D = %Sprite
@@ -112,8 +112,9 @@ func update_display():
 func _ready() -> void:
 	update_display()
 	await get_tree().create_timer(0.1).timeout
-	self.global_position = get_closest_cell().center
-	get_closest_cell().ally = self
+	if get_closest_cell():
+		self.global_position = get_closest_cell().center
+		get_closest_cell().ally = self
 	if team != 0:
 		sprite.scale.x *= -1
 
@@ -143,17 +144,19 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("click"):
 			clicked = true
 			var cell : Cell = get_closest_cell()
-			if cell.ally == self:
-				cell.ally = null
+			if cell:
+				if cell.ally == self:
+					cell.ally = null
 	if clicked and (not in_battle) and team == 0:
 		self.position = get_viewport().get_mouse_position()
 	if Input.is_action_just_released("click") and (not in_battle) and team == 0 and hovering:
 		clicked = false
 		var closest_cell : Cell = get_closest_cell()
-		var dist_to_cell : float = self.global_position.distance_to(closest_cell.center)
-		if dist_to_cell <= 100:
-			self.global_position = get_closest_cell().center
-			get_closest_cell().ally = self
+		if get_closest_cell():
+			var dist_to_cell : float = self.global_position.distance_to(closest_cell.center)
+			if dist_to_cell <= 100:
+				self.global_position = get_closest_cell().center
+				get_closest_cell().ally = self
 
 func get_closest_cell() -> Cell:
 	var closest_cell : Cell = null
@@ -190,6 +193,7 @@ var in_battle : bool = false
 signal battle_started(caster : Ally)
 func battle_start() -> void:
 	var closest_cell : Cell = get_closest_cell()
+	if !closest_cell: return
 	if closest_cell.ally == self:
 		%CooldownBar.visible = true if perm_multicast > 0 else false
 		%CooldownBar.max_value = cooldown
@@ -217,6 +221,7 @@ func battle_end() -> void:
 	healing = perm_healing
 	magic = perm_magic
 	multicast = perm_multicast
+	timer.stop()
 
 func on_battle_end(ally : Ally) -> void:
 	pass

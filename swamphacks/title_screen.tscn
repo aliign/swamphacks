@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dehroe5iq2dhc"]
+
+[ext_resource type="Texture2D" uid="uid://b0oei6xt8mhr4" path="res://art/title_background.png" id="1_v6p8y"]
+
+[node name="TitleScreen" type="Control" unique_id=1915330126]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=182374922]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_v6p8y")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="." unique_id=1598610238]
+layout_mode = 0
+offset_left = 682.0
+offset_top = 86.0
+offset_right = 722.0
+offset_bottom = 109.0

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://qa7yrcdcjp7t"]
 
 [ext_resource type="Script" uid="uid://dkuejief436x7" path="res://platformer/scripts/player.gd" id="1_43vy2"]
+[ext_resource type="Material" uid="uid://bqkvxpbnp7vbt" path="res://autobattler/outline_shader.tres" id="2_02c50"]
 [ext_resource type="Texture2D" uid="uid://cps0qkscncdtf" path="res://art/main.png" id="2_43vy2"]
 
 [sub_resource type="Curve" id="Curve_43vy2"]
@@ -13,6 +14,173 @@ size = Vector2(10, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_43vy2"]
 size = Vector2(10, 7)
+
+[sub_resource type="Animation" id="Animation_cfdvi"]
+resource_name = "Run"
+length = 0.53333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.02, 0.02)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 9)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:rotation")
+tracks/2/interp = 4
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5390829]
+}
+
+[sub_resource type="Animation" id="Animation_5vi80"]
+resource_name = "Run"
+length = 0.53333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1333, 0.13333334, 0.26666668, 0.4, 0.53333336),
+"transitions": PackedFloat32Array(2, 1, 2, 2, 2, 2),
+"update": 0,
+"values": [Vector2(0.02, 0.02), Vector2(0.02, 0.02), Vector2(0.02, 0.02), Vector2(0.02, 0.02), Vector2(0.02, 0.02), Vector2(0.02, 0.02)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1333, 0.2667, 0.4, 0.53333336),
+"transitions": PackedFloat32Array(2, 1, 2, 1, 2),
+"update": 0,
+"values": [Vector2(0, 8.325), Vector2(1.39, 7.545), Vector2(0, 8.325), Vector2(-1.39, 7.545), Vector2(0, 8.325)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:rotation")
+tracks/2/interp = 4
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1333, 0.2667, 0.4, 0.53333336),
+"transitions": PackedFloat32Array(2, 1, 2, 1, 2),
+"update": 0,
+"values": [1.5306537539990268, 1.3561208, 1.5306537539990268, 1.9408061282176943, 1.5306537539990268]
+}
+
+[sub_resource type="Animation" id="Animation_02c50"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.02, 0.02)]
+}
+
+[sub_resource type="Animation" id="Animation_43vy2"]
+resource_name = "Run"
+length = 0.53333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.26666668, 0.4, 0.53333336),
+"transitions": PackedFloat32Array(2, 2, 2, 2, 2),
+"update": 0,
+"values": [Vector2(0.02, 0.02), Vector2(0.02, 0.02), Vector2(0.02, 0.02), Vector2(0.02, 0.02), Vector2(0.02, 0.02)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.26666668, 0.4, 0.53333336),
+"transitions": PackedFloat32Array(2, 2, 2, 2, 2),
+"update": 0,
+"values": [Vector2(0, 3), Vector2(3, 1), Vector2(0, 3), Vector2(-3, 1), Vector2(0, 3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:rotation")
+tracks/2/interp = 4
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.26666668, 0.4, 0.53333336),
+"transitions": PackedFloat32Array(2, 2, 2, 2, 2),
+"update": 0,
+"values": [0.0, 0.19047703, 0.0, -0.19024088846738152, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_02c50"]
+_data = {
+&"Crouch": SubResource("Animation_cfdvi"),
+&"CrouchWalk": SubResource("Animation_5vi80"),
+&"RESET": SubResource("Animation_02c50"),
+&"Run": SubResource("Animation_43vy2")
+}
 
 [node name="player" type="CharacterBody2D" unique_id=801486421]
 script = ExtResource("1_43vy2")
@@ -29,6 +197,7 @@ apex_gravity = 0.9
 max_fall_speed = 350
 
 [node name="AnimatedSprite2D" type="Sprite2D" parent="." unique_id=981554119]
+material = ExtResource("2_02c50")
 position = Vector2(0, 3)
 scale = Vector2(0.02, 0.02)
 texture = ExtResource("2_43vy2")
@@ -52,3 +221,7 @@ one_shot = true
 [node name="iscrouch" type="RayCast2D" parent="." unique_id=2037826489]
 position = Vector2(0, 8)
 target_position = Vector2(0, -11)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=217962346]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_02c50")

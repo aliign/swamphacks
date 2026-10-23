@@ -16,4 +16,3 @@ func on_battle_start(ally : Ally) -> void:
 			next_ally.magic += len(ranks) if next_ally.magic > 0 else 0
 			next_ally.shield += len(ranks) if next_ally.shield > 0 else 0
 			next_ally.healing += len(ranks) if next_ally.healing > 0 else 0
-			next_ally.multicast += len(ranks) if next_ally.multicast > 1 else 0

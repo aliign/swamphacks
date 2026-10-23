@@ -18,3 +18,5 @@ opponent_name = "Emperor"
 
 [node name="Cell5" parent="HBoxContainer/HBoxContainer2/MarginContainer/GridContainer2" parent_id_path=PackedInt32Array(2083254517) index="4" unique_id=518294600 node_paths=PackedStringArray("adjacency_list")]
 adjacency_list = [NodePath("../Cell3"), NodePath("../Cell6")]
+
+[connection signal="pressed" from="Lose/MarginContainer/Button" to="." method="restart"]
